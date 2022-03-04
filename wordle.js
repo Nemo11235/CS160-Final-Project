@@ -33,7 +33,7 @@ function inputCheck(userInput) {
     //Go through user input once to see if any letters are in the right place;
     // if so, decrement hashmap value entry
     for(let i = 0; i < word.length; i++) {
-        if(userInput[i] == word[i] && charCountMap.get(word[i])>0){
+        if(userInput[i] == word[i]){
             inputResults[i] = 'Y';
             charCountMap.set(word[i],charCountMap.get(word[i])-1);
         }
