@@ -1,7 +1,7 @@
 
 //TODO: need to make dynamic grid column 
 //so that it will change the grid colum size according to the number of letters 
-import * as React from 'react';
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -19,36 +19,32 @@ const Item = styled(Paper)(({ theme }) => ({ //return each cell component. item 
 function FormRow() { //column
   return (
     <React.Fragment>
-      <Grid item xs={'auto'}>
+      <Grid item xs={false}>
         <Item>A</Item>
       </Grid>
-      <Grid item xs={'auto'}>
+      <Grid item xs={false}>
         <Item>B</Item>
       </Grid>
-      <Grid item xs={'auto'}>
+      <Grid item xs={false}>
         <Item>C</Item>
       </Grid>
-      <Grid item xs={'auto'}>
+      <Grid item xs={false}>
         <Item>D</Item>
       </Grid>
-      <Grid item xs={'auto'}>
+      <Grid item xs={false}>
         <Item>E</Item>
       </Grid>
-      
     </React.Fragment>
   );
 }
 
 export default function NestedGrid() { //creating row
   return (
-    <Box style={{
-      position: 'absolute',
-      left: '50%', top: '40%',right:'25%',
-      transform: 'translate(-50%, -50%)'
-    }} >
-      <Grid container spacing={1}>
+    <Box sx={{ justifyContent: 'center' }}
+     >
+      <Grid container spacing={1} >
         <Grid container item spacing={2}>
-          <FormRow />
+          <FormRow/>
         </Grid>
         <Grid container item spacing={2}>
           <FormRow />

@@ -15,6 +15,7 @@ const HeaderThemeComponent = styled('div')(({theme}) => ({
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(3),
+    textAlign:"center"
 }));
 
 const Header = () => {
