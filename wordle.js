@@ -4,12 +4,12 @@ Y = correct letter and placement
 P = correct letter, but wrong placement
 N = incorrect letter
 */
-let word = 'apple';
+let word = 'APPLE';
 
 //function to check if the input is valid (5 letter lowercase alphabet)
 //later on, potentially implement dictionary so game only accepts valid English words
 function inputValidator(userInput) {
-    if(userInput.length==5 && /^[a-z]+$/.test(userInput)){
+    if(userInput.length==5 && /^[A-Z]+$/.test(userInput)){
         return true;
     }
     return false;
