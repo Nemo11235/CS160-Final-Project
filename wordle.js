@@ -6,7 +6,7 @@ N = incorrect letter
 */
 let word = 'apple';
 
-//function to check if the input is valid (5 letter alphabet)
+//function to check if the input is valid (5 letter lowercase alphabet)
 //later on, potentially implement dictionary so game only accepts valid English words
 function inputValidator(userInput) {
     if(userInput.length==5 && /^[a-z]+$/.test(userInput)){
@@ -18,14 +18,34 @@ function inputValidator(userInput) {
 //function to create feedback based off of user's guess
 function inputCheck(userInput) {
     let inputResults = new Array();
-    let sortedInput = userInput.split('').sort().join('');
 
+    //initializing Map to track character count in solution word
+    const charCountMap = new Map();
     for(let i = 0; i < word.length; i++) {
-        if(userInput[i] == word[i]) {
+        if(!charCountMap.has(word[i])) {
+            charCountMap.set(word[i],1);
+        }
+        else {
+            charCountMap.set(word[i],charCountMap.get(word[i])+1);
+        }
+    }
+
+    //Go through user input once to see if any letters are in the right place;
+    // if so, decrement hashmap value entry
+    for(let i = 0; i < word.length; i++) {
+        if(userInput[i] == word[i] && charCountMap.get(word[i])>0){
             inputResults[i] = 'Y';
-        } else if(word.includes(userInput[i])) {
+            charCountMap.set(word[i],charCountMap.get(word[i])-1);
+        }
+    }
+
+    //Go through user input a second time to check for partial and wrong letters
+    // if partial correct found, decrement hashmap value entry
+    for(let i = 0; i < word.length; i++) {
+        if(word.includes(userInput[i]) && charCountMap.get(userInput[i])>0) {
             inputResults[i] = 'P';
-        } else {
+            charCountMap.set(userInput[i],charCountMap.get(userInput[i])-1);
+        } else if(inputResults[i] != 'Y') {
             inputResults[i] = 'N';
         }
     }
@@ -47,7 +67,7 @@ for(let i = 0; i < 6; i++) {
 
     //while input is not valid, guess again
     while(!inputValidator(input = prompt("Please enter your guess: "))){
-        console.log("Invalid Input")
+        console.log("Invalid Input");
     }
 
     let answer = inputCheck(input);
