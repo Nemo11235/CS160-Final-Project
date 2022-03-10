@@ -1,5 +1,3 @@
-//TODO: need to make dynamic grid column
-//so that it will change the grid colum size according to the number of letters
 import React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -28,16 +26,16 @@ function FormRow({ word }) {
         <Item>{word[0]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>B</Item>
+        <Item>{word[1]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>C</Item>
+        <Item>{word[2]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>D</Item>
+        <Item>{word[3]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>E</Item>
+        <Item>{word[4]}</Item>
       </Grid>
     </React.Fragment>
   );
