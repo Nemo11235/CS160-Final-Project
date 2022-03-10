@@ -1,28 +1,25 @@
 import './App.css';
-import React, {Component} from 'react';
-import Keyboard from 'react-simple-keyboard';
-import 'react-simple-keyboard/build/css/index.css';
+import React, { Component, useEffect, useState } from 'react';
+import Keyboard from './Components/Keyboard/Keyboard';
 
 function App() {
-    return (
-      <div className="App">
-        <Keyboard
-        onChange={input =>
-          null}
-        onKeyPress={button =>
-          null}
-          layout={{
-            'default': [
-              'Q W E R T Y U I O P',
-              'A S D F G H J K L',
-              '{bksp} Z X C V B N M {enter}',
-            ]
-          }}
-      />
-      </div>
+  const [input, setInput] = useState('')
 
-    );
-  
+  function updateInput(replace) {
+     setInput(replace)
+  }
+
+
+
+  return (
+    <div className="App">
+      <p>{input}</p>
+      <Keyboard input={input} updateInput={updateInput}/>
+    </div>
+
+  );
+
 }
 
 export default App;
+ 
