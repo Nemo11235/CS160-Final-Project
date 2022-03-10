@@ -1,12 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Keyboard.scss';
 
 
 
-function Keyboard() {
+function Keyboard(props) {
+
+    const string = props;
+
+    const keyClick = () => {
+        alert("keypressed");
+    }
+
     return (
         <div className="root">
-            <button className="key">Q</button>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"></link>
+            <button className="key" onClick={keyClick}>Q</button>
             <button className="key-partial">W</button>
             <button className="key-correct">E</button>
             <button className="key-wrong">R</button>
@@ -27,7 +36,7 @@ function Keyboard() {
             <button className="key">K</button>
             <button className="key">L</button>
             <br></br>
-            <button className="big-key">Delete</button>
+            <button className="big-key"><i class = "material-icons">backspace</i></button>
             <button className="key">Z</button>
             <button className="key">X</button>
             <button className="key">C</button>
