@@ -21,9 +21,9 @@ function Keyboard({input, updateInput}) {
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"></link>
             <button className="key" onClick={(value) => keyClick('Q')}>Q</button>
-            <button className="key-partial">W</button>
-            <button className="key-correct">E</button>
-            <button className="key-wrong">R</button>
+            <button className="key-partial" onClick={(value) => keyClick('W')}>W</button>
+            <button className="key-correct" onClick={(value) => keyClick('E')}>E</button>
+            <button className="key-wrong" onClick={(value) => keyClick('R')}>R</button>
             <button className="key" onClick={(value) => keyClick('T')}>T</button>
             <button className="key" onClick={(value) => keyClick('Y')}>Y</button>
             <button className="key" onClick={(value) => keyClick('U')}>U</button>
@@ -31,7 +31,7 @@ function Keyboard({input, updateInput}) {
             <button className="key" onClick={(value) => keyClick('O')}>O</button>
             <button className="key" onClick={(value) => keyClick('P')}>P</button>
             <br></br>
-            <button className="special-key" onClick={(value) => keyClick('')}>A</button>
+            <button className="special-key" onClick={(value) => keyClick('A')}>A</button>
             <button className="key" onClick={(value) => keyClick('S')}>S</button>
             <button className="key" onClick={(value) => keyClick('D')}>D</button>
             <button className="key" onClick={(value) => keyClick('F')}>F</button>
