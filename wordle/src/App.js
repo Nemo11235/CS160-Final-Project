@@ -3,18 +3,18 @@ import React, { Component, useEffect, useState } from 'react';
 import Keyboard from './Components/Keyboard/Keyboard';
 
 function App() {
-  const [input, setInput] = useState('aa')
+  const [input, setInput] = useState('')
 
-  function updateInput(prop) {
-    setInput(prev => prev + prop)
+  function updateInput(replace) {
+     setInput(replace)
   }
+
 
 
   return (
     <div className="App">
       <p>{input}</p>
-      <button onClick={() => updateInput('a')}>add a</button>
-      <Keyboard/>
+      <Keyboard input={input} updateInput={updateInput}/>
     </div>
 
   );
