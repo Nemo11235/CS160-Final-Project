@@ -1,22 +1,23 @@
+//TODO: need to make dynamic grid column
+//so that it will change the grid colum size according to the number of letters
+import React from "react";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 
-//TODO: need to make dynamic grid column 
-//so that it will change the grid colum size according to the number of letters 
-import React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-
-const Item = styled(Paper)(({ theme }) => ({ //return each cell component. item is cell
-  backgroundColor: '#fff',
+const Item = styled(Paper)(({ theme }) => ({
+  //return each cell component. item is cell
+  backgroundColor: "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(2), //margin between cells
-  textAlign: 'center',
-  color: 'black',
-  fontWeight:'bold'
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold",
 }));
 
-function FormRow() { //column
+function FormRow() {
+  //creating each row by calling this function
   return (
     <React.Fragment>
       <Grid item xs={false}>
@@ -38,13 +39,13 @@ function FormRow() { //column
   );
 }
 
-export default function NestedGrid() { //creating row
+export default function NestedGrid() {
+  //this function returns the grid and calls FormRow() function to create row
   return (
-    <Box sx={{ justifyContent: 'center' }}
-     >
-      <Grid container spacing={1} >
+    <Box className="Grid-box-style">
+      <Grid container spacing={1}>
         <Grid container item spacing={2}>
-          <FormRow/>
+          <FormRow />
         </Grid>
         <Grid container item spacing={2}>
           <FormRow />
