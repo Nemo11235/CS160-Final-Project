@@ -46,7 +46,6 @@ NestedGrid.propTypes = {
 
 export default function NestedGrid(props) {
   //this function returns the grid and calls FormRow() function to create row
-  console.log(props.word);
   return (
     <Box className="Grid-box-style">
       <Grid container spacing={1}>

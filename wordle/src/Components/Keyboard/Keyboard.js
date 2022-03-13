@@ -3,22 +3,46 @@ import './Keyboard.scss';
 import PropTypes from "prop-types";
 
 
+
 Keyboard.propTypes = {
     input: PropTypes.string,
     updateInput: PropTypes.func
-  };
+};
 
 function Keyboard({input, updateInput}) {
 
-    console.log(input)
     const keyClick = (letter) => {
-        // var letter = document.getElementById("key-q").innerHTML;
         if (input.length < 5) updateInput((prev) => prev + letter)
     }
 
     const backspaceClick = () => {
         updateInput(input.substring(0, input.length - 1))
     }
+
+    // only accept valide keys
+  function keyValidator(userInput) {
+    return /^[a-z]+$/.test(userInput) || userInput == 'Enter' || userInput == 'Backspace';
+  }
+
+  function keyPress(e) {
+    if (keyValidator(e.key)) {
+        if (/^[a-z]+$/.test(e.key)) {
+            if (input.length < 5) updateInput((prev) => prev + e.key.toUpperCase())
+        } else if (e.key == 'Enter') {
+            alert('You Pressed Enter')
+        } else { // backspace
+            backspaceClick();
+        }
+    }
+  }
+
+  // allow physical keyboard input, it should do exactly the same thing as the virtual keyboard.
+  React.useEffect(() => {
+    window.addEventListener('keydown', keyPress)
+    return () => {
+        window.removeEventListener('keydown', keyPress);
+    };
+  })
 
     return (
         <div className="root">

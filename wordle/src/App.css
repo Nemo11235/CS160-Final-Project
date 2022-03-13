@@ -3,7 +3,7 @@
 }
 
 .Grid-box-style {
-  position: absolute;
+  position: relative;
   width: 275px;
   height: 400px;
   top: 50%;

@@ -9,7 +9,10 @@ function App() {
 
   function updateInput(replace) {
     setInput(replace)
- }
+  }
+
+  
+
 
   return (
     <div className="root">
@@ -22,4 +25,3 @@ function App() {
 }
 
 export default App;
- 
