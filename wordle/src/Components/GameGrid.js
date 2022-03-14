@@ -4,13 +4,14 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
+import "./GameGrid.scss";
 
 const Item = styled(Paper)(({ theme }) => ({
   //return each cell component. item is cell
   backgroundColor: "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(2), //margin between cells
-  textAlign: "center",
+  // textAlign: "center",
   color: "black",
   fontWeight: "bold",
 }));
@@ -23,19 +24,19 @@ function FormRow({ word }) {
   return (
     <React.Fragment>
       <Grid item xs={false}>
-        <Item>{word[0]}</Item>
+        <Item className="cell_style">{word[0]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>{word[1]}</Item>
+        <Item className="cell_style">{word[1]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>{word[2]}</Item>
+        <Item className="cell_style">{word[2]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>{word[3]}</Item>
+        <Item className="cell_style">{word[3]}</Item>
       </Grid>
       <Grid item xs={false}>
-        <Item>{word[4]}</Item>
+        <Item className="cell_style">{word[4]}</Item>
       </Grid>
     </React.Fragment>
   );
