@@ -4,14 +4,21 @@ import PropTypes from "prop-types";
 
 Keyboard.propTypes = {
   input: PropTypes.string,
+  row: PropTypes.number,
   updateInput: PropTypes.func,
+  updateRow: PropTypes.func,
+  updateWordList: PropTypes.func,
+  wordList: PropTypes.array
 };
 
-function Keyboard({ input, updateInput }) {
+function Keyboard({ input, updateInput, row, updateRow, wordList, updateWordList}) {
+
+    // onclick function for letter keys
   const keyClick = (letter) => {
     if (input.length < 5) updateInput((prev) => prev + letter);
   };
 
+  // onclick function of backspace key
   const backspaceClick = () => {
     updateInput(input.substring(0, input.length - 1));
   };
@@ -30,7 +37,17 @@ function Keyboard({ input, updateInput }) {
       if (/^[a-z]+$/.test(e.key)) {
         if (input.length < 5) updateInput((prev) => prev + e.key.toUpperCase());
       } else if (e.key == "Enter") {
-        alert("You Pressed Enter");
+        if (row < 5 && input.length == 5) {
+            const temp = wordList;
+            temp[row] = input;
+            updateWordList(temp);
+            updateRow((prev) => prev + 1);
+            updateInput("");
+        } else if (row == 5 && input.length == 5) {
+            alert("game over")
+        } else {
+            alert("word incomplete")
+        }
       } else {
         // backspace
         backspaceClick();

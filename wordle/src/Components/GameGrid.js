@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import "./GameGrid.scss";
 
+
 const Item = styled(Paper)(({ theme }) => ({
   //return each cell component. item is cell
   backgroundColor: "#fff",
@@ -43,31 +44,42 @@ function FormRow({ word }) {
   );
 }
 NestedGrid.propTypes = {
-  word: PropTypes.string,
+  input: PropTypes.string,
+  wordList: PropTypes.array,
+  row: PropTypes.number
 };
 
-export default function NestedGrid(props) {
+
+
+export default function NestedGrid({input, wordList, row}) {
   //this function returns the grid and calls FormRow() function to create row
+
   return (
     <Box className="Grid-box-style">
       <Grid container spacing={1}>
         <Grid container item spacing={2}>
-          <FormRow word={props.word} />
+          {row != 0 && <FormRow word={wordList[0]} />}
+          {row == 0 && <FormRow word={input} />}
         </Grid>
         <Grid container item spacing={2}>
-          <FormRow word={props.word} />
+          {row != 1 && <FormRow word={wordList[1]} />}
+          {row == 1 && <FormRow word={input} />}
         </Grid>
         <Grid container item spacing={2}>
-          <FormRow word={props.word} />
+          {row != 2 && <FormRow word={wordList[2]} />}
+          {row == 2 && <FormRow word={input} />}
         </Grid>
         <Grid container item spacing={2}>
-          <FormRow word={props.word} />
+          {row != 3 && <FormRow word={wordList[3]} />}
+          {row == 3 && <FormRow word={input} />}
         </Grid>
         <Grid container item spacing={2}>
-          <FormRow word={props.word} />
+          {row != 4 && <FormRow word={wordList[4]} />}
+          {row == 4 && <FormRow word={input} />}
         </Grid>
         <Grid container item spacing={2}>
-          <FormRow word={props.word} />
+          {row != 5 && <FormRow word={wordList[5]} />}
+          {row == 5 && <FormRow word={input} />}
         </Grid>
       </Grid>
     </Box>
