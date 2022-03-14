@@ -1,0 +1,12 @@
+.app-style {
+  position: relative;
+}
+
+.Grid-box-style {
+  position: relative;
+  width: 275px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin: 50px 0 0 -130px;
+}
