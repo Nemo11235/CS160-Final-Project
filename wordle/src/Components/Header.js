@@ -1,7 +1,7 @@
 import React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
+import Logo from "../Images/logo.png";
 
-//it is reuseable custom theme for header. need to add logo image here later
 const customTheme = createTheme({
   palette: {
     primary: {
@@ -14,14 +14,16 @@ const customTheme = createTheme({
 const HeaderThemeComponent = styled("div")(({ theme }) => ({
   color: theme.palette.primary.contrastText,
   backgroundColor: theme.palette.primary.main,
-  padding: theme.spacing(2),
+  padding: theme.spacing(0.5),
   textAlign: "center",
 }));
 
 const Header = () => {
   return (
     <ThemeProvider theme={customTheme}>
-      <HeaderThemeComponent>KenU GuessIT</HeaderThemeComponent>
+      <HeaderThemeComponent>
+        <img src={Logo} style={{ width: "110px", height: "55px" }} />
+      </HeaderThemeComponent>
     </ThemeProvider>
   );
 };
