@@ -11,9 +11,10 @@ const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(2), //margin between cells
-  // textAlign: "center",
+  textAlign: "center",
   color: "black",
   fontWeight: "bold",
+  fontSize: "20sp",
 }));
 FormRow.propTypes = {
   word: PropTypes.string,
