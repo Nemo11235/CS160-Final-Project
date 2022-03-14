@@ -6,7 +6,6 @@ import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import "./GameGrid.scss";
 
-
 const Item = styled(Paper)(({ theme }) => ({
   //return each cell component. item is cell
   backgroundColor: "#fff",
@@ -46,12 +45,10 @@ function FormRow({ word }) {
 NestedGrid.propTypes = {
   input: PropTypes.string,
   wordList: PropTypes.array,
-  row: PropTypes.number
+  row: PropTypes.number,
 };
 
-
-
-export default function NestedGrid({input, wordList, row}) {
+export default function NestedGrid({ input, wordList, row }) {
   //this function returns the grid and calls FormRow() function to create row
 
   return (

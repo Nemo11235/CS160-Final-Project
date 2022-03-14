@@ -1,6 +1,7 @@
 import React from "react";
 import "./Keyboard.scss";
 import PropTypes from "prop-types";
+import gameUtils from "../../Utils/gameUtils";
 
 Keyboard.propTypes = {
   input: PropTypes.string,
@@ -8,12 +9,20 @@ Keyboard.propTypes = {
   updateInput: PropTypes.func,
   updateRow: PropTypes.func,
   updateWordList: PropTypes.func,
-  wordList: PropTypes.array
+  wordList: PropTypes.array,
+  word: PropTypes.string,
 };
 
-function Keyboard({ input, updateInput, row, updateRow, wordList, updateWordList}) {
-
-    // onclick function for letter keys
+function Keyboard({
+  input,
+  updateInput,
+  row,
+  updateRow,
+  wordList,
+  updateWordList,
+  word,
+}) {
+  // onclick function for letter keys
   const keyClick = (letter) => {
     if (input.length < 5) updateInput((prev) => prev + letter);
   };
@@ -38,15 +47,22 @@ function Keyboard({ input, updateInput, row, updateRow, wordList, updateWordList
         if (input.length < 5) updateInput((prev) => prev + e.key.toUpperCase());
       } else if (e.key == "Enter") {
         if (row < 5 && input.length == 5) {
-            const temp = wordList;
-            temp[row] = input;
-            updateWordList(temp);
-            updateRow((prev) => prev + 1);
-            updateInput("");
+          let feedback = gameUtils.inputCheck(word, input);
+          if (gameUtils.isCorrect(feedback)) {
+            alert("Congrats! You guessed the word!");
+          } else {
+            alert(feedback);
+          }
+          const temp = wordList;
+          temp[row] = input;
+
+          updateWordList(temp);
+          updateRow((prev) => prev + 1);
+          updateInput("");
         } else if (row == 5 && input.length == 5) {
-            alert("game over")
+          alert("game over");
         } else {
-            alert("word incomplete")
+          alert("word incomplete");
         }
       } else {
         // backspace
