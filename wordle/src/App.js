@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "./Components/Header";
-import NestedGrid from "./Components/GameGrid";
+import NestedGrid from "./Components/GameGrid/GameGrid";
 import Keyboard from "./Components/Keyboard/Keyboard";
 
 function App() {
