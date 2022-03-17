@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Header from "./Components/Header";
+import NestedGrid from "./Components/GameGrid";
+import Keyboard from "./Components/Keyboard/Keyboard";
 
 function App() {
+  let word = "APPLE";
+  const [input, setInput] = useState("");
+  const [row, setRow] = useState(0);
+  const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
+
+  function updateInput(replace) {
+    setInput(replace);
+  }
+
+  function updateRow(value) {
+    setRow(value);
+  }
+
+  function updateWordList(newArray) {
+    setWordList(newArray);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-style">
+      <Header />
+      <NestedGrid input={input} wordList={wordList} row={row} />
+      <Keyboard
+        input={input}
+        updateInput={updateInput}
+        row={row}
+        updateRow={updateRow}
+        wordList={wordList}
+        updateWordList={updateWordList}
+        word={word}
+      />
     </div>
   );
 }

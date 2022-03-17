@@ -1,0 +1,31 @@
+.Grid-box-style {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin: 50px 0 0 -130px;
+}
+.cell_style {
+  width: 10px;
+  height: 10px;
+}
+@media screen and (max-width: 2000px) {
+  .cell_style {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .cell_style {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cell_style {
+    width: 5px;
+    height: 5px;
+  }
+}
