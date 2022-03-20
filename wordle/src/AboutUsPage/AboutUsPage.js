@@ -6,16 +6,16 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 
 function AboutUsPage() {
-  let nevigate = useNavigate();
+  let navigate = useNavigate();
 
-  function backButtonClick() {
-    nevigate(`/home`);
+  function goHome() {
+    navigate(`/home`);
   }
 
   return (
     <div className="about-us-style">
       <Header />
-      <button className="back-button" onClick={backButtonClick}>
+      <button className="back-button" onClick={goHome}>
         <ArrowBackIcon style={{ width: "97px", height: "77px" }} />
       </button>
       <div className="card">
