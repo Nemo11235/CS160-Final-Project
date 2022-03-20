@@ -1,6 +1,6 @@
 import React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
-import Logo from "../Images/logo.png";
+import Logo from "../Images/kugi.png";
 
 const customTheme = createTheme({
   palette: {
@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <ThemeProvider theme={customTheme}>
       <HeaderThemeComponent>
-        <img src={Logo} style={{ width: "110px", height: "55px" }} />
+        <img src={Logo} />
       </HeaderThemeComponent>
     </ThemeProvider>
   );
