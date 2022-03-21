@@ -17,6 +17,7 @@ const HeaderThemeComponent = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   padding: theme.spacing(0.5),
   textAlign: "center",
+  height: "80px",
 }));
 
 const Header = () => {
@@ -28,8 +29,21 @@ const Header = () => {
   return (
     <ThemeProvider theme={customTheme}>
       <HeaderThemeComponent>
-        <button onClick={goHome}>
-          <img src={Logo} />
+        <button
+          onClick={goHome}
+          style={{
+            height: "70px",
+            width: "185px",
+            background: "white",
+            border: "0.5px",
+            borderRadius: "20px",
+            marginTop: "5px",
+          }}
+        >
+          <img
+            src={Logo}
+            style={{ height: "55px", width: "165px", marginTop: "5px" }}
+          />
         </button>
       </HeaderThemeComponent>
     </ThemeProvider>
