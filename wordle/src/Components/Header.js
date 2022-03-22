@@ -2,6 +2,7 @@ import React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
 import Logo from "../Images/kugi.png";
 import { useNavigate } from "react-router-dom";
+import paths from "../Utils/paths";
 
 const customTheme = createTheme({
   palette: {
@@ -24,7 +25,7 @@ const Header = () => {
   let navigate = useNavigate();
 
   function goHome() {
-    navigate(`/home`);
+    navigate(paths.home);
   }
   return (
     <ThemeProvider theme={customTheme}>

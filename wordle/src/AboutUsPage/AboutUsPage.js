@@ -4,12 +4,13 @@ import "./AboutUsPage.scss";
 import KenImage from "../Images/Ken_Image.png";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
+import paths from "../Utils/paths";
 
 function AboutUsPage() {
   let navigate = useNavigate();
 
   function goHome() {
-    navigate(`/home`);
+    navigate(paths.home);
   }
 
   return (
