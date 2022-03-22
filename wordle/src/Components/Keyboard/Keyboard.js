@@ -32,6 +32,27 @@ function Keyboard({
     updateInput(input.substring(0, input.length - 1));
   };
 
+  const enterClick = () => {
+    if (row < 5 && input.length == 5) {
+      let feedback = gameUtils.inputCheck(word, input);
+      if (gameUtils.isCorrect(feedback)) {
+        alert("Congrats! You guessed the word!");
+      } else {
+        alert(feedback);
+      }
+      const temp = wordList;
+      temp[row] = input;
+
+      updateWordList(temp);
+      updateRow((prev) => prev + 1);
+      updateInput("");
+    } else if (row == 5 && input.length == 5) {
+      alert("game over");
+    } else {
+      alert("word incomplete");
+    }
+  };
+
   // only accept valide keys
   function keyValidator(userInput) {
     return (
@@ -46,24 +67,7 @@ function Keyboard({
       if (/^[a-z]+$/.test(e.key)) {
         if (input.length < 5) updateInput((prev) => prev + e.key.toUpperCase());
       } else if (e.key == "Enter") {
-        if (row < 5 && input.length == 5) {
-          let feedback = gameUtils.inputCheck(word, input);
-          if (gameUtils.isCorrect(feedback)) {
-            alert("Congrats! You guessed the word!");
-          } else {
-            alert(feedback);
-          }
-          const temp = wordList;
-          temp[row] = input;
-
-          updateWordList(temp);
-          updateRow((prev) => prev + 1);
-          updateInput("");
-        } else if (row == 5 && input.length == 5) {
-          alert("game over");
-        } else {
-          alert("word incomplete");
-        }
+        enterClick();
       } else {
         // backspace
         backspaceClick();
@@ -169,7 +173,7 @@ function Keyboard({
       <button className="key" onClick={() => keyClick("M")}>
         M
       </button>
-      <button className="big-key" onClick={() => keyClick("enter")}>
+      <button className="big-key" onClick={enterClick}>
         Enter
       </button>
     </div>
