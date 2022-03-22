@@ -41,19 +41,19 @@ const gameUtils = {
     return true;
   },
 
-  usedLetters(userInput, feedback, oldLetters) {
-    function indexOfLetter(letter) {
-      let alphabet = new Map([['A', 0], ['B', 1], ['C', 2], ['D', 3], ['E', 4], ['F', 5], ['G', 6], ['H', 7], ['I', 8], ['J', 9], ['K', 10], ['L', 11], ['M', 12], ['N', 13], ['O', 14], ['P', 15], ['Q', 16], ['R', 17], ['S', 18], ['T', 19], ['U', 20], ['V', 21], ['W', 22], ['X', 23], ['Y', 24], ['Z', 25]]);
-      return alphabet.get(letter);
-    }
+  indexOfLetter(letter) {
+    let alphabet = new Map([['A', 0], ['B', 1], ['C', 2], ['D', 3], ['E', 4], ['F', 5], ['G', 6], ['H', 7], ['I', 8], ['J', 9], ['K', 10], ['L', 11], ['M', 12], ['N', 13], ['O', 14], ['P', 15], ['Q', 16], ['R', 17], ['S', 18], ['T', 19], ['U', 20], ['V', 21], ['W', 22], ['X', 23], ['Y', 24], ['Z', 25]]);
+    return alphabet.get(letter);
+  },
 
+  usedLetters(userInput, feedback, oldLetters) {
     for(let i = 0; i < userInput.length; i++){
         if(feedback[i] == 'Y'){
-            oldLetters[indexOfLetter(userInput[i])] = 'Y';
-        } else if (feedback[i] == 'P' && oldLetters[indexOfLetter(userInput[i])] != 'Y'){
-            oldLetters[indexOfLetter(userInput[i])] = 'P';
-        } else if (feedback[i] == 'N' && oldLetters[indexOfLetter(userInput[i])] != 'Y' && oldLetters[indexOfLetter(userInput[i])] != 'P'){
-            oldLetters[indexOfLetter(userInput[i])] = 'N';
+            oldLetters[gameUtils.indexOfLetter(userInput[i])] = 'Y';
+        } else if (feedback[i] == 'P' && oldLetters[gameUtils.indexOfLetter(userInput[i])] != 'Y'){
+            oldLetters[gameUtils.indexOfLetter(userInput[i])] = 'P';
+        } else if (feedback[i] == 'N' && oldLetters[gameUtils.indexOfLetter(userInput[i])] != 'Y' && oldLetters[gameUtils.indexOfLetter(userInput[i])] != 'P'){
+            oldLetters[gameUtils.indexOfLetter(userInput[i])] = 'N';
         }
     }
     return oldLetters;
