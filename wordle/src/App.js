@@ -1,49 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./Components/Header";
-import NestedGrid from "./Components/GameGrid/GameGrid";
-import Keyboard from "./Components/Keyboard/Keyboard";
-
+import AboutUsPage from "./AboutUsPage/AboutUsPage";
+import HomePage from "./HomePage/HomePage";
+ 
 function App() {
-  let word = "APPLE";
-  const [input, setInput] = useState("");
-  const [row, setRow] = useState(0);
-  const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
-  const [usedLetters, setUsedLetters] = useState(['']);
-
-  function updateInput(replace) {
-    setInput(replace);
-  }
-
-  function updateRow(value) {
-    setRow(value);
-  }
-
-  function updateWordList(newArray) {
-    setWordList(newArray);
-  }
-
-  function updateUsedLetters(newArray) {
-    setUsedLetters(newArray);
-  }
-
   return (
-    <div className="app-style">
-      <Header />
-      <NestedGrid input={input} wordList={wordList} row={row} />
-      <Keyboard
-        input={input}
-        updateInput={updateInput}
-        row={row}
-        updateRow={updateRow}
-        wordList={wordList}
-        updateWordList={updateWordList}
-        word={word}
-        usedLetters={usedLetters}
-        updateUsedLetters={updateUsedLetters}
-      />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+      </Routes>
+    </Router>
   );
 }
-
+ 
 export default App;
