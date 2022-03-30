@@ -23,33 +23,27 @@ function HomePage() {
     setWordList(newArray);
   }
 
+  /* Hamburger Menu Implementation */
   let [hamburgerOpen, setHamburgerOpen] = useState(0);
-
   const hamburgerToggleClickHandler = () => {
     setHamburgerOpen(hamburgerOpen + 1);
   };
-
   const hamburgerBlurHandler = () => {
     setHamburgerOpen(hamburgerOpen - 1);
   };
 
-  // Variables to display nothing, or display hamburger.
   let hamburgerMenu = <HamburgerMenu />;
   let hamburgerBlur;
   if (hamburgerOpen) {
-    // hamburgerMenu = <HamburgerMenu />;
-    hamburgerMenu = <HamburgerMenu show={hamburgerOpen} />;
+    hamburgerMenu = <HamburgerMenu show={hamburgerOpen} click={hamburgerBlurHandler} />;
     hamburgerBlur = <HamburgerBlur click={hamburgerBlurHandler} />;
   }
 
   return (
     <div className="home-style" style={{ height: "100%" }}>
       <Header click={hamburgerToggleClickHandler} />
-
       {hamburgerMenu}
-      {/* <HamburgerMenu show={hamburgerOpen} /> */}
       {hamburgerBlur}
-
       <NestedGrid input={input} wordList={wordList} row={row} />
       <Keyboard
         input={input}

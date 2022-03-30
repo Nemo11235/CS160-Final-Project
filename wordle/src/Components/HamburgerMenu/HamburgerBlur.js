@@ -1,5 +1,5 @@
 import React from "react";
-import "./HamburgerBlur.css";
+import "./HamburgerBlur.scss";
 import PropTypes from "prop-types";
 
 const HamburgerBlur = (props) => {

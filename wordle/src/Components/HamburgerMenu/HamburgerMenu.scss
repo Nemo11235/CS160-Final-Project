@@ -9,10 +9,9 @@
     background-color: #757780;
     box-shadow: 2px 0px 5px;
 
-    /* Index above the <HamburgerBlur /> */
-    z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.5s ease-out;
+    z-index: 200;   /* Index above <HamburgerBlur /> */
 }
 
 .hamburger_nav-items ul {
@@ -53,7 +52,7 @@
 }
 
 .exit-btn img {
-    filter: drop-shadow(3px 3px 3px #222);
+    filter: drop-shadow(2px 2px 2px #222);
 }
 
 .logo-img {

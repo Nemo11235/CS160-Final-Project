@@ -1,17 +1,13 @@
 import React from "react";
-import "./HamburgerMenu.css";
 import PropTypes from "prop-types";
 import Logo from "../../Images/Logo_Full_Background.png";
 import ExitBtn from "../../Images/Exit_Button.png";
+import "./HamburgerMenu.scss";
 // import HamImg from "../../Images/Hamburger_Menu.png";
 // import { useNavigate } from "react-router-dom";
-// Return code as statement enclosed by '()'
+// import paths from "../../Utils/paths";
 
 
-// import { drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
-
-
-// In the future, will use and pass states 'prop' for the menu items.
 const HamburgerMenu = (props) => {
   let navClasses = "hamburger_nav-items";
   if (props.show) {
@@ -20,8 +16,7 @@ const HamburgerMenu = (props) => {
 
   return (
     <nav className={navClasses}>
-
-      <button className={"exit-btn"}>
+      <button className={"exit-btn"} onClick={props.click}>
         <img src={ExitBtn} />
       </button>
 
@@ -42,7 +37,8 @@ const HamburgerMenu = (props) => {
 };
 
 HamburgerMenu.propTypes = {
-  show: PropTypes.number.isRequired
+  show: PropTypes.number,
+  click: PropTypes.func
 };
 
 export default HamburgerMenu;
