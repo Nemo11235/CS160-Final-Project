@@ -25,23 +25,23 @@ function HomePage() {
 
   /* Hamburger Menu Implementation */
   let [hamburgerOpen, setHamburgerOpen] = useState(0);
-  const hamburgerToggleClickHandler = () => {
+  const hamburgerOpenHandler = () => {
     setHamburgerOpen(hamburgerOpen + 1);
   };
-  const hamburgerBlurHandler = () => {
+  const hamburgerCloseHandler = () => {
     setHamburgerOpen(hamburgerOpen - 1);
   };
 
   let hamburgerMenu = <HamburgerMenu />;
   let hamburgerBlur;
   if (hamburgerOpen) {
-    hamburgerMenu = <HamburgerMenu show={hamburgerOpen} click={hamburgerBlurHandler} />;
-    hamburgerBlur = <HamburgerBlur click={hamburgerBlurHandler} />;
+    hamburgerMenu = <HamburgerMenu open={hamburgerOpen} close={hamburgerCloseHandler} />;
+    hamburgerBlur = <HamburgerBlur close={hamburgerCloseHandler} />;
   }
 
   return (
     <div className="home-style" style={{ height: "100%" }}>
-      <Header click={hamburgerToggleClickHandler} />
+      <Header click={hamburgerOpenHandler} />
       {hamburgerMenu}
       {hamburgerBlur}
       <NestedGrid input={input} wordList={wordList} row={row} />

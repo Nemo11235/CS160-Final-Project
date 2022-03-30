@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 
 const HamburgerBlur = (props) => {
     return (
-        <div className="HamburgerBlur" onClick={props.click} />
+        <div className="HamburgerBlur" onClick={props.close} />
     );
 };
 
 HamburgerBlur.propTypes = {
-    click: PropTypes.func.isRequired
+    close: PropTypes.func.isRequired
 };
 
 export default HamburgerBlur;

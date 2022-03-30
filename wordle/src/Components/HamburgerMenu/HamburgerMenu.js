@@ -10,13 +10,13 @@ import "./HamburgerMenu.scss";
 
 const HamburgerMenu = (props) => {
   let navClasses = "hamburger_nav-items";
-  if (props.show) {
+  if (props.open) {
     navClasses = "hamburger_nav-items open";
   }
 
   return (
     <nav className={navClasses}>
-      <button className={"exit-btn"} onClick={props.click}>
+      <button className={"exit-btn"} onClick={props.close}>
         <img src={ExitBtn} />
       </button>
 
@@ -37,8 +37,8 @@ const HamburgerMenu = (props) => {
 };
 
 HamburgerMenu.propTypes = {
-  show: PropTypes.number,
-  click: PropTypes.func
+  open: PropTypes.number,
+  close: PropTypes.func
 };
 
 export default HamburgerMenu;
