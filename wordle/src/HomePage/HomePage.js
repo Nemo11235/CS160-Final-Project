@@ -8,6 +8,7 @@ function HomePage() {
   const [input, setInput] = useState("");
   const [row, setRow] = useState(0);
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
+  const [usedLetters, setUsedLetters] = useState(['']);
 
   function updateInput(replace) {
     setInput(replace);
@@ -19,6 +20,10 @@ function HomePage() {
 
   function updateWordList(newArray) {
     setWordList(newArray);
+  }
+
+  function updateUsedLetters(newArray) {
+    setUsedLetters(newArray);
   }
 
   return (
@@ -33,6 +38,8 @@ function HomePage() {
         wordList={wordList}
         updateWordList={updateWordList}
         word={word}
+        usedLetters={usedLetters}
+        updateUsedLetters={updateUsedLetters}
       />
     </div>
   );

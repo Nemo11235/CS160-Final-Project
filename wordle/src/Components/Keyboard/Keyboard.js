@@ -11,6 +11,8 @@ Keyboard.propTypes = {
   updateWordList: PropTypes.func,
   wordList: PropTypes.array,
   word: PropTypes.string,
+  usedLetters: PropTypes.array,
+  updateUsedLetters: PropTypes.func,
 };
 
 function Keyboard({
@@ -21,6 +23,8 @@ function Keyboard({
   wordList,
   updateWordList,
   word,
+  usedLetters,
+  updateUsedLetters,
 }) {
   // onclick function for letter keys
   const keyClick = (letter) => {
@@ -42,7 +46,9 @@ function Keyboard({
       }
       const temp = wordList;
       temp[row] = input;
-
+      let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters)
+ 
+      updateUsedLetters(oldLetters);
       updateWordList(temp);
       updateRow((prev) => prev + 1);
       updateInput("");
