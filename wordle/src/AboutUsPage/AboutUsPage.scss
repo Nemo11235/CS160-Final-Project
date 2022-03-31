@@ -2,6 +2,7 @@
 
 .about-us-style {
   position: flex;
+  height: 100%;
 }
 
 .back-button {
@@ -17,7 +18,7 @@
   float: right;
   margin: 40px 170px auto auto;
   width: 1518px;
-  height: 908px;
+  height: 858px;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
@@ -50,8 +51,6 @@
 
 .img-wrapper {
   display: flex;
-  width: 1233px;
-  height: 389px;
   margin-left: auto;
   margin-right: auto;
   @include media("<=lgdesktop") {
