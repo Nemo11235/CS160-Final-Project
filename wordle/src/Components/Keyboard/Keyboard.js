@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Keyboard.scss";
 import PropTypes from "prop-types";
 import gameUtils from "../../Utils/gameUtils";
@@ -11,6 +11,7 @@ Keyboard.propTypes = {
   updateWordList: PropTypes.func,
   wordList: PropTypes.array,
   word: PropTypes.string,
+  updateShowWinPopUp: PropTypes.func,
 };
 
 function Keyboard({
@@ -21,6 +22,7 @@ function Keyboard({
   wordList,
   updateWordList,
   word,
+  updateShowWinPopUp,
 }) {
   // onclick function for letter keys
   const keyClick = (letter) => {
@@ -32,16 +34,11 @@ function Keyboard({
     updateInput(input.substring(0, input.length - 1));
   };
 
-  const [showWinPopUp, setShowWinPopUp] = useState(true);
-  const toggleWin = () => {
-    setShowWinPopUp(!showWinPopUp);
-  };
-
   const enterClick = () => {
     if (row < 5 && input.length == 5) {
       let feedback = gameUtils.inputCheck(word, input);
       if (gameUtils.isCorrect(feedback)) {
-        toggleWin();
+        updateShowWinPopUp(true);
       } else {
         alert(feedback);
       }
@@ -90,15 +87,6 @@ function Keyboard({
 
   return (
     <div className="keyboard-style">
-      {showWinPopUp && (
-        <div className="modal-style">
-          <div className="overlay">
-            <h2>Congratulations!</h2>
-            <p>You have guessed the correct word!</p>
-            <button onClick={toggleWin}>close</button>
-          </div>
-        </div>
-      )}
       <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
