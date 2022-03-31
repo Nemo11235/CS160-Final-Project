@@ -1,6 +1,6 @@
 /* Hamburger Background */
 .hamburger_nav-items {
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 30%;
@@ -11,19 +11,53 @@
 
     transform: translateX(-100%);
     transition: transform 0.5s ease-out;
-    z-index: 200;   /* Index above <HamburgerBlur /> */
+    z-index: 200;
+    /* Index above <HamburgerBlur /> */
 }
 
 .hamburger_nav-items ul {
     list-style: none;
     margin: 0px;
-    padding: 0px;               /* Affects the content */
-    height: 70%;                /* Affects the location of the items*/
+    padding-left: 2em;
+    height: 70%;
+    /* Affects the location of the items*/
     max-width: 400px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
+.hamburger_nav-items ul a {
+    font-family: "Segoe UI Semibold", Times, serif;
+    font-size: 45px;
+    filter: drop-shadow(0.5px 1px 3px #222);
+}
+
+.dark-theme {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-family: "Segoe UI Semibold", Times, serif;
+    font-size: 45px;
+    filter: drop-shadow(0.5px 1px 3px #222);
+}
+
+.caption {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caption p {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI Semibold", Times, serif;
+    font-size: 22px;
+    filter: drop-shadow(0.5px 1px 3px #222);
+    text-align: center;
+}
+
 
 .hamburger_nav-items.open {
     transform: translateX(0%);
@@ -53,19 +87,20 @@
 }
 
 .exit-btn img {
-    filter: drop-shadow(2px 2px 2px #222);
+    width: 80%;
+    height: 80%;
+    filter: drop-shadow(2px 2px 1px #222);
 }
 
 .logo-img {
-    margin-top: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     display: flex;
     justify-content: center;
 }
 
 .logo-img img {
-    height: 5em;
-    width: 12.5em;
-    filter: drop-shadow(3px 3px 3px #222);
+    width: 60%;
+    height: 60%;
+    // filter: drop-shadow(3px 3px 3px #222);
 }
-
-

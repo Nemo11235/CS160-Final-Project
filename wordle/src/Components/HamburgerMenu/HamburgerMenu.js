@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Logo from "../../Images/Logo_Full_Background.png";
 import ExitBtn from "../../Images/Exit_Button.png";
+import Switch from "./Switch/Switch";
 import "./HamburgerMenu.scss";
 // import HamImg from "../../Images/Hamburger_Menu.png";
 // import { useNavigate } from "react-router-dom";
@@ -27,10 +28,10 @@ const HamburgerMenu = (props) => {
       <ul>
         <li><a href="/">Tutorial</a></li>
         <li><a href="/">Multiplayer</a></li>
-        <li><a href="/">Dark Theme</a></li>
+        <li><p className="dark-theme">Dark Theme</p><Switch /></li>
         <li><a href="/">About Us</a></li>
         <li><a href="/">Custom Words</a></li>
-        <li><a href="/">(requires log-in)</a></li>
+        <div className={"caption"}><p>(requires log-in)</p></div>
       </ul>
     </nav>
   );
