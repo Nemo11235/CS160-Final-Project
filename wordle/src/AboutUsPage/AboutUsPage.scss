@@ -60,10 +60,10 @@
 
 .ken-img {
   height: 327px;
-  width: 327px;
+  width: 300px;
   @include media("<lgdesktop") {
     height: 180px;
-    width: 180px;
+    width: 160px;
   }
 }
 
@@ -76,6 +76,9 @@
   text-align: center;
   float: left;
   margin-right: 90px;
+  @include media(">lgdesktop") {
+    margin-left: 120px;
+  }
 }
 
 .team-wrapper {
