@@ -9,7 +9,7 @@ function HomePage() {
   const [input, setInput] = useState("");
   const [row, setRow] = useState(0);
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
-  const [showWinPopUp, setShowWinPopUp] = useState(true);
+  const [showWinPopUp, setShowWinPopUp] = useState(false);
 
   function updateInput(replace) {
     setInput(replace);
