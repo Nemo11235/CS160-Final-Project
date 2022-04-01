@@ -31,12 +31,7 @@ function HomePage() {
     <div className="home-style">
       <Header />
       <NestedGrid input={input} wordList={wordList} row={row} />
-      {showWinPopUp && (
-        <WinPopUp
-          updateShowWinPopUp={updateShowWinPopUp}
-          className="winpopup"
-        />
-      )}
+
       <Keyboard
         input={input}
         updateInput={updateInput}
@@ -48,6 +43,12 @@ function HomePage() {
         updateShowWinPopUp={updateShowWinPopUp}
         className="keyboard"
       />
+      {showWinPopUp && (
+        <WinPopUp
+          updateShowWinPopUp={updateShowWinPopUp}
+          className="winpopup"
+        />
+      )}
     </div>
   );
 }
