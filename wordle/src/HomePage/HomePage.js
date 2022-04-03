@@ -9,7 +9,7 @@ function HomePage() {
   const [input, setInput] = useState("");
   const [row, setRow] = useState(0);
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
-  const [usedLetters, setUsedLetters] = useState(['']);
+  const [usedLetters, setUsedLetters] = useState([""]);
   const [showWinPopUp, setShowWinPopUp] = useState(false);
 
   function updateInput(replace) {
@@ -26,7 +26,8 @@ function HomePage() {
 
   function updateUsedLetters(newArray) {
     setUsedLetters(newArray);
-    
+  }
+
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
   }
