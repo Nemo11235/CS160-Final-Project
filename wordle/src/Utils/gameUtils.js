@@ -40,6 +40,21 @@ const gameUtils = {
     }
     return true;
   },
+
+  usedLetters(userInput, feedback, oldLetters) {
+    for(let i = 0; i < userInput.length; i++){
+      let index = userInput[i].charCodeAt() - 'A'.charCodeAt();
+        if(feedback[i] == 'Y'){
+            oldLetters[index] = 'Y';
+        } else if (feedback[i] == 'P' && oldLetters[index] != 'Y'){
+            oldLetters[index] = 'P';
+        } else if (feedback[i] == 'N' && oldLetters[index] != 'Y' && oldLetters[index] != 'P'){
+            oldLetters[index] = 'N';
+        }
+    }
+    return oldLetters;
+  },
+
 };
 
 export default gameUtils;
