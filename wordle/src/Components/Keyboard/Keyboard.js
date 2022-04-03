@@ -35,8 +35,8 @@ function Keyboard({
   };
 
   const enterClick = () => {
+    let feedback = gameUtils.inputCheck(word, input);
     if (row < 5 && input.length == 5) {
-      let feedback = gameUtils.inputCheck(word, input);
       if (gameUtils.isCorrect(feedback)) {
         updateShowWinPopUp(true);
       } else {
@@ -49,7 +49,11 @@ function Keyboard({
       updateRow((prev) => prev + 1);
       updateInput("");
     } else if (row == 5 && input.length == 5) {
-      alert("game over");
+      if (gameUtils.isCorrect(feedback)) {
+        updateShowWinPopUp(true);
+      } else {
+        alert("game over");
+      }
     } else {
       alert("word incomplete");
     }
