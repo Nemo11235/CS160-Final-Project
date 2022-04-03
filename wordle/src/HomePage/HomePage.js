@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../Components/Header";
 import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
+import WinPopUp from "./WinPopUp";
 
 function HomePage() {
   let word = "APPLE";
@@ -9,6 +10,7 @@ function HomePage() {
   const [row, setRow] = useState(0);
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
   const [usedLetters, setUsedLetters] = useState(['']);
+  const [showWinPopUp, setShowWinPopUp] = useState(false);
 
   function updateInput(replace) {
     setInput(replace);
@@ -24,12 +26,16 @@ function HomePage() {
 
   function updateUsedLetters(newArray) {
     setUsedLetters(newArray);
+    
+  function updateShowWinPopUp(value) {
+    setShowWinPopUp(value);
   }
 
   return (
     <div className="home-style">
       <Header />
       <NestedGrid input={input} wordList={wordList} row={row} />
+
       <Keyboard
         input={input}
         updateInput={updateInput}
@@ -40,7 +46,15 @@ function HomePage() {
         word={word}
         usedLetters={usedLetters}
         updateUsedLetters={updateUsedLetters}
+        updateShowWinPopUp={updateShowWinPopUp}
+        className="keyboard"
       />
+      {showWinPopUp && (
+        <WinPopUp
+          updateShowWinPopUp={updateShowWinPopUp}
+          className="winpopup"
+        />
+      )}
     </div>
   );
 }

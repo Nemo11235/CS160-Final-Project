@@ -13,6 +13,7 @@ Keyboard.propTypes = {
   word: PropTypes.string,
   usedLetters: PropTypes.array,
   updateUsedLetters: PropTypes.func,
+  updateShowWinPopUp: PropTypes.func,
 };
 
 function Keyboard({
@@ -25,6 +26,7 @@ function Keyboard({
   word,
   usedLetters,
   updateUsedLetters,
+  updateShowWinPopUp,
 }) {
   // onclick function for letter keys
   const keyClick = (letter) => {
@@ -36,24 +38,33 @@ function Keyboard({
     updateInput(input.substring(0, input.length - 1));
   };
 
+  // onclick function of enter key
   const enterClick = () => {
+    let feedback = gameUtils.inputCheck(word, input);
+    let isCorrect = gameUtils.isCorrect(feedback);
+    // if this is not the last attempt and input is valid
     if (row < 5 && input.length == 5) {
-      let feedback = gameUtils.inputCheck(word, input);
-      if (gameUtils.isCorrect(feedback)) {
-        alert("Congrats! You guessed the word!");
+      if (isCorrect) {
+        updateShowWinPopUp(true);
       } else {
         alert(feedback);
       }
+      // update the wordList, row number, and reset the input to empty
       const temp = wordList;
       temp[row] = input;
-      let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters)
- 
+      let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
+
       updateUsedLetters(oldLetters);
       updateWordList(temp);
       updateRow((prev) => prev + 1);
       updateInput("");
+      // if this is the last valid attempt
     } else if (row == 5 && input.length == 5) {
-      alert("game over");
+      if (isCorrect) {
+        updateShowWinPopUp(true);
+      } else {
+        alert("game over");
+      }
     } else {
       alert("word incomplete");
     }
