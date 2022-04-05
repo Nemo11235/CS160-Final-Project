@@ -19,7 +19,15 @@ return (
       </div>
 
       <div className="card-bot-left">
-
+        <h1 className="title3">Add Custom Words</h1>
+        <h2 className="text">
+          • Upload .txt files only <br></br>
+          • Separate each word with a new line <br></br>
+          • Words must be only five letters long <br></br>
+          • Words cannot repeat
+        </h2>
+        <input type="file" id="myFile" className="upload-file">
+        </input>
       </div>
 
       <div className="card-right">

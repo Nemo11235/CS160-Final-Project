@@ -91,6 +91,29 @@
     }
 }
 
+    .title3 {
+        text-align: center;
+        @include media("<lgdesktop") {
+            font-size: 30px;
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .text {
+        font-weight: normal;
+        @include media("<lgdesktop") {
+            font-size: 22px;
+            margin: 10px 20px;
+        }
+    }
+
+    .upload-file {
+        @include media("<lgdesktop") {
+            margin: 8px 30px;
+        }
+    }
+
 .card-right {
     float: right;
     margin: 20px 45px;
