@@ -37,6 +37,46 @@
       height: 150px;
     }
 }
+    .title2 {
+        text-align: right;
+        @include media("<lgdesktop") {
+            font-size: 30px;
+            margin-top: -140px;
+            margin-right: 50px;
+    }
+    }
+
+    .acc-img {
+        text-align: left;
+        @include media("<lgdesktop") {
+            height: 150px;
+            width: 150px;
+        }
+    }
+
+    .sign-out {
+        text-align: center;
+        border: 2px solid black;
+        background-color: #C1666B;
+        border-radius: 20px;
+        margin: 30px 170px;
+        @include media("<lgdesktop") {
+            font-size: 20px;
+            height: 35px;
+            width: 110px;
+        }
+    }
+
+    .circle {
+        position: absolute;
+        border: 2px solid black;
+        border-radius: 50%;
+        @include media("<lgdesktop") {
+            margin: -165px 0px;
+            height: 147px;
+            width: 147px;
+        }
+    }
 
 .card-bot-left {
     float: left;
