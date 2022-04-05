@@ -23,7 +23,7 @@ function AboutUsPage() {
         <h1 className="title">About us</h1>
         <h2 className="text-content">
           We are a group of passionate, driven students taught by Professor
-          Kenward Tsang. Incorporating Angile software enginnering into this
+          Kenward Tsang. Incorporating Agile software enginnering into this
           project has been fun, and we hope you have fun playing our version of
           Wordle. We all learned new important skills and concepts such as
           JavaScript, public APIs, authentication, and hope to learn more in the
