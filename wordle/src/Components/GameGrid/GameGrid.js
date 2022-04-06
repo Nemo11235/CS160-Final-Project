@@ -8,7 +8,7 @@ import "./GameGrid.scss";
 
 const Item = styled(Paper)(({ theme }) => ({
   //return each cell component. item is cell
-  backgroundColor: "#fff",
+  backgroundColor: "white",
   ...theme.typography.body2,
   padding: theme.spacing(2), //margin between cells
   textAlign: "center",
