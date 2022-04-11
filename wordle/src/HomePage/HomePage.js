@@ -11,6 +11,7 @@ function HomePage() {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
   const [usedLetters, setUsedLetters] = useState([""]);
   const [showWinPopUp, setShowWinPopUp] = useState(false);
+  const [colorArray, setColor] = useState(["", "", "", "", ""]);
 
   function updateInput(replace) {
     setInput(replace);
@@ -28,6 +29,10 @@ function HomePage() {
     setUsedLetters(newArray);
   }
 
+  function updateColortArray(newArray) {
+    setColor(newArray);
+  }
+
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
   }
@@ -35,7 +40,12 @@ function HomePage() {
   return (
     <div className="home-style">
       <Header />
-      <NestedGrid input={input} wordList={wordList} row={row} />
+      <NestedGrid
+        input={input}
+        wordList={wordList}
+        row={row}
+        colorArray={colorArray}
+      />
 
       <Keyboard
         input={input}
@@ -48,6 +58,7 @@ function HomePage() {
         usedLetters={usedLetters}
         updateUsedLetters={updateUsedLetters}
         updateShowWinPopUp={updateShowWinPopUp}
+        updateColorArray={updateColortArray}
         className="keyboard"
       />
       {showWinPopUp && (

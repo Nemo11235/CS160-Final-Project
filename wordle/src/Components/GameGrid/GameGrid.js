@@ -18,26 +18,46 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 FormRow.propTypes = {
   word: PropTypes.string,
+  colorArray: PropTypes.array,
 };
 
-function FormRow({ word }) {
+function FormRow({ word, colorArray }) {
   //creating each row by calling this function
+  console.log(colorArray);
+  function checkColor(cellNum) {
+    return colorArray &&
+      Array.isArray(colorArray) &&
+      colorArray.length &&
+      !colorArray[cellNum].includes(undefined)
+      ? colorArray[cellNum]
+      : "white";
+  }
   return (
     <React.Fragment>
       <Grid item xs={false}>
-        <Item className="cell_style">{word[0]}</Item>
+        <Item className="cell_style" style={{ background: checkColor(0) }}>
+          {word[0]}
+        </Item>
       </Grid>
       <Grid item xs={false}>
-        <Item className="cell_style">{word[1]}</Item>
+        <Item className="cell_style" style={{ background: checkColor(1) }}>
+          {word[1]}
+        </Item>
       </Grid>
       <Grid item xs={false}>
-        <Item className="cell_style">{word[2]}</Item>
+        <Item className="cell_style" style={{ background: checkColor(2) }}>
+          {word[2]}
+        </Item>
       </Grid>
       <Grid item xs={false}>
-        <Item className="cell_style">{word[3]}</Item>
+        <Item className="cell_style" style={{ background: checkColor(3) }}>
+          {word[3]}
+        </Item>
       </Grid>
       <Grid item xs={false}>
-        <Item className="cell_style">{word[4]}</Item>
+        <Item className="cell_style" style={{ background: checkColor(4) }}>
+          {word[4]}
+        </Item>
       </Grid>
     </React.Fragment>
   );
@@ -46,37 +66,38 @@ NestedGrid.propTypes = {
   input: PropTypes.string,
   wordList: PropTypes.array,
   row: PropTypes.number,
+  colorArray: PropTypes.array,
 };
 
-export default function NestedGrid({ input, wordList, row }) {
+export default function NestedGrid({ input, wordList, row, colorArray }) {
   //this function returns the grid and calls FormRow() function to create row
-
+  console.log(colorArray);
   return (
     <Box className="Grid-box-style">
       <Grid container spacing={1}>
         <Grid container item spacing={2}>
           {row != 0 && <FormRow word={wordList[0]} />}
-          {row == 0 && <FormRow word={input} />}
+          {row == 0 && <FormRow word={input} colorArray={colorArray} />}
         </Grid>
         <Grid container item spacing={2}>
           {row != 1 && <FormRow word={wordList[1]} />}
-          {row == 1 && <FormRow word={input} />}
+          {row == 1 && <FormRow word={input} colorArray={colorArray} />}
         </Grid>
         <Grid container item spacing={2}>
           {row != 2 && <FormRow word={wordList[2]} />}
-          {row == 2 && <FormRow word={input} />}
+          {row == 2 && <FormRow word={input} colorArray={colorArray} />}
         </Grid>
         <Grid container item spacing={2}>
           {row != 3 && <FormRow word={wordList[3]} />}
-          {row == 3 && <FormRow word={input} />}
+          {row == 3 && <FormRow word={input} colorArray={colorArray} />}
         </Grid>
         <Grid container item spacing={2}>
           {row != 4 && <FormRow word={wordList[4]} />}
-          {row == 4 && <FormRow word={input} />}
+          {row == 4 && <FormRow word={input} colorArray={colorArray} />}
         </Grid>
         <Grid container item spacing={2}>
           {row != 5 && <FormRow word={wordList[5]} />}
-          {row == 5 && <FormRow word={input} />}
+          {row == 5 && <FormRow word={input} colorArray={colorArray} />}
         </Grid>
       </Grid>
     </Box>
