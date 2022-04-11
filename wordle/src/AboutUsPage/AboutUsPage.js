@@ -12,6 +12,7 @@ function AboutUsPage() {
   function goHome() {
     navigate(paths.home);
   }
+  
 
   return (
     <div className="about-us-style">
