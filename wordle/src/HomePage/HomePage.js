@@ -11,7 +11,7 @@ function HomePage() {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
   const [usedLetters, setUsedLetters] = useState([""]);
   const [showWinPopUp, setShowWinPopUp] = useState(false);
-  const [colorArray, setColor] = useState(["", "", "", "", ""]);
+  const [savedColor, setSavedColor] = useState([[""], [""], [""], [""], [""]]);
 
   function updateInput(replace) {
     setInput(replace);
@@ -29,8 +29,8 @@ function HomePage() {
     setUsedLetters(newArray);
   }
 
-  function updateColortArray(newArray) {
-    setColor(newArray);
+  function updateSavedColor(newArray) {
+    setSavedColor(newArray);
   }
 
   function updateShowWinPopUp(value) {
@@ -44,7 +44,7 @@ function HomePage() {
         input={input}
         wordList={wordList}
         row={row}
-        colorArray={colorArray}
+        savedColor={savedColor}
       />
 
       <Keyboard
@@ -58,7 +58,8 @@ function HomePage() {
         usedLetters={usedLetters}
         updateUsedLetters={updateUsedLetters}
         updateShowWinPopUp={updateShowWinPopUp}
-        updateColorArray={updateColortArray}
+        savedColor={savedColor}
+        updateSavedColor={updateSavedColor}
         className="keyboard"
       />
       {showWinPopUp && (

@@ -13,7 +13,8 @@ Keyboard.propTypes = {
   word: PropTypes.string,
   usedLetters: PropTypes.array,
   updateUsedLetters: PropTypes.func,
-  updateColorArray: PropTypes.func,
+  updateSavedColor: PropTypes.func,
+  savedColor: PropTypes.array,
   updateShowWinPopUp: PropTypes.func,
 };
 
@@ -27,7 +28,8 @@ function Keyboard({
   word,
   usedLetters,
   updateUsedLetters,
-  updateColorArray,
+  savedColor,
+  updateSavedColor,
   updateShowWinPopUp,
 }) {
   // onclick function for letter keys
@@ -42,7 +44,8 @@ function Keyboard({
 
   // onclick function of enter key
   const enterClick = () => {
-    let colorArray = [];
+    let tempcolor = [];
+    const tempArray = savedColor;
     let feedback = gameUtils.inputCheck(word, input);
     let isCorrect = gameUtils.isCorrect(feedback);
     // if this is not the last attempt and input is valid
@@ -50,19 +53,17 @@ function Keyboard({
       if (isCorrect) {
         updateShowWinPopUp(true);
       } else {
-        //not correct block
-        let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
-        updateUsedLetters(oldLetters);
-        colorArray = gameUtils.colorArray(feedback);
-        updateColorArray(colorArray);
+        tempcolor = gameUtils.colorArray(feedback);
         alert(feedback);
       }
       // update the wordList, row number, and reset the input to empty
       const temp = wordList;
       temp[row] = input;
-      //let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
-      //updateUsedLetters(oldLetters);
+      tempArray[row] = tempcolor;
+      let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
+      updateUsedLetters(oldLetters);
       updateWordList(temp);
+      updateSavedColor(tempArray);
       updateRow((prev) => prev + 1);
       updateInput("");
       // if this is the last valid attempt
@@ -70,8 +71,9 @@ function Keyboard({
       if (isCorrect) {
         updateShowWinPopUp(true);
       } else {
-        colorArray = gameUtils.colorArray(feedback);
-        updateColorArray(colorArray);
+        tempcolor = gameUtils.colorArray(feedback);
+        tempArray[row] = tempcolor;
+        updateSavedColor(tempArray);
         alert("game over");
       }
     } else {
