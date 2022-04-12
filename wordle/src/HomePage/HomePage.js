@@ -36,7 +36,6 @@ function HomePage() {
     <div className="home-style">
       <Header />
       <NestedGrid input={input} wordList={wordList} row={row} />
-
       <Keyboard
         input={input}
         updateInput={updateInput}
