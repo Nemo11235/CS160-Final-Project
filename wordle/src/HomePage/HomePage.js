@@ -28,16 +28,19 @@ function HomePage() {
   let [hamburgerMultOpen, setHamburgerMultOpen] = useState(0);
   const hamburgerOpenHandler = () => {
     setHamburgerOpen(hamburgerOpen + 1);
+    // alert("open() called in HamburgerMenu, new value is " + hamburgerOpen);
   };
   const hamburgerCloseHandler = () => {
     setHamburgerOpen(hamburgerOpen - 1);
+    // alert("close() called in HamburgerMenu, new value is " + hamburgerOpen);
   };
   const hamburgerMultOpenHandler = () => {
     setHamburgerMultOpen(hamburgerMultOpen + 1);
+    // alert("multOpen() called in hamburgerMultCloseHandler, new value is " + hamburgerMultOpen);
   }
   const hamburgerMultCloseHandler = () => {
     setHamburgerMultOpen(hamburgerMultOpen - 1);
-    alert("multClose() called in hamburgerMultCloseHandler, new value is " + hamburgerMultOpen);
+    // alert("multClose() called in hamburgerMultCloseHandler, new value is " + hamburgerMultOpen);
   }
   let hamburgerMenu = <HamburgerMenu />;
   let hamburgerBlur;

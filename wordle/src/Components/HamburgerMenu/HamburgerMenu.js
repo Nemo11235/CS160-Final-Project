@@ -15,43 +15,35 @@ const HamburgerMenu = (props) => {
     navClasses = "hamburger_nav-items open";
   }
 
-  // Handlers for the multiplayer option.
-  // let [multMenuOpen, setMultMenuOpen] = useState(0);
-  // const multMenuOpenHandler = () => {
-  //   setMultMenuOpen(multMenuOpen + 1);
-  //   alert("open");
-  // };
-  // const multMenuCloseHandler = () => {
-  //   setMultMenuOpen(multMenuOpen - 1);    // The homepage needs access for the blur, I think I do need it to keep track
-  //   alert("close");
-  // };
-
   let display;
   if (props.openMult) {
-    display = <Ham_MP_Sel close={props.multOpen} />
+    display = <Ham_MP_Sel open={props.openMult} close={props.multOpen} />
   } else {
     display = (
-      <nav className={navClasses}>
-        <button className={"exit-btn"} onClick={props.close}>
-          <img src={ExitBtn} />
-        </button>
+      <React.Fragment>
+        <div className={"mult-sel-items"}></div>
+        <nav className={navClasses}>
+          <button className={"exit-btn"} onClick={props.close}>
+            <img src={ExitBtn} />
+          </button>
 
-        <div className={"logo-img"} style={{ border: "0.5px" }} >
-          <img src={Logo} />
-        </div>
-
-        <ul>
-          <li><a href="/">Tutorial</a></li>
-          <li><div className="multiplayer-nav" onClick={props.multClose}>Multiplayer</div></li>
-
-          <li><p className="dark-theme">Dark Theme</p><Switch /></li>
-          <div className="about-us-nav" onClick={goAbout}>
-            <a href={goAbout}>About Us</a>
+          <div className={"logo-img"} style={{ border: "0.5px" }} >
+            <img src={Logo} />
           </div>
-          <li><a href="/">Custom Words</a></li>
-          <div className={"caption"}><p>(requires log-in)</p></div>
-        </ul>
-      </nav>)
+
+          <ul>
+            <li><a href="/">Tutorial</a></li>
+            <li><div className="multiplayer-nav" onClick={props.multClose}>Multiplayer</div></li>
+
+            <li><p className="dark-theme">Dark Theme</p><Switch /></li>
+            <div className="about-us-nav" onClick={goAbout}>
+              <a href={goAbout}>About Us</a>
+            </div>
+            <li><a href="/">Custom Words</a></li>
+            <div className={"caption"}><p>(requires log-in)</p></div>
+          </ul>
+        </nav>
+      </React.Fragment>)
   }
 
   // Navigation with react-router

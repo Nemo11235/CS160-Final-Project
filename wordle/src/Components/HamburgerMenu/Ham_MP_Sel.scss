@@ -9,62 +9,40 @@
     background-color: #757780;
     box-shadow: 2px 0px 5px;
 
-    transition: opacity 1s linear;
-    transform: translateX(-100%);
-    transition: transform 0.5s ease-out;
+    // opacity: 0;
+    // transition: opacity 2s ease-in-out;
+    // transform: translateX(-100%);
+    // Implement transforming later with .open class
+    visibility: hidden;
     z-index: 200;
 }
 
-.mult-sel-items ul {
-    list-style: none;
-    margin: 0px;
-    padding-left: 2em;
-    height: 70%;
-    /* Affects the location of the items*/
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.mult-sel-items ul a {
+.mult-sel-items ul p, .hamburger-content p {
     font-family: "Segoe UI Semibold", Times, serif;
     font-size: 45px;
     filter: drop-shadow(0.5px 1px 3px #222);
 }
 
-.caption {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.caption p {
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI Semibold", Times, serif;
-    font-size: 22px;
-    filter: drop-shadow(0.5px 1px 3px #222);
-    text-align: center;
-}
-
-
 .mult-sel-items.open {
-    transform: translateX(0%);
+    visibility: visible;
+    // opacity: 1;
 }
 
 .mult-sel-items li {
     margin: 1rem 0rem;
 }
 
-.mult-sel-items a {
-    text-decoration: none;
-    font-size: 2.0rem;
-    color: #000000;
+.hamburger-content {
+    list-style: none;
+    margin: 0px;
+    height: 70%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.exit-btn {
+.back-btn {
     display: block;
     border: 0.5px;
     margin: 8px 0px 0px 10px;
@@ -85,12 +63,19 @@
     justify-content: center;
 }
 
-.hamburger-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .enter-code {
     display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    // gap: 20px;
+}
+
+.arrow {
+    // padding-left: 20px;
+    display: flex;
+    justify-content: center;
+}
+.arrow img {
+    height: 56%;
+    width: 56%;
 }
