@@ -180,11 +180,22 @@
         }
     }
 
-    .check-box {
-        position: absolute;
-        height: 30px;
-        width: 30px;
-        @include media("<lgdesktop") {
-            margin-top:-180px;
+    .checkbox {
+        @include media("<lgdesktop"){
+            margin: -200px 0 0 240px;
         }
     }
+
+        .box-label {
+            font-size: 17px;
+            @include media("<lgdesktop") {
+                margin-left: 35px;
+            }
+        }
+
+        .check-box {
+            position: absolute;
+            cursor: pointer;
+            height: 22px;
+            width: 22px;
+        }

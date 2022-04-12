@@ -13,7 +13,7 @@ function AboutUsPage() {
     navigate(paths.home);
   }
   
-
+  
   return (
     <div className="about-us-style">
       <Header />
