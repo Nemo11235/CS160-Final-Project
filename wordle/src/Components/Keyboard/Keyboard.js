@@ -48,16 +48,13 @@ function Keyboard({
     // if this is not the last attempt and input is valid
     if (row < 5 && input.length == 5) {
       if (isCorrect) {
-        colorArray = gameUtils.colorArray(feedback);
-        updateColorArray(colorArray);
-        //updateKeyColor(input);
         updateShowWinPopUp(true);
       } else {
+        //not correct block
         let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
         updateUsedLetters(oldLetters);
         colorArray = gameUtils.colorArray(feedback);
         updateColorArray(colorArray);
-        //updateKeyColor(input);
         alert(feedback);
       }
       // update the wordList, row number, and reset the input to empty
@@ -73,6 +70,8 @@ function Keyboard({
       if (isCorrect) {
         updateShowWinPopUp(true);
       } else {
+        colorArray = gameUtils.colorArray(feedback);
+        updateColorArray(colorArray);
         alert("game over");
       }
     } else {
@@ -109,7 +108,6 @@ function Keyboard({
       window.removeEventListener("keydown", keyPress);
     };
   });
-
   return (
     <div className="keyboard-style">
       <link

@@ -58,6 +58,10 @@ const gameUtils = {
     }
     return oldLetters;
   },
+
+  // this function is called in keyboard.js file in enterClick() function
+  // when the function is called it returns color array according to the feedback
+  // this function is for setting the color for the grid
   colorArray(feedback) {
     let colorArray = [];
     if (feedback && Array.isArray(feedback) && feedback.length) {
@@ -78,6 +82,9 @@ const gameUtils = {
     }
     return colorArray;
   },
+
+  //this function is called in Keyboard.js file
+  //to set color style for each key for the key button
   eachKeyColor(letter, usedLetters) {
     if (usedLetters && Array.isArray(usedLetters) && usedLetters.length) {
       if (usedLetters[letter.charCodeAt() - "A".charCodeAt()] == "Y")

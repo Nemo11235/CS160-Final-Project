@@ -24,6 +24,8 @@ FormRow.propTypes = {
 function FormRow({ word, colorArray }) {
   //creating each row by calling this function
   console.log(colorArray);
+  // this function check that colorArray is not undefined and not empty
+  // and change the cell color for each cell according to colorArray
   function checkColor(cellNum) {
     return colorArray &&
       Array.isArray(colorArray) &&
