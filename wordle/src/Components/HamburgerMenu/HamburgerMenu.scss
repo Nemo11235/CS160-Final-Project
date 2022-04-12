@@ -24,8 +24,7 @@
     justify-content: center;
 }
 
-.hamburger_nav-items ul a,
-.multiplayer-nav {
+.hamburger_nav-items ul a {
     font-family: "Segoe UI Semibold", Times, serif;
     font-size: 45px;
     filter: drop-shadow(0.5px 1px 3px #222);
@@ -73,9 +72,7 @@
 }
 
 .hamburger_nav-items a:hover,
-.hamburger_nav-items a:active,
-.multiplayer-nav:hover,
-.multiplayer-nav:active {
+.hamburger_nav-items a:active {
     color: orange;
 }
 
@@ -103,5 +100,4 @@
 .logo-img img {
     width: 60%;
     height: 60%;
-    // filter: drop-shadow(3px 3px 3px #222);
 }
