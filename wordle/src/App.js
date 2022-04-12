@@ -1,42 +1,34 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+import {
+  BrowserRouter as BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import "./App.css";
-import Header from "./Components/Header";
-import NestedGrid from "./Components/GameGrid";
-import Keyboard from "./Components/Keyboard/Keyboard";
+import HomePage from "./HomePage/HomePage";
+import ProfilePage from "./ProfilePage/ProfilePage";
+import AboutUsPage from "./AboutUsPage/AboutUsPage";
+import SignIn from "./GoogleAuth/SignIn";
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <div className='container dark'>
+          <div >
+            <BrowserRouter>
+              <Routes>
+                <Route path='/profile' element={<ProfilePage />} />
+                <Route path='/' element={<SignIn />} />
+                <Route path='/home' element={<HomePage/>} />      
+                <Route path='/about' element={<AboutUsPage />} />
+              </Routes>
+            </BrowserRouter>
+          </div>
+        </div>
+      </div>
 
-function App() {
-  let word = "APPLE";
-  const [input, setInput] = useState("");
-  const [row, setRow] = useState(0);
-  const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
-
-  function updateInput(replace) {
-    setInput(replace);
+    );
   }
-
-  function updateRow(value) {
-    setRow(value);
-  }
-
-  function updateWordList(newArray) {
-    setWordList(newArray);
-  }
-
-  return (
-    <div className="app-style">
-      <Header />
-      <NestedGrid input={input} wordList={wordList} row={row} />
-      <Keyboard
-        input={input}
-        updateInput={updateInput}
-        row={row}
-        updateRow={updateRow}
-        wordList={wordList}
-        updateWordList={updateWordList}
-        word={word}
-      />
-    </div>
-  );
 }
 
 export default App;

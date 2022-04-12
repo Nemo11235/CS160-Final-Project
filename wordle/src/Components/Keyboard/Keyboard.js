@@ -11,6 +11,9 @@ Keyboard.propTypes = {
   updateWordList: PropTypes.func,
   wordList: PropTypes.array,
   word: PropTypes.string,
+  usedLetters: PropTypes.array,
+  updateUsedLetters: PropTypes.func,
+  updateShowWinPopUp: PropTypes.func,
 };
 
 function Keyboard({
@@ -21,6 +24,9 @@ function Keyboard({
   wordList,
   updateWordList,
   word,
+  usedLetters,
+  updateUsedLetters,
+  updateShowWinPopUp,
 }) {
   // onclick function for letter keys
   const keyClick = (letter) => {
@@ -30,6 +36,38 @@ function Keyboard({
   // onclick function of backspace key
   const backspaceClick = () => {
     updateInput(input.substring(0, input.length - 1));
+  };
+
+  // onclick function of enter key
+  const enterClick = () => {
+    let feedback = gameUtils.inputCheck(word, input);
+    let isCorrect = gameUtils.isCorrect(feedback);
+    // if this is not the last attempt and input is valid
+    if (row < 5 && input.length == 5) {
+      if (isCorrect) {
+        updateShowWinPopUp(true);
+      } else {
+        alert(feedback);
+      }
+      // update the wordList, row number, and reset the input to empty
+      const temp = wordList;
+      temp[row] = input;
+      let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
+
+      updateUsedLetters(oldLetters);
+      updateWordList(temp);
+      updateRow((prev) => prev + 1);
+      updateInput("");
+      // if this is the last valid attempt
+    } else if (row == 5 && input.length == 5) {
+      if (isCorrect) {
+        updateShowWinPopUp(true);
+      } else {
+        alert("game over");
+      }
+    } else {
+      alert("word incomplete");
+    }
   };
 
   // only accept valide keys
@@ -46,24 +84,7 @@ function Keyboard({
       if (/^[a-z]+$/.test(e.key)) {
         if (input.length < 5) updateInput((prev) => prev + e.key.toUpperCase());
       } else if (e.key == "Enter") {
-        if (row < 5 && input.length == 5) {
-          let feedback = gameUtils.inputCheck(word, input);
-          if (gameUtils.isCorrect(feedback)) {
-            alert("Congrats! You guessed the word!");
-          } else {
-            alert(feedback);
-          }
-          const temp = wordList;
-          temp[row] = input;
-
-          updateWordList(temp);
-          updateRow((prev) => prev + 1);
-          updateInput("");
-        } else if (row == 5 && input.length == 5) {
-          alert("game over");
-        } else {
-          alert("word incomplete");
-        }
+        enterClick();
       } else {
         // backspace
         backspaceClick();
@@ -169,7 +190,7 @@ function Keyboard({
       <button className="key" onClick={() => keyClick("M")}>
         M
       </button>
-      <button className="big-key" onClick={() => keyClick("enter")}>
+      <button className="big-key" onClick={enterClick}>
         Enter
       </button>
     </div>
