@@ -42,18 +42,17 @@
 
 .grid-container {
   display: flex;
+  margin-top: 20px;
 }
 
 .grid-one {
-  position: relative;
+  padding-left: calc(25% - 178px);
+  width: 50%;
   float: left;
-  width: 50vw;
-  margin-right: 0;
 }
 
 .grid-two {
-  position: relative;
+  padding-left: calc(25% - 178px);
+  width: 50%;
   float: right;
-  width: 50vw;
-  margin-right: 0;
 }

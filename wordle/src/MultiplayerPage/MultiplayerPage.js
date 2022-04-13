@@ -11,14 +11,14 @@ const socket = io.connect("http://localhost:3001");
 function MultiplayerPage() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
-  const [showGame, setShowGame] = useState(false);
+  const [showGame, setShowGame] = useState(false); // show the grid and keyboard after user entering the room
 
   let word = "APPLE";
-  const [input, setInput] = useState("");
-  const [row, setRow] = useState(0);
-  const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
-  const [usedLetters, setUsedLetters] = useState([""]);
-  const [showWinPopUp, setShowWinPopUp] = useState(false);
+  const [input, setInput] = useState(""); // user's input of the current row
+  const [row, setRow] = useState(0); // current row number, first row is row 0
+  const [wordList, setWordList] = useState(["", "", "", "", "", ""]); // the words that the user entered so far
+  const [usedLetters, setUsedLetters] = useState([""]); // feedback on each letter, N Y P
+  const [showWinPopUp, setShowWinPopUp] = useState(false); // whether or not show the win pop-up window
 
   function updateInput(replace) {
     setInput(replace);
@@ -39,17 +39,6 @@ function MultiplayerPage() {
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
   }
-
-  const joinRoom = () => {
-    if (username !== "" && room !== "") {
-      const roomData = {
-        room: room,
-        user: username,
-      };
-      socket.emit("join_room", roomData);
-      setShowGame(true);
-    }
-  };
 
   return (
     <div className="multiplayer-style">
@@ -75,33 +64,29 @@ function MultiplayerPage() {
         </div>
       ) : (
         <div>
+          <CountDown />
           <div className="grid-container">
-            <NestedGrid
+            <div className="grid-one">
+              <NestedGrid input={input} wordList={wordList} row={row} />
+            </div>
+            <div className="grid-two">
+              <NestedGrid input={input} wordList={wordList} row={row} />
+            </div>
+          </div>
+          <div className="keyboard">
+            <Keyboard
               input={input}
-              wordList={wordList}
+              updateInput={updateInput}
               row={row}
-              className="grid-one"
-            />
-            <NestedGrid
-              input={input}
+              updateRow={updateRow}
               wordList={wordList}
-              row={row}
-              className="grid-two"
+              updateWordList={updateWordList}
+              word={word}
+              usedLetters={usedLetters}
+              updateUsedLetters={updateUsedLetters}
+              updateShowWinPopUp={updateShowWinPopUp}
             />
           </div>
-          <Keyboard
-            input={input}
-            updateInput={updateInput}
-            row={row}
-            updateRow={updateRow}
-            wordList={wordList}
-            updateWordList={updateWordList}
-            word={word}
-            usedLetters={usedLetters}
-            updateUsedLetters={updateUsedLetters}
-            updateShowWinPopUp={updateShowWinPopUp}
-            className="keyboard"
-          />
           {showWinPopUp && (
             <WinPopUp
               updateShowWinPopUp={updateShowWinPopUp}
