@@ -1,10 +1,8 @@
 import io from "socket.io-client";
 import React, { useState } from "react";
 import "./MultiplayerPage.scss";
+import GameContent from "./GameContent";
 import Header from "../Components/Header";
-import NestedGrid from "../Components/GameGrid/GameGrid";
-import Keyboard from "../Components/Keyboard/Keyboard";
-import WinPopUp from "../HomePage/WinPopUp";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -12,32 +10,32 @@ function MultiplayerPage() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showGame, setShowGame] = useState(false); // show the grid and keyboard after user entering the room
+  const [inGame, setInGame] = useState(false);
+  const joinRoom = () => {
+    if (username !== "" && room !== "") {
+      const roomData = {
+        room: room,
+        user: username,
+      };
+      socket.emit("join_room", roomData);
+      setShowGame(true);
+    } else {
+      alert("Please enter user ID and room ID");
+    }
+  };
 
-  let word = "APPLE";
-  const [input, setInput] = useState(""); // user's input of the current row
-  const [row, setRow] = useState(0); // current row number, first row is row 0
-  const [wordList, setWordList] = useState(["", "", "", "", "", ""]); // the words that the user entered so far
-  const [usedLetters, setUsedLetters] = useState([""]); // feedback on each letter, N Y P
-  const [showWinPopUp, setShowWinPopUp] = useState(false); // whether or not show the win pop-up window
+  React.useEffect(() => {
+    window.addEventListener("keydown", keyPress);
+    return () => {
+      window.removeEventListener("keydown", keyPress);
+    };
+  });
 
-  function updateInput(replace) {
-    setInput(replace);
-  }
-
-  function updateRow(value) {
-    setRow(value);
-  }
-
-  function updateWordList(newArray) {
-    setWordList(newArray);
-  }
-
-  function updateUsedLetters(newArray) {
-    setUsedLetters(newArray);
-  }
-
-  function updateShowWinPopUp(value) {
-    setShowWinPopUp(value);
+  function keyPress(e) {
+    if (e.key == "Enter" && !inGame) {
+      joinRoom();
+      setInGame(true);
+    }
   }
 
   return (
@@ -63,37 +61,12 @@ function MultiplayerPage() {
           <button onClick={joinRoom}>Join</button>
         </div>
       ) : (
-        <div>
-          <CountDown />
-          <div className="grid-container">
-            <div className="grid-one">
-              <NestedGrid input={input} wordList={wordList} row={row} />
-            </div>
-            <div className="grid-two">
-              <NestedGrid input={input} wordList={wordList} row={row} />
-            </div>
-          </div>
-          <div className="keyboard">
-            <Keyboard
-              input={input}
-              updateInput={updateInput}
-              row={row}
-              updateRow={updateRow}
-              wordList={wordList}
-              updateWordList={updateWordList}
-              word={word}
-              usedLetters={usedLetters}
-              updateUsedLetters={updateUsedLetters}
-              updateShowWinPopUp={updateShowWinPopUp}
-            />
-          </div>
-          {showWinPopUp && (
-            <WinPopUp
-              updateShowWinPopUp={updateShowWinPopUp}
-              className="winpopup"
-            />
-          )}
-        </div>
+        <GameContent
+          socket={socket}
+          username={username}
+          room={room}
+          word={"APPLE"}
+        />
       )}
     </div>
   );

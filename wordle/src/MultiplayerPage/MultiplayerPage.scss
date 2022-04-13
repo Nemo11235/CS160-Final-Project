@@ -1,6 +1,5 @@
 .multiplayer-style {
   font-family: "Open Sans", sans-serif;
-  place-items: center;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
@@ -38,21 +37,4 @@
 
 .join-game-container button:hover {
   background: #2e7d32;
-}
-
-.grid-container {
-  display: flex;
-  margin-top: 20px;
-}
-
-.grid-one {
-  padding-left: calc(25% - 178px);
-  width: 50%;
-  float: left;
-}
-
-.grid-two {
-  padding-left: calc(25% - 178px);
-  width: 50%;
-  float: right;
 }
