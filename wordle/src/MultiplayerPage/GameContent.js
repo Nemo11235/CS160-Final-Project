@@ -30,7 +30,6 @@ function GameContent({ socket, username, room, word }) {
     [""],
   ]);
   const [rowB, setRowB] = useState(0);
-  const [wordListB, setWordListB] = useState(["", "", "", "", "", ""]);
 
   function updateInput(replace) {
     setInput(replace);
@@ -52,6 +51,10 @@ function GameContent({ socket, username, room, word }) {
     setShowWinPopUp(value);
   }
 
+  function updateSavedColor(newArray) {
+    setSavedColor(newArray);
+  }
+
   const sendGameData = async () => {
     const gameData = {
       room: room,
@@ -67,7 +70,6 @@ function GameContent({ socket, username, room, word }) {
   useEffect(() => {
     socket.on("receive_data", (data) => {
       setRowB(data.row);
-      setWordListB(data.wordList);
       setSavedColorB(data.savedColor);
     });
   }, [socket]);
@@ -86,7 +88,7 @@ function GameContent({ socket, username, room, word }) {
         <div className="grid-two">
           <NestedGrid
             input={""}
-            wordList={wordListB}
+            wordList={[[""], [""], [""], [""], [""], [""]]}
             row={rowB}
             savedColor={savedColorB}
           />
@@ -105,7 +107,7 @@ function GameContent({ socket, username, room, word }) {
           updateUsedLetters={updateUsedLetters}
           updateShowWinPopUp={updateShowWinPopUp}
           savedColor={savedColor}
-          setSavedColor={setSavedColor}
+          updateSavedColor={updateSavedColor}
         />
         <button onClick={sendGameData}>send</button>
       </div>

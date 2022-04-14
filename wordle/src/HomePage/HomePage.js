@@ -47,27 +47,31 @@ function HomePage() {
   return (
     <div className="home-style">
       <Header />
-      <NestedGrid
-        input={input}
-        wordList={wordList}
-        row={row}
-        savedColor={savedColor}
-      />
+      <div className="grid">
+        <NestedGrid
+          input={input}
+          wordList={wordList}
+          row={row}
+          savedColor={savedColor}
+        />
+      </div>
 
-      <Keyboard
-        input={input}
-        updateInput={updateInput}
-        row={row}
-        updateRow={updateRow}
-        wordList={wordList}
-        updateWordList={updateWordList}
-        word={word}
-        usedLetters={usedLetters}
-        updateUsedLetters={updateUsedLetters}
-        updateShowWinPopUp={updateShowWinPopUp}
-        savedColor={savedColor}
-        updateSavedColor={updateSavedColor}
-      />
+      <div className="keyboard">
+        <Keyboard
+          input={input}
+          updateInput={updateInput}
+          row={row}
+          updateRow={updateRow}
+          wordList={wordList}
+          updateWordList={updateWordList}
+          word={word}
+          usedLetters={usedLetters}
+          updateUsedLetters={updateUsedLetters}
+          updateShowWinPopUp={updateShowWinPopUp}
+          savedColor={savedColor}
+          updateSavedColor={updateSavedColor}
+        />
+      </div>
       {showWinPopUp && <WinPopUp updateShowWinPopUp={updateShowWinPopUp} />}
     </div>
   );
