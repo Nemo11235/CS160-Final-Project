@@ -13,8 +13,6 @@ Keyboard.propTypes = {
   word: PropTypes.string,
   usedLetters: PropTypes.array,
   updateUsedLetters: PropTypes.func,
-  updateSavedColor: PropTypes.func,
-  savedColor: PropTypes.array,
   updateShowWinPopUp: PropTypes.func,
 };
 
@@ -28,8 +26,6 @@ function Keyboard({
   word,
   usedLetters,
   updateUsedLetters,
-  savedColor,
-  updateSavedColor,
   updateShowWinPopUp,
 }) {
   // onclick function for letter keys
@@ -44,26 +40,29 @@ function Keyboard({
 
   // onclick function of enter key
   const enterClick = () => {
+    let feedback = gameUtils.inputCheck(word, input);
+    let isCorrect = gameUtils.isCorrect(feedback);
     // if this is not the last attempt and input is valid
-    if (input.length == 5) {
-      let feedback = gameUtils.inputCheck(word, input);
-      if (gameUtils.isCorrect(feedback)) {
+    if (row < 5 && input.length == 5) {
+      if (isCorrect) {
         updateShowWinPopUp(true);
-      } else if (row == 5) {
-        alert(`game over, the correct word is ${word}`);
+      } else {
+        alert(feedback);
       }
-      let tempcolor = gameUtils.colorArray(feedback);
-      const tempArray = savedColor;
+      // update the wordList, row number, and reset the input to empty
       const temp = wordList;
       temp[row] = input;
-      tempArray[row] = tempcolor;
       let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
       updateUsedLetters(oldLetters);
       updateWordList(temp);
-      updateSavedColor(tempArray);
       updateRow((prev) => prev + 1);
-      if (row != 5) {
-        updateInput("");
+      updateInput("");
+      // if this is the last valid attempt
+    } else if (row == 5 && input.length == 5) {
+      if (isCorrect) {
+        updateShowWinPopUp(true);
+      } else {
+        alert("game over");
       }
     } else {
       alert("word incomplete");
@@ -99,125 +98,69 @@ function Keyboard({
       window.removeEventListener("keydown", keyPress);
     };
   });
+
   return (
     <div className="keyboard-style">
       <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       ></link>
-      <button
-        className={gameUtils.eachKeyColor("Q", usedLetters)}
-        onClick={() => keyClick("Q")}
-      >
+      <button className="key" onClick={() => keyClick("Q")}>
         Q
       </button>
-      <button
-        className={gameUtils.eachKeyColor("W", usedLetters)}
-        onClick={() => keyClick("W")}
-      >
+      <button className="key-partial" onClick={() => keyClick("W")}>
         W
       </button>
-      <button
-        className={gameUtils.eachKeyColor("E", usedLetters)}
-        onClick={() => keyClick("E")}
-      >
+      <button className="key-correct" onClick={() => keyClick("E")}>
         E
       </button>
-      <button
-        className={gameUtils.eachKeyColor("R", usedLetters)}
-        onClick={() => keyClick("R")}
-      >
+      <button className="key-wrong" onClick={() => keyClick("R")}>
         R
       </button>
-      <button
-        className={gameUtils.eachKeyColor("T", usedLetters)}
-        onClick={() => keyClick("T")}
-      >
+      <button className="key" onClick={() => keyClick("T")}>
         T
       </button>
-      <button
-        className={gameUtils.eachKeyColor("Y", usedLetters)}
-        onClick={() => keyClick("Y")}
-      >
+      <button className="key" onClick={() => keyClick("Y")}>
         Y
       </button>
-      <button
-        className={gameUtils.eachKeyColor("U", usedLetters)}
-        onClick={() => keyClick("U")}
-      >
+      <button className="key" onClick={() => keyClick("U")}>
         U
       </button>
-      <button
-        className={gameUtils.eachKeyColor("I", usedLetters)}
-        onClick={() => keyClick("I")}
-      >
+      <button className="key" onClick={() => keyClick("I")}>
         I
       </button>
-      <button
-        className={gameUtils.eachKeyColor("O", usedLetters)}
-        onClick={() => keyClick("O")}
-      >
+      <button className="key" onClick={() => keyClick("O")}>
         O
       </button>
-      <button
-        className={gameUtils.eachKeyColor("P", usedLetters)}
-        onClick={() => keyClick("P")}
-      >
+      <button className="key" onClick={() => keyClick("P")}>
         P
       </button>
       <br></br>
-      <button
-        className={gameUtils.eachKeyColor("A", usedLetters)}
-        onClick={() => keyClick("A")}
-      >
+      <button className="special-key" onClick={() => keyClick("A")}>
         A
       </button>
-      <button
-        className={gameUtils.eachKeyColor("S", usedLetters)}
-        onClick={() => keyClick("S")}
-      >
+      <button className="key" onClick={() => keyClick("S")}>
         S
       </button>
-      <button
-        className={gameUtils.eachKeyColor("D", usedLetters)}
-        onClick={() => keyClick("D")}
-      >
+      <button className="key" onClick={() => keyClick("D")}>
         D
       </button>
-      <button
-        className={gameUtils.eachKeyColor("F", usedLetters)}
-        onClick={() => keyClick("F")}
-      >
+      <button className="key" onClick={() => keyClick("F")}>
         F
       </button>
-      <button
-        className={gameUtils.eachKeyColor("G", usedLetters)}
-        onClick={() => keyClick("G")}
-      >
+      <button className="key" onClick={() => keyClick("G")}>
         G
       </button>
-      <button
-        className={gameUtils.eachKeyColor("H", usedLetters)}
-        onClick={() => keyClick("H")}
-      >
+      <button className="key" onClick={() => keyClick("H")}>
         H
       </button>
-      <button
-        className={gameUtils.eachKeyColor("J", usedLetters)}
-        onClick={() => keyClick("J")}
-      >
+      <button className="key" onClick={() => keyClick("J")}>
         J
       </button>
-      <button
-        className={gameUtils.eachKeyColor("K", usedLetters)}
-        onClick={() => keyClick("K")}
-      >
+      <button className="key" onClick={() => keyClick("K")}>
         K
       </button>
-      <button
-        className={gameUtils.eachKeyColor("L", usedLetters)}
-        onClick={() => keyClick("L")}
-      >
+      <button className="key" onClick={() => keyClick("L")}>
         L
       </button>
       <br></br>
@@ -225,52 +168,32 @@ function Keyboard({
       <button className="big-key" onClick={() => backspaceClick()}>
         <i className="material-icons">backspace</i>
       </button>
-      <button
-        className={gameUtils.eachKeyColor("Z", usedLetters)}
-        onClick={() => keyClick("Z")}
-      >
+      <button className="key" onClick={() => keyClick("Z")}>
         Z
       </button>
-      <button
-        className={gameUtils.eachKeyColor("X", usedLetters)}
-        onClick={() => keyClick("X")}
-      >
+      <button className="key" onClick={() => keyClick("X")}>
         X
       </button>
-      <button
-        className={gameUtils.eachKeyColor("C", usedLetters)}
-        onClick={() => keyClick("C")}
-      >
+      <button className="key" onClick={() => keyClick("C")}>
         C
       </button>
-      <button
-        className={gameUtils.eachKeyColor("V", usedLetters)}
-        onClick={() => keyClick("V")}
-      >
+      <button className="key" onClick={() => keyClick("V")}>
         V
       </button>
-      <button
-        className={gameUtils.eachKeyColor("B", usedLetters)}
-        onClick={() => keyClick("B")}
-      >
+      <button className="key" onClick={() => keyClick("B")}>
         B
       </button>
-      <button
-        className={gameUtils.eachKeyColor("N", usedLetters)}
-        onClick={() => keyClick("N")}
-      >
+      <button className="key" onClick={() => keyClick("N")}>
         N
       </button>
-      <button
-        className={gameUtils.eachKeyColor("M", usedLetters)}
-        onClick={() => keyClick("M")}
-      >
+      <button className="key" onClick={() => keyClick("M")}>
         M
       </button>
-      <button className="big-key" onClick={() => enterClick()}>
+      <button className="big-key" onClick={enterClick}>
         Enter
       </button>
     </div>
   );
 }
+
 export default Keyboard;

@@ -1,13 +1,7 @@
 @import "../../Utils/include-media.scss";
 
 .Grid-box-style {
-  position: absolute;
   width: 340px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
   padding-left: 16px;
   text-align: center;
   @include media(">lgdesktop") {
