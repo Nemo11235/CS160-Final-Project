@@ -49,8 +49,8 @@ function Keyboard({
       let feedback = gameUtils.inputCheck(word, input);
       if (gameUtils.isCorrect(feedback)) {
         updateShowWinPopUp(true);
-      } else {
-        alert(row != 5 ? feedback : "game over");
+      } else if (row == 5) {
+        alert(`game over, the correct word is ${word}`);
       }
       let tempcolor = gameUtils.colorArray(feedback);
       const tempArray = savedColor;
