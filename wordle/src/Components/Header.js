@@ -45,7 +45,7 @@ const Header = () => {
         >
           <img
             src={Logo}
-            style={{ height: "55px", width: "128px", marginTop: "5px" }}
+            style={{ height: "55px", width: "70px", marginTop: "5px" }}
           />
         </button>
       </HeaderThemeComponent>

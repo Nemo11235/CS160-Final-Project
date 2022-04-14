@@ -45,7 +45,7 @@ function HomePage() {
   }
 
   return (
-    <div className="home-style">
+    <div>
       <Header />
       <div className="grid">
         <NestedGrid
@@ -55,7 +55,6 @@ function HomePage() {
           savedColor={savedColor}
         />
       </div>
-
       <div className="keyboard">
         <Keyboard
           input={input}
@@ -72,7 +71,12 @@ function HomePage() {
           updateSavedColor={updateSavedColor}
         />
       </div>
-      {showWinPopUp && <WinPopUp updateShowWinPopUp={updateShowWinPopUp} />}
+      {showWinPopUp && (
+        <WinPopUp
+          updateShowWinPopUp={updateShowWinPopUp}
+          className="winpopup"
+        />
+      )}
     </div>
   );
 }
