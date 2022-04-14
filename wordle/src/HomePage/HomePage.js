@@ -11,7 +11,14 @@ function HomePage() {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
   const [usedLetters, setUsedLetters] = useState([""]);
   const [showWinPopUp, setShowWinPopUp] = useState(false);
-  const [savedColor, setSavedColor] = useState([[""], [""], [""], [""], [""]]);
+  const [savedColor, setSavedColor] = useState([
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+  ]);
 
   function updateInput(replace) {
     setInput(replace);

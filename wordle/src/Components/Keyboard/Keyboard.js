@@ -71,11 +71,15 @@ function Keyboard({
       if (isCorrect) {
         updateShowWinPopUp(true);
       } else {
-        tempcolor = gameUtils.colorArray(feedback);
-        tempArray[row] = tempcolor;
-        updateSavedColor(tempArray);
         alert("game over");
       }
+      const temp = wordList;
+      temp[row] = input;
+      tempArray[row] = tempcolor;
+      let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
+      updateUsedLetters(oldLetters);
+      updateWordList(temp);
+      updateSavedColor(tempArray);
     } else {
       alert("word incomplete");
     }

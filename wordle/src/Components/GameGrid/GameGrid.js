@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -23,13 +23,15 @@ FormRow.propTypes = {
 
 function FormRow({ word, colorArray }) {
   //creating each row by calling this function
-  console.log(colorArray);
   // this function check that colorArray is not undefined and not empty
   // and change the cell color for each cell according to colorArray
+  const [color, setColor] = useState(colorArray);
+  useEffect(() => {
+    setColor(colorArray);
+  }, [colorArray]);
+  console.log(color);
   function checkColor(cellNum) {
-    return colorArray && Array.isArray(colorArray) && colorArray.length
-      ? colorArray[cellNum]
-      : "white";
+    return color && color.length ? color[cellNum] : "white";
   }
   return (
     <React.Fragment>
@@ -71,6 +73,7 @@ NestedGrid.propTypes = {
 export default function NestedGrid({ input, wordList, row, savedColor }) {
   //this function returns the grid and calls FormRow() function to create row
   console.log(savedColor);
+  console.log(wordList);
   return (
     <Box className="Grid-box-style">
       <Grid container spacing={1}>
@@ -105,6 +108,7 @@ export default function NestedGrid({ input, wordList, row, savedColor }) {
           {row === 4 && <FormRow word={input} />}
         </Grid>
         <Grid container item spacing={2}>
+          {console.log("something", savedColor[5])}
           {row !== 5 && (
             <FormRow word={wordList[5]} colorArray={savedColor[5]} />
           )}
