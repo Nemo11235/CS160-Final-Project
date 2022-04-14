@@ -44,19 +44,16 @@ function Keyboard({
 
   // onclick function of enter key
   const enterClick = () => {
-    let tempcolor = [];
-    const tempArray = savedColor;
-    let feedback = gameUtils.inputCheck(word, input);
-    let isCorrect = gameUtils.isCorrect(feedback);
     // if this is not the last attempt and input is valid
-    if (row < 5 && input.length == 5) {
-      if (isCorrect) {
+    if (input.length == 5) {
+      let feedback = gameUtils.inputCheck(word, input);
+      if (gameUtils.isCorrect(feedback)) {
         updateShowWinPopUp(true);
       } else {
-        tempcolor = gameUtils.colorArray(feedback);
-        alert(feedback);
+        alert(row != 5 ? feedback : "game over");
       }
-      // update the wordList, row number, and reset the input to empty
+      let tempcolor = gameUtils.colorArray(feedback);
+      const tempArray = savedColor;
       const temp = wordList;
       temp[row] = input;
       tempArray[row] = tempcolor;
@@ -65,21 +62,9 @@ function Keyboard({
       updateWordList(temp);
       updateSavedColor(tempArray);
       updateRow((prev) => prev + 1);
-      updateInput("");
-      // if this is the last valid attempt
-    } else if (row == 5 && input.length == 5) {
-      if (isCorrect) {
-        updateShowWinPopUp(true);
-      } else {
-        alert("game over");
+      if (row != 5) {
+        updateInput("");
       }
-      const temp = wordList;
-      temp[row] = input;
-      tempArray[row] = tempcolor;
-      let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
-      updateUsedLetters(oldLetters);
-      updateWordList(temp);
-      updateSavedColor(tempArray);
     } else {
       alert("word incomplete");
     }
@@ -282,7 +267,7 @@ function Keyboard({
       >
         M
       </button>
-      <button className="big-key" onClick={enterClick}>
+      <button className="big-key" onClick={() => enterClick()}>
         Enter
       </button>
     </div>

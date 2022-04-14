@@ -67,14 +67,8 @@ function HomePage() {
         updateShowWinPopUp={updateShowWinPopUp}
         savedColor={savedColor}
         updateSavedColor={updateSavedColor}
-        className="keyboard"
       />
-      {showWinPopUp && (
-        <WinPopUp
-          updateShowWinPopUp={updateShowWinPopUp}
-          className="winpopup"
-        />
-      )}
+      {showWinPopUp && <WinPopUp updateShowWinPopUp={updateShowWinPopUp} />}
     </div>
   );
 }
