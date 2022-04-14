@@ -12,7 +12,23 @@ function GameContent({ socket, username, room, word }) {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]); // the words that the user entered so far
   const [usedLetters, setUsedLetters] = useState([""]); // feedback on each letter, N Y P
   const [showWinPopUp, setShowWinPopUp] = useState(false); // whether or not show the win pop-up window
+  const [savedColor, setSavedColor] = useState([
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+  ]);
 
+  const [savedColorB, setSavedColorB] = useState([
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+  ]);
   const [rowB, setRowB] = useState(0);
   const [wordListB, setWordListB] = useState(["", "", "", "", "", ""]);
 
@@ -42,6 +58,7 @@ function GameContent({ socket, username, room, word }) {
       username: username,
       row: row,
       wordList: wordList,
+      savedColor: savedColor,
     };
 
     await socket.emit("send_data", gameData);
@@ -51,6 +68,7 @@ function GameContent({ socket, username, room, word }) {
     socket.on("receive_data", (data) => {
       setRowB(data.row);
       setWordListB(data.wordList);
+      setSavedColorB(data.savedColor);
     });
   }, [socket]);
 
@@ -58,10 +76,20 @@ function GameContent({ socket, username, room, word }) {
     <div>
       <div className="grid-container">
         <div className="grid-one">
-          <NestedGrid input={input} wordList={wordList} row={row} />
+          <NestedGrid
+            input={input}
+            wordList={wordList}
+            row={row}
+            savedColor={savedColor}
+          />
         </div>
         <div className="grid-two">
-          <NestedGrid input={""} wordList={wordListB} row={rowB} />
+          <NestedGrid
+            input={""}
+            wordList={wordListB}
+            row={rowB}
+            savedColor={savedColorB}
+          />
         </div>
       </div>
       <div className="keyboard">
@@ -76,6 +104,8 @@ function GameContent({ socket, username, room, word }) {
           usedLetters={usedLetters}
           updateUsedLetters={updateUsedLetters}
           updateShowWinPopUp={updateShowWinPopUp}
+          savedColor={savedColor}
+          setSavedColor={setSavedColor}
         />
         <button onClick={sendGameData}>send</button>
       </div>

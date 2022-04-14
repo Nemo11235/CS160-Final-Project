@@ -11,6 +11,7 @@ function MultiplayerPage() {
   const [room, setRoom] = useState("");
   const [showGame, setShowGame] = useState(false); // show the grid and keyboard after user entering the room
   const [inGame, setInGame] = useState(false);
+
   const joinRoom = () => {
     if (username !== "" && room !== "") {
       const roomData = {
