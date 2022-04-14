@@ -18,8 +18,8 @@ io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
-    socket.join(data);
-    console.log(`User ID: ${data.user} joined room: ${data.room}`);
+    socket.join(data.room);
+    console.log(`User ID: ${data.username} joined room: ${data.room}`);
   });
 
   socket.on("disconnect", () => {
@@ -28,7 +28,6 @@ io.on("connection", (socket) => {
 
   socket.on("send_data", (data) => {
     socket.to(data.room).emit("receive_data", data);
-    console.log(data);
   });
 });
 

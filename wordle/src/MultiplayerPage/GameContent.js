@@ -78,7 +78,7 @@ function GameContent({ socket, username, room, word }) {
           updateUsedLetters={updateUsedLetters}
           updateShowWinPopUp={updateShowWinPopUp}
         />
-        <button onClick={sendGameData}>send</button>
+        <button onClick={() => sendGameData()}>send data to server</button>
       </div>
       {showWinPopUp && (
         <WinPopUp

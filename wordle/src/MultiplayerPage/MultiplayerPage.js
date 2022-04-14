@@ -15,7 +15,7 @@ function MultiplayerPage() {
     if (username !== "" && room !== "") {
       const roomData = {
         room: room,
-        user: username,
+        username: username,
       };
       socket.emit("join_room", roomData);
       setShowGame(true);
@@ -58,7 +58,7 @@ function MultiplayerPage() {
               setRoom(event.target.value);
             }}
           />
-          <button onClick={joinRoom}>Join</button>
+          <button onClick={() => joinRoom()}>Join</button>
         </div>
       ) : (
         <GameContent
