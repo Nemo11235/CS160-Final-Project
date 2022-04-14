@@ -11,6 +11,14 @@ function HomePage() {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
   const [usedLetters, setUsedLetters] = useState([""]);
   const [showWinPopUp, setShowWinPopUp] = useState(false);
+  const [savedColor, setSavedColor] = useState([
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+  ]);
 
   function updateInput(replace) {
     setInput(replace);
@@ -28,6 +36,10 @@ function HomePage() {
     setUsedLetters(newArray);
   }
 
+  function updateSavedColor(newArray) {
+    setSavedColor(newArray);
+  }
+
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
   }
@@ -35,7 +47,12 @@ function HomePage() {
   return (
     <div className="home-style">
       <Header />
-      <NestedGrid input={input} wordList={wordList} row={row} />
+      <NestedGrid
+        input={input}
+        wordList={wordList}
+        row={row}
+        savedColor={savedColor}
+      />
 
       <Keyboard
         input={input}
@@ -48,14 +65,10 @@ function HomePage() {
         usedLetters={usedLetters}
         updateUsedLetters={updateUsedLetters}
         updateShowWinPopUp={updateShowWinPopUp}
-        className="keyboard"
+        savedColor={savedColor}
+        updateSavedColor={updateSavedColor}
       />
-      {showWinPopUp && (
-        <WinPopUp
-          updateShowWinPopUp={updateShowWinPopUp}
-          className="winpopup"
-        />
-      )}
+      {showWinPopUp && <WinPopUp updateShowWinPopUp={updateShowWinPopUp} />}
     </div>
   );
 }
