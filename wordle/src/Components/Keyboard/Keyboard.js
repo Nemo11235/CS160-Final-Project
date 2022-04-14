@@ -53,7 +53,6 @@ function Keyboard({
       const temp = wordList;
       temp[row] = input;
       let oldLetters = gameUtils.usedLetters(input, feedback, usedLetters);
-
       updateUsedLetters(oldLetters);
       updateWordList(temp);
       updateRow((prev) => prev + 1);

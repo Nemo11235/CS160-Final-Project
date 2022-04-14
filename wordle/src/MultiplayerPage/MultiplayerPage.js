@@ -58,7 +58,7 @@ function MultiplayerPage() {
               setRoom(event.target.value);
             }}
           />
-          <button onClick={joinRoom}>Join</button>
+          <button onClick={() => joinRoom()}>Join</button>
         </div>
       ) : (
         <GameContent

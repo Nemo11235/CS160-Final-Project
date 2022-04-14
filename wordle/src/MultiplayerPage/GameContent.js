@@ -43,7 +43,6 @@ function GameContent({ socket, username, room, word }) {
       row: row,
       wordList: wordList,
     };
-    console.log(gameData);
 
     await socket.emit("send_data", gameData);
   };
