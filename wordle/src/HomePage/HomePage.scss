@@ -1,16 +1,3 @@
-@import "../Utils/include-media.scss";
-
-.grid {
-  position: fixed;
-  margin-top: 20px;
-  margin-left: calc(50% - 178px);
-  @include media(">lgdesktop") {
-    margin-left: calc(50% - 233px);
-  }
-}
-
-.keyboard {
-  position: fixed;
-  bottom: 40px;
-  width: 100%;
+.home-style {
+  position: relative;
 }
