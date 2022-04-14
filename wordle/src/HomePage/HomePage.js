@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
 import WinPopUp from "./WinPopUp";
+import "./HomePage.scss";
 
 function HomePage() {
   let word = "APPLE";
@@ -45,7 +46,7 @@ function HomePage() {
   }
 
   return (
-    <div className="home-style">
+    <div>
       <Header />
       <NestedGrid
         input={input}
