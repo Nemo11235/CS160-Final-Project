@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Logo from "../../Images/Logo_Full_Background.png";
+import Logo from "../../Images/logo.png";
 import ExitBtn from "../../Images/Exit_Button.png";
 import Switch from "../Switch/Switch";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const HamburgerMenu = (props) => {
         <img src={ExitBtn} />
       </button>
 
-      <div className={"logo-img"} style={{ border: "0.5px" }} >
+      <div className={"logo"} style={{ border: "0.5px" }} >
         <img src={Logo} />
       </div>
 

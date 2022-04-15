@@ -1,6 +1,6 @@
 import React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
-import Logo from "../../Images/Logo_Kugi_Background.png";
+import Logo from "../../Images/kugi.png";
 import HamImg from "../../Images/Hamburger_Menu.png";
 import AccIcon from "../../Images/Account_Icon.png";
 import { useNavigate } from "react-router-dom";
