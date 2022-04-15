@@ -24,34 +24,17 @@ function HomePage() {
   }
 
   /* Hamburger Menu Implementation */
-  let [hamburgerOpen, setHamburgerOpen] = useState(0);
-  let [hamburgerMultOpen, setHamburgerMultOpen] = useState(0);
+  let [hamburgerOpen, setHamburgerOpen] = useState(false);
   const hamburgerOpenHandler = () => {
-    setHamburgerOpen(hamburgerOpen + 1);
-    // alert("open() called in HamburgerMenu, new value is " + hamburgerOpen);
+    setHamburgerOpen(!hamburgerOpen);
   };
-  const hamburgerCloseHandler = () => {
-    setHamburgerOpen(hamburgerOpen - 1);
-    // alert("close() called in HamburgerMenu, new value is " + hamburgerOpen);
-  };
-  const hamburgerMultOpenHandler = () => {
-    setHamburgerMultOpen(hamburgerMultOpen + 1);
-    // alert("multOpen() called in hamburgerMultCloseHandler, new value is " + hamburgerMultOpen);
-  }
-  const hamburgerMultCloseHandler = () => {
-    setHamburgerMultOpen(hamburgerMultOpen - 1);
-    // alert("multClose() called in hamburgerMultCloseHandler, new value is " + hamburgerMultOpen);
-  }
   let hamburgerMenu = <HamburgerMenu />;
   let hamburgerBlur;
   if (hamburgerOpen) {
     hamburgerMenu = <HamburgerMenu
       open={hamburgerOpen}
-      close={hamburgerCloseHandler}
-      openMult={hamburgerMultOpen}
-      multOpen={hamburgerMultOpenHandler}
-      multClose={hamburgerMultCloseHandler} />;
-    hamburgerBlur = <HamburgerBlur close={hamburgerCloseHandler} />;
+      close={hamburgerOpenHandler} />;
+    hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
   }
 
   return (
