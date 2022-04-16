@@ -1,0 +1,22 @@
+.switch {
+    // Gray inside area
+ 
+    // Get the correct Y axis...
+    top: -20%;
+    left: 5%;
+    // vertical-align: ;
+ 
+    position: relative;
+    display: inline-block;
+ 
+    // Use percentages instead of pixels
+    // width: 20%;
+    // height: 40%;
+    width: 60px; // Size of the inside gray area
+    height: 34px;
+    border-radius: 25px;
+}
+ 
+.switch input {
+    opacity: 0;
+}

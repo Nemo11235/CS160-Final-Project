@@ -18,15 +18,23 @@
 // }));
 
 .header-style {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
   color: white;
   background-color: #dbd4d3;
-  text-align: center;
   height: 75px;
   border-bottom: 0.5px solid black;
   box-shadow: 1px 1px 5px grey;
 }
 
 .button-logo {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translate(-50%, -50%);
   height: 70px;
   width: 182px;
   background-color: transparent;
@@ -39,4 +47,30 @@
   height: 55px;
   width: 70px;
   margin-top: 5px;
+}
+
+.hamburger-menu {
+  margin-left: 40px;
+  border: 0.5px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.hamburger-menu img {
+  background-color: transparent;
+}
+
+.account {
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.ham-img {
+  width: 40px;
+  height: 40px;
+}
+
+.acc-img {
+  width: 50px;
+  height: 50px;
 }
