@@ -5,8 +5,9 @@ import Keyboard from "../Components/Keyboard/Keyboard";
 import WinPopUp from "../HomePage/WinPopUp";
 import "./GameContent.scss";
 
-function GameContent({ socket, username, room, word }) {
+function GameContent({ socket, room, word }) {
   // states for the user
+
   const [input, setInput] = useState(""); // user's input of the current row
   const [row, setRow] = useState(0); // current row number, first row is row 0
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]); // the words that the user entered so far
@@ -55,27 +56,37 @@ function GameContent({ socket, username, room, word }) {
     setSavedColor(newArray);
   }
 
-  const sendGameData = async () => {
-    const gameData = {
-      room: room,
-      username: username,
-      row: row,
-      wordList: wordList,
-      savedColor: savedColor,
-    };
-
-    await socket.emit("send_data", gameData);
-  };
+  // const sendGameData = () => {
+  //   const gameData = {
+  //     room: room,
+  //     username: username,
+  //     row: row,
+  //     wordList: wordList,
+  //     savedColor: savedColor,
+  //   };
+  //   socket.emit("send_data", gameData);
+  // };
   useEffect(() => {
     socket.on("receive_data", (data) => {
+      console.log("received data from use Effect", data);
       setRowB(data.row);
       setSavedColorB(data.savedColor);
     });
+    console.log("from useEffect");
   }, [socket]);
+
+  // function keyPress(e) {
+  //   if (e.key == "Enter") {
+  //     sendGameData();
+  //   }
+  // }
+
+  // React.useEffect(() => {
+  //   window.addEventListener("keydown", keyPress);
+  // }, []);
 
   return (
     <div>
-      <button onClick={sendGameData}>send</button>
       <div className="grid-container">
         <div className="grid-one">
           <NestedGrid
@@ -108,6 +119,8 @@ function GameContent({ socket, username, room, word }) {
           updateShowWinPopUp={updateShowWinPopUp}
           savedColor={savedColor}
           updateSavedColor={updateSavedColor}
+          room={room}
+          socket={socket}
         />
       </div>
       {showWinPopUp && (

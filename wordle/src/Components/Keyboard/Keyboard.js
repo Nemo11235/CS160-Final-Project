@@ -16,6 +16,8 @@ function Keyboard({
   savedColor,
   updateSavedColor,
   updateShowWinPopUp,
+  room,
+  socket,
 }) {
   // onclick function for letter keys
   const keyClick = (letter) => {
@@ -25,6 +27,16 @@ function Keyboard({
   // onclick function of backspace key
   const backspaceClick = () => {
     updateInput(input.substring(0, input.length - 1));
+  };
+
+  const sendGameData = () => {
+    const gameData = {
+      room: room,
+      row: row,
+      wordList: wordList,
+      savedColor: savedColor,
+    };
+    socket.emit("send_data", gameData);
   };
 
   // onclick function of enter key
@@ -46,7 +58,9 @@ function Keyboard({
       updateUsedLetters(oldLetters);
       updateWordList(temp);
       updateSavedColor(tempArray);
+
       updateRow((prev) => prev + 1);
+      sendGameData();
       if (row != 5) {
         updateInput("");
       }
@@ -272,6 +286,8 @@ Keyboard.propTypes = {
   updateSavedColor: PropTypes.func,
   savedColor: PropTypes.array,
   updateShowWinPopUp: PropTypes.func,
+  socket: PropTypes.func,
+  room: PropTypes.string,
 };
 
 export default Keyboard;
