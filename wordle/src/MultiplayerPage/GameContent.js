@@ -66,7 +66,6 @@ function GameContent({ socket, username, room, word }) {
 
     await socket.emit("send_data", gameData);
   };
-
   useEffect(() => {
     socket.on("receive_data", (data) => {
       setRowB(data.row);
@@ -76,6 +75,7 @@ function GameContent({ socket, username, room, word }) {
 
   return (
     <div>
+      <button onClick={sendGameData}>send</button>
       <div className="grid-container">
         <div className="grid-one">
           <NestedGrid
@@ -109,7 +109,6 @@ function GameContent({ socket, username, room, word }) {
           savedColor={savedColor}
           updateSavedColor={updateSavedColor}
         />
-        <button onClick={sendGameData}>send</button>
       </div>
       {showWinPopUp && (
         <WinPopUp

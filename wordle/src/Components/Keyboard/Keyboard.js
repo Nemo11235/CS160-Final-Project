@@ -29,7 +29,6 @@ function Keyboard({
 
   // onclick function of enter key
   const enterClick = () => {
-    console.log("clicked");
     // if this is not the last attempt and input is valid
     if (input.length == 5) {
       let feedback = gameUtils.inputCheck(word, input);
