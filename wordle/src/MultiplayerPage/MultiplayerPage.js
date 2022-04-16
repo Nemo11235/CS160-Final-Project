@@ -2,7 +2,7 @@ import io from "socket.io-client";
 import React, { useState } from "react";
 import "./MultiplayerPage.scss";
 import GameContent from "./GameContent";
-import Header from "../Components/Header";
+import Header from "../Components/Header/Header";
 
 const socket = io.connect("http://localhost:3001");
 
