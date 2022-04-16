@@ -1,0 +1,35 @@
+.winpopup-style,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.content {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  padding: 14px 28px;
+  border: 1px solid black;
+  border-radius: 3px;
+  max-width: 500px;
+  min-height: 160px;
+  text-align: center;
+}
+
+.close-btn {
+  width: 100px;
+  height: 30px;
+}

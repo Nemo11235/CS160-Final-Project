@@ -1,6 +1,7 @@
 import React from "react";
-import Header from "../Components/Header/Header";
-import KenImage from "../Images/Ken_Image.png";
+import Header from "../Components/Header";
+import "./AboutUsPage.scss";
+import KenImage from "../Images/ken-img.png";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import paths from "../Utils/paths";

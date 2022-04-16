@@ -1,5 +1,13 @@
-.home-style {
-  position: relative;
+@import "../Utils/include-media.scss";
+
+.grid {
+  position: fixed;
+  margin-top: 20px;
+  margin-left: calc(50% - 178px);
+
+  @include media(">lgdesktop") {
+    margin-left: calc(50% - 233px);
+  }
 }
 
 html {
@@ -8,4 +16,10 @@ html {
 
 body {
   height: 100%;
+}
+
+.keyboard {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
 }

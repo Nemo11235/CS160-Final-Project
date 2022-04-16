@@ -4,12 +4,24 @@ import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
+import WinPopUp from "./WinPopUp";
+import "./HomePage.scss";
 
 function HomePage() {
   let word = "APPLE";
   const [input, setInput] = useState("");
   const [row, setRow] = useState(0);
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
+  const [usedLetters, setUsedLetters] = useState([""]);
+  const [showWinPopUp, setShowWinPopUp] = useState(false);
+  const [savedColor, setSavedColor] = useState([
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+    [""],
+  ]);
 
   function updateInput(replace) {
     setInput(replace);
@@ -21,6 +33,18 @@ function HomePage() {
 
   function updateWordList(newArray) {
     setWordList(newArray);
+  }
+
+  function updateUsedLetters(newArray) {
+    setUsedLetters(newArray);
+  }
+
+  function updateSavedColor(newArray) {
+    setSavedColor(newArray);
+  }
+
+  function updateShowWinPopUp(value) {
+    setShowWinPopUp(value);
   }
 
   /* Hamburger Menu Implementation */
@@ -38,21 +62,40 @@ function HomePage() {
   }
 
   return (
-    <div className="home-style" style={{ height: "100%" }}>
+    <div>
       <Header click={hamburgerOpenHandler} />
       {hamburgerMenu}
       {hamburgerBlur}
-      <NestedGrid input={input} wordList={wordList} row={row} />
-      <Keyboard
-        input={input}
-        updateInput={updateInput}
-        row={row}
-        updateRow={updateRow}
-        wordList={wordList}
-        updateWordList={updateWordList}
-        word={word}
-      />
-      <p>{hamburgerOpen}</p>
+      <div className="grid">
+        <NestedGrid
+          input={input}
+          wordList={wordList}
+          row={row}
+          savedColor={savedColor}
+        />
+      </div>
+      <div className="keyboard">
+        <Keyboard
+          input={input}
+          updateInput={updateInput}
+          row={row}
+          updateRow={updateRow}
+          wordList={wordList}
+          updateWordList={updateWordList}
+          word={word}
+          usedLetters={usedLetters}
+          updateUsedLetters={updateUsedLetters}
+          updateShowWinPopUp={updateShowWinPopUp}
+          savedColor={savedColor}
+          updateSavedColor={updateSavedColor}
+        />
+      </div>
+      {showWinPopUp && (
+        <WinPopUp
+          updateShowWinPopUp={updateShowWinPopUp}
+          className="winpopup"
+        />
+      )}
     </div>
   );
 }
