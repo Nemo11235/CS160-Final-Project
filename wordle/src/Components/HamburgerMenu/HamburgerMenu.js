@@ -25,7 +25,7 @@ const HamburgerMenu = (props) => {
         <img src={ExitBtn} />
       </button>
 
-      <div className={"logo"} style={{ border: "0.5px" }} >
+      <div className={"logo"} >
         <img src={Logo} />
       </div>
 
@@ -39,7 +39,6 @@ const HamburgerMenu = (props) => {
         <li><a href="/">Custom Words</a></li>
       </ul>
     </nav>
-
   );
 };
 

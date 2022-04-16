@@ -11,8 +11,9 @@ import "./Header.scss";
 const customTheme = createTheme({
   palette: {
     primary: {
-      main: "#757780",
+      main: "#theme.palette.primary.contrastText",
       contrastText: "white",
+      border: "10px solid white",
     },
   },
 });
@@ -21,10 +22,12 @@ const HeaderThemeComponent = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  height: "80px",
   color: theme.palette.primary.contrastText,
   backgroundColor: theme.palette.primary.main,
-  padding: theme.spacing(0.5),
+  textAlign: "center",
+  height: "75px",
+  borderBottom: "0.5px solid black",
+  boxShadow: "1px 1px 5px grey",
 }));
 
 const Header = (props) => {
@@ -40,8 +43,21 @@ const Header = (props) => {
         <button className="hamburger-menu" onClick={props.click} >
           <img src={HamImg} />
         </button>
-        <button className="logo" onClick={goHome} >
-          <img src={Logo} />
+        <button
+          onClick={goHome}
+          style={{
+            height: "70px",
+            width: "182px",
+            background: "transparent",
+            border: "0",
+            marginTop: "5px",
+            cursor: "pointer",
+          }}
+        >
+          <img
+            src={Logo}
+            style={{ height: "55px", width: "70px", marginTop: "5px" }}
+          />
         </button>
         <div className="account">
           <img src={AccIcon} />

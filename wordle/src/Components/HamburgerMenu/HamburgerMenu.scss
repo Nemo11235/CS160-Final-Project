@@ -74,17 +74,17 @@
 }
 
 .logo {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-top: 1.5rem;
     display: flex;
     justify-content: center;
 }
 
 .logo img {
-    width: 30%;
-    height: 30%;
+    height: auto;
+    width: 40%;
     padding: 5px;
-    background-color: #E0E0E0;
-    border-style: solid;
-    border-radius: 20px;
+    background: transparent;
+    background-color: #dbd4d3;
+    border: 2px solid black;
+    border-radius: 10px;
 }
