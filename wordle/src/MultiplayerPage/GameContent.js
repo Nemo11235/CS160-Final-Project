@@ -76,6 +76,7 @@ function GameContent({ socket, username, room, word }) {
 
   return (
     <div>
+      <button onClick={sendGameData}>send</button>
       <div className="grid-container">
         <div className="grid-one">
           <NestedGrid
@@ -109,7 +110,6 @@ function GameContent({ socket, username, room, word }) {
           savedColor={savedColor}
           updateSavedColor={updateSavedColor}
         />
-        <button onClick={sendGameData}>send</button>
       </div>
       {showWinPopUp && (
         <WinPopUp

@@ -18,11 +18,20 @@
   color: #fff;
   transform: translate3d(0, 0, 0);
   vertical-align: top;
+
+  @include media("height<mid-h") {
+    width: 40px;
+    height: 40px;
+    margin: 5px 0 0 5px;
+  }
 }
  
 .big-key {
   @extend .key;
   width: 100px;
+  @include media("height<mid-h") {
+    width: 80px;
+  }
 }
 .special-key {
   @extend .key;
