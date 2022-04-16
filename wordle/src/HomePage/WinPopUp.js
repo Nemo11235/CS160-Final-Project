@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./WinPopUp.scss";
 
-WinPopUp.propTypes = {
-  updateShowWinPopUp: PropTypes.func,
-};
+
 
 function WinPopUp({ updateShowWinPopUp }) {
   return (
@@ -24,5 +22,9 @@ function WinPopUp({ updateShowWinPopUp }) {
     </div>
   );
 }
+
+WinPopUp.propTypes = {
+  updateShowWinPopUp: PropTypes.func,
+};
 
 export default WinPopUp;
