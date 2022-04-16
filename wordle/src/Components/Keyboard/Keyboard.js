@@ -3,21 +3,6 @@ import "./Keyboard.scss";
 import PropTypes from "prop-types";
 import gameUtils from "../../Utils/gameUtils";
 
-Keyboard.propTypes = {
-  input: PropTypes.string,
-  row: PropTypes.number,
-  updateInput: PropTypes.func,
-  updateRow: PropTypes.func,
-  updateWordList: PropTypes.func,
-  wordList: PropTypes.array,
-  word: PropTypes.string,
-  usedLetters: PropTypes.array,
-  updateUsedLetters: PropTypes.func,
-  updateSavedColor: PropTypes.func,
-  savedColor: PropTypes.array,
-  updateShowWinPopUp: PropTypes.func,
-};
-
 function Keyboard({
   input,
   updateInput,
@@ -274,4 +259,20 @@ function Keyboard({
     </div>
   );
 }
+
+Keyboard.propTypes = {
+  input: PropTypes.string,
+  row: PropTypes.number,
+  updateInput: PropTypes.func,
+  updateRow: PropTypes.func,
+  updateWordList: PropTypes.func,
+  wordList: PropTypes.array,
+  word: PropTypes.string,
+  usedLetters: PropTypes.array,
+  updateUsedLetters: PropTypes.func,
+  updateSavedColor: PropTypes.func,
+  savedColor: PropTypes.array,
+  updateShowWinPopUp: PropTypes.func,
+};
+
 export default Keyboard;

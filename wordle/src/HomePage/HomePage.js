@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Header from "../Components/Header";
+import Header from "../Components/Header/Header";
 import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
+import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
+import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 import WinPopUp from "./WinPopUp";
 import "./HomePage.scss";
 
@@ -45,9 +47,25 @@ function HomePage() {
     setShowWinPopUp(value);
   }
 
+  /* Hamburger Menu Implementation */
+  let [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const hamburgerOpenHandler = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
+  let hamburgerMenu = <HamburgerMenu />;
+  let hamburgerBlur;
+  if (hamburgerOpen) {
+    hamburgerMenu = <HamburgerMenu
+      open={hamburgerOpen}
+      close={hamburgerOpenHandler} />;
+    hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
+  }
+
   return (
     <div>
-      <Header />
+      <Header click={hamburgerOpenHandler} />
+      {hamburgerMenu}
+      {hamburgerBlur}
       <div className="grid">
         <NestedGrid
           input={input}

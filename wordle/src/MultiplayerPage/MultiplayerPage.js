@@ -2,7 +2,9 @@ import io from "socket.io-client";
 import React, { useState } from "react";
 import "./MultiplayerPage.scss";
 import GameContent from "./GameContent";
-import Header from "../Components/Header";
+import Header from "../Components/Header/Header";
+import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
+import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -39,9 +41,25 @@ function MultiplayerPage() {
     }
   }
 
+  /* Hamburger Menu Implementation */
+  let [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const hamburgerOpenHandler = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
+  let hamburgerMenu = <HamburgerMenu />;
+  let hamburgerBlur;
+  if (hamburgerOpen) {
+    hamburgerMenu = <HamburgerMenu
+      open={hamburgerOpen}
+      close={hamburgerOpenHandler} />;
+    hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
+  }
+
   return (
     <div className="multiplayer-style">
-      <Header />
+      <Header click={hamburgerOpenHandler} />
+      {hamburgerMenu}
+      {hamburgerBlur}
       {!showGame ? (
         <div className="join-game-container">
           <h3>Join a game room</h3>

@@ -2,6 +2,7 @@
 const paths = {
   home: `/home`,
   about: `/about`,
+  race: `/race`,
 };
 
 export default paths;
