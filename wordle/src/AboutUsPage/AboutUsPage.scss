@@ -1,5 +1,6 @@
 @import "../Utils/include-media.scss";
 
+
 .about-us-style {
   position: flex;
   height: 100%;
@@ -27,6 +28,11 @@
     width: 1100px;
     height: 600px;
   }
+
+  @include media("<mddesktop") {
+    width: 900px;
+    height: 450px;
+  }
 }
 
 .title {
@@ -34,6 +40,11 @@
   font-size: 65px;
   @include media("<lgdesktop") {
     font-size: 45px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  @include media("<mddesktop") {
+    font-size: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -56,6 +67,7 @@
   @include media("<lgdesktop") {
     margin-left: 120px;
   }
+
 }
 
 .ken-img {
@@ -65,11 +77,19 @@
     height: 180px;
     width: 160px;
   }
+  @include media("<mddesktop") {
+    height: 90px;
+    width: 80px;
+  }
 }
 
 .team-img {
   height: 180px;
   width: 500px;
+  @include media("<mddesktop") {
+    height: 90px;
+    width: 250px;
+  }
 }
 
 .ken-wrapper {

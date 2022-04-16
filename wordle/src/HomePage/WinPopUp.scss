@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 .winpopup-style,
 .overlay {
   width: 100vw;
@@ -14,6 +15,7 @@
 }
 
 .content {
+  font-family: "Open Sans", sans-serif;
   position: absolute;
   top: 30%;
   left: 0;
@@ -30,6 +32,18 @@
 }
 
 .close-btn {
-  width: 100px;
-  height: 30px;
+  width: 225px;
+  height: 50px;
+  margin: 7px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background: #43a047;
+  color: #fff;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #2e7d32;
 }
