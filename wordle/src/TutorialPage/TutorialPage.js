@@ -1,4 +1,4 @@
-import "./Tutorial.scss";
+import "./TutorialPage.scss";
 import Header from "../Components/Header/Header";
 import React, { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -8,7 +8,7 @@ import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 
 // class Tutorial extends Component
-function Tutorial() {
+function TutorialPage() {
   let navigate = useNavigate();
 
   function goHome() {
@@ -126,4 +126,4 @@ function Tutorial() {
   );
 }
 
-export default Tutorial;
+export default TutorialPage;
