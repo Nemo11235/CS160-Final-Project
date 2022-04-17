@@ -3,6 +3,7 @@ const paths = {
   home: `/home`,
   about: `/about`,
   race: `/race`,
+  tutorial: `/tutorial`,
 };
 
 export default paths;
