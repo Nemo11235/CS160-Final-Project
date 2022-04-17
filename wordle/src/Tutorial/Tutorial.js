@@ -1,4 +1,4 @@
-import "./Tutorial.css";
+import "./Tutorial.scss";
 import Header from "../Components/Header/Header";
 import React, { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
