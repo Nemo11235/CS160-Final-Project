@@ -4,6 +4,7 @@ import "./App.css";
 import AboutUsPage from "./AboutUsPage/AboutUsPage";
 import HomePage from "./HomePage/HomePage";
 import MultiplayerPage from "./MultiplayerPage/MultiplayerPage";
+import Tutorial from "./Tutorial/Tutorial";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/race" element={<MultiplayerPage />} />
+        <Route path="/tutorial" element={<Tutorial/>} />
       </Routes>
     </Router>
   );
