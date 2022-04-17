@@ -21,6 +21,9 @@ const HamburgerMenu = (props) => {
   function goMultiplayer() {
     navigate(paths.race);
   }
+  function goTutorial() {
+    navigate(paths.tutorial);
+  }
 
   return (
     <nav className={navClasses}>
@@ -34,7 +37,9 @@ const HamburgerMenu = (props) => {
 
       <ul>
         <li>
-          <a href="/">Tutorial</a>
+          <div className="about-us-nav" onClick={goTutorial}>
+          <a href={goTutorial}>Tutorial</a>
+          </div>
         </li>
         <div className="about-us-nav" onClick={goMultiplayer}>
           <a href={goMultiplayer}>Multiplayer</a>
