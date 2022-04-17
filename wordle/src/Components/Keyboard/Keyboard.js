@@ -58,12 +58,11 @@ function Keyboard({
       updateUsedLetters(oldLetters);
       updateWordList(temp);
       updateSavedColor(tempArray);
-
       updateRow((prev) => prev + 1);
-      sendGameData();
       if (row != 5) {
         updateInput("");
       }
+      sendGameData();
     } else {
       alert("word incomplete");
     }
