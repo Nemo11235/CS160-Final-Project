@@ -66,14 +66,28 @@ function GameContent({ socket, room, word }) {
   //   };
   //   socket.emit("send_data", gameData);
   // };
+
+  const sendGameData = () => {
+    const gameData = {
+      room: room,
+      row: row,
+      wordList: wordList,
+      savedColor: savedColor,
+    };
+    socket.emit("send_data", gameData);
+  };
+
   useEffect(() => {
     socket.on("receive_data", (data) => {
       console.log("received data from use Effect", data);
       setRowB(data.row);
       setSavedColorB(data.savedColor);
     });
-    console.log("from useEffect");
   }, [socket]);
+
+  useEffect(() => {
+    sendGameData();
+  }, [row, savedColorB]);
 
   // function keyPress(e) {
   //   if (e.key == "Enter") {
