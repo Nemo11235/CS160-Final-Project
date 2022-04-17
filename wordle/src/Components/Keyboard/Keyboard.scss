@@ -18,6 +18,11 @@
   color: #fff;
   transform: translate3d(0, 0, 0);
   vertical-align: top;
+  @include media("height<midheight") {
+    width: 40px;
+    height: 40px;
+    margin: 5px 0 0 5px;
+  }
 }
  
 .big-key {

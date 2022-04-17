@@ -35,7 +35,7 @@ function AboutUsPage() {
       {hamburgerMenu}
       {hamburgerBlur}
       <button className="back-button" onClick={goHome}>
-        <ArrowBackIcon style={{ width: "97px", height: "77px" }} />
+        <ArrowBackIcon style={{ width: "5vw", height: "auto" }} />
       </button>
       <div className="card">
         <h1 className="title">About us</h1>

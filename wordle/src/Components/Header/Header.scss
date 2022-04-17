@@ -26,7 +26,7 @@
   width: 100%;
   color: white;
   background-color: #dbd4d3;
-  height: 75px;
+  height: 8vh;
   border-bottom: 0.5px solid black;
   box-shadow: 1px 1px 5px grey;
 }
@@ -34,10 +34,10 @@
 .button-logo {
   position: absolute;
   left: 50%;
-  top: 30px;
+  top: 3vh;
   transform: translate(-50%, -50%);
-  height: 70px;
-  width: 182px;
+  height: 6vh;
+  width: auto;
   background-color: transparent;
   border: 0;
   margin-top: 5px;
@@ -45,9 +45,8 @@
 }
 
 .logo-style {
-  height: 55px;
-  width: 70px;
-  margin-top: 5px;
+  height: 6vh;
+  width: auto;
 }
 
 .hamburger-menu {
@@ -67,13 +66,13 @@
 }
 
 .ham-img {
-  width: 40px;
-  height: 40px;
+  height: 5vh;
+  width: auto;
 }
 
 .acc-img {
-  width: 50px;
-  height: 50px;
+  height: 5vh;
+  width: auto;
 }
 
 .hamburger-menu {
