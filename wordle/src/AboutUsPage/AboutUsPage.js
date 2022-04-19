@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../Components/Header/Header";
 import KenImage from "../Images/ken-img.png";
+import TeamPic from "../Images/team.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
@@ -54,7 +55,7 @@ function AboutUsPage() {
           </div>
           <div className="team-wrapper">
             <h1>Team</h1>
-            <img src={KenImage} className="team-img" />
+            <img src={TeamPic} className="team-img" />
           </div>
         </div>
       </div>
