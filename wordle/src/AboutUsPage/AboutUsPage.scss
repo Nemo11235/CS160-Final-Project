@@ -1,0 +1,81 @@
+@import "../Utils/include-media.scss";
+
+.about-us-style {
+  position: flex;
+  height: 100%;
+}
+
+.back-button {
+  display: fixed;
+  margin-top: 3vh;
+  margin-left: 3vh;
+  background-color: transparent;
+  border: 0;
+  float: left;
+  width: 3vh;
+  height: auto;
+}
+
+.card {
+  float: right;
+  margin: 5vh 10vh auto auto;
+  width: 80vw;
+  height: 80vh;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+
+}
+
+.title {
+  text-align: center;
+  font-size: 65px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  @include media("<lgdesktop") {
+    font-size: 45px;
+  }
+}
+
+.text-content {
+  max-width: 85%;
+  margin: 0 auto 0 auto;
+  font-size: 32px;
+  @include media("<lgdesktop") {
+    font-size: 25px;
+    margin-top: 0;
+  }
+}
+
+.img-wrapper {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 10vw;
+}
+
+.ken-img {
+  height: 327px;
+  width: 300px;
+  @include media("<lgdesktop") {
+    height: 180px;
+    width: auto;
+  }
+}
+
+.team-img {
+  height: 180px;
+  width: auto;
+}
+
+.ken-wrapper {
+  text-align: center;
+  float: left;
+  margin-right: 10vw;
+}
+
+.team-wrapper {
+  text-align: center;
+  float: right;
+  width: 60%;
+}

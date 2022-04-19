@@ -1,0 +1,25 @@
+@import "../Utils/include-media.scss";
+
+.grid {
+  position: fixed;
+  margin-top: 20px;
+  margin-left: calc(50% - 178px);
+
+  @include media(">lgdesktop") {
+    margin-left: calc(50% - 233px);
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.keyboard {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+}

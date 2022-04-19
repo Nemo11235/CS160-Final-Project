@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+.winpopup-style,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.content {
+  font-family: "Open Sans", sans-serif;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  padding: 14px 28px;
+  border: 1px solid black;
+  border-radius: 3px;
+  max-width: 500px;
+  min-height: 160px;
+  text-align: center;
+}
+
+.close-btn {
+  width: 225px;
+    height: 50px;
+    margin: 7px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    background: #43a047;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #2e7d32;
+}
