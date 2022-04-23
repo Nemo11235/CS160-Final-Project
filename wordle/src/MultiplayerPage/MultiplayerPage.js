@@ -5,6 +5,7 @@ import GameContent from "./GameContent";
 import Header from "../Components/Header/Header";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
+import multiplayerUtils from "../Utils/multiplayerUtils";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -15,15 +16,13 @@ function MultiplayerPage() {
   const [inGame, setInGame] = useState(false);
 
   const joinRoom = () => {
-    if (username !== "" && room !== "") {
+    if (multiplayerUtils.isValidId(username) && room !== "") {
       const roomData = {
         room: room,
         user: username,
       };
       socket.emit("join_room", roomData);
       setShowGame(true);
-    } else {
-      alert("Please enter user ID and room ID");
     }
   };
 

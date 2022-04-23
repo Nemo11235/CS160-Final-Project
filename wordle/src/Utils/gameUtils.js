@@ -24,7 +24,11 @@ const gameUtils = {
     //Go through user input a second time to check for partial and wrong letters
     // if partial correct found, decrement hashmap value entry
     for (let i = 0; i < word.length; i++) {
-      if (word.includes(userInput[i]) && charCountMap.get(userInput[i]) > 0 && inputResults[i] != 'Y') {
+      if (
+        word.includes(userInput[i]) &&
+        charCountMap.get(userInput[i]) > 0 &&
+        inputResults[i] != "Y"
+      ) {
         inputResults[i] = "P";
         charCountMap.set(userInput[i], charCountMap.get(userInput[i]) - 1);
       } else if (inputResults[i] != "Y") {
