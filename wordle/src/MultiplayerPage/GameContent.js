@@ -56,17 +56,6 @@ function GameContent({ socket, room, word }) {
     setSavedColor(newArray);
   }
 
-  // const sendGameData = () => {
-  //   const gameData = {
-  //     room: room,
-  //     username: username,
-  //     row: row,
-  //     wordList: wordList,
-  //     savedColor: savedColor,
-  //   };
-  //   socket.emit("send_data", gameData);
-  // };
-
   const sendGameData = () => {
     const gameData = {
       room: room,
@@ -79,7 +68,6 @@ function GameContent({ socket, room, word }) {
 
   useEffect(() => {
     socket.on("receive_data", (data) => {
-      console.log("received data from use Effect", data);
       setRowB(data.row);
       setSavedColorB(data.savedColor);
     });
@@ -88,16 +76,6 @@ function GameContent({ socket, room, word }) {
   useEffect(() => {
     sendGameData();
   }, [row, savedColorB]);
-
-  // function keyPress(e) {
-  //   if (e.key == "Enter") {
-  //     sendGameData();
-  //   }
-  // }
-
-  // React.useEffect(() => {
-  //   window.addEventListener("keydown", keyPress);
-  // }, []);
 
   return (
     <div>
