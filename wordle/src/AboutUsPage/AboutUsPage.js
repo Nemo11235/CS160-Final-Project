@@ -1,10 +1,13 @@
-import React from "react";
-import Header from "../Components/Header";
-import "./AboutUsPage.scss";
+import React, { useState } from "react";
+import Header from "../Components/Header/Header";
 import KenImage from "../Images/ken-img.png";
+import TeamPic from "../Images/team.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
+import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 import { useNavigate } from "react-router-dom";
 import paths from "../Utils/paths";
+import "./AboutUsPage.scss";
 
 function AboutUsPage() {
   let navigate = useNavigate();
@@ -12,13 +15,33 @@ function AboutUsPage() {
   function goHome() {
     navigate(paths.home);
   }
+<<<<<<< HEAD
   
   
+=======
+
+  /* Hamburger Menu Implementation */
+  let [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const hamburgerOpenHandler = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
+  let hamburgerMenu = <HamburgerMenu />;
+  let hamburgerBlur;
+  if (hamburgerOpen) {
+    hamburgerMenu = (
+      <HamburgerMenu open={hamburgerOpen} close={hamburgerOpenHandler} />
+    );
+    hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
+  }
+
+>>>>>>> delivery-2
   return (
     <div className="about-us-style">
-      <Header />
+      <Header click={hamburgerOpenHandler} />
+      {hamburgerMenu}
+      {hamburgerBlur}
       <button className="back-button" onClick={goHome}>
-        <ArrowBackIcon style={{ width: "97px", height: "77px" }} />
+        <ArrowBackIcon style={{ width: "5vw", height: "auto" }} />
       </button>
       <div className="card">
         <h1 className="title">About us</h1>
@@ -37,7 +60,7 @@ function AboutUsPage() {
           </div>
           <div className="team-wrapper">
             <h1>Team</h1>
-            <img src={KenImage} className="team-img" />
+            <img src={TeamPic} className="team-img" />
           </div>
         </div>
       </div>

@@ -2,7 +2,8 @@
 const paths = {
   home: `/home`,
   about: `/about`,
-  user: `/user`,
+  race: `/race`,
+  tutorial: `/tutorial`,
 };
 
 export default paths;
