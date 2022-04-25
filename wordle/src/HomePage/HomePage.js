@@ -4,7 +4,7 @@ import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
-import WinPopUp from "./WinPopUp";
+import SingleplayerPopup from "../Components/SingleplayerPopup/SingleplayerPopup";
 import "./HomePage.scss";
 
 function HomePage() {
@@ -91,7 +91,7 @@ function HomePage() {
         />
       </div>
       {showWinPopUp && (
-        <WinPopUp
+        <SingleplayerPopup
           updateShowWinPopUp={updateShowWinPopUp}
           className="winpopup"
         />
