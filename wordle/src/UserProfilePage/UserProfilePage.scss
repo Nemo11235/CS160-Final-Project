@@ -1,201 +1,189 @@
 @import "../Utils/include-media.scss";
 
 .card {
-    float: right;
-    margin: 40px 170px auto auto;
-    width: 1518px;
-    height: 858px;
-    border: 2px solid black;
-    background-color: white;
-    border-radius: 20px;
-  
-    @include media("<lgdesktop") {
-      width: 1100px;
-      height: 600px;
-    }
+  float: right;
+  margin: 40px 170px auto auto;
+  width: 1518px;
+  height: 858px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+
+  @include media("<lgdesktop") {
+    width: 1100px;
+    height: 600px;
   }
+}
 
 .title {
-    text-align: center;
-    font-size: 65px;
-    @include media("<lgdesktop") {
-        font-size: 45px;
-        margin-top: 15px;
-        margin-bottom: 10px;
+  text-align: center;
+  font-size: 65px;
+  @include media("<lgdesktop") {
+    font-size: 45px;
+    margin-top: 15px;
+    margin-bottom: 10px;
   }
 }
 
 .card-top-left {
-    float: left;
-    margin: 20px 50px;
-    border: 2px solid black;
-    background-color: white;
-    border-radius: 20px;
-  
-    @include media("<lgdesktop") {
-      width: 400px;
-      height: 150px;
-    }
+  float: left;
+  margin: 20px 50px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+
+  @include media("<lgdesktop") {
+    width: 400px;
+    height: 150px;
+  }
 }
-    .title2 {
-        text-align: right;
-        @include media("<lgdesktop") {
-            font-size: 30px;
-            margin-top: -140px;
-            margin-right: 50px;
-    }
-    }
+.title2 {
+  text-align: left;
+  @include media("<lgdesktop") {
+    font-size: 30px;
+    margin-top: -140px;
+    margin-left: 170px;
+  }
+}
 
-    .acc-img {
-        text-align: left;
-        @include media("<lgdesktop") {
-            height: 150px;
-            width: 150px;
-        }
-    }
+.acc-img {
+  text-align: left;
+  @include media("<lgdesktop") {
+    height: 150px;
+    width: 150px;
+  }
+}
 
-    .sign-out {
-        text-align: center;
-        border: 2px solid black;
-        background-color: #C1666B;
-        border-radius: 20px;
-        margin: 30px 170px;
-        @include media("<lgdesktop") {
-            font-size: 20px;
-            height: 35px;
-            width: 110px;
-        }
-    }
+.sign-out {
+  text-align: center;
+  border: 2px solid black;
+  background-color: #c1666b;
+  border-radius: 20px;
+  margin: 30px 170px;
+  cursor: pointer;
+  @include media("<lgdesktop") {
+    font-size: 20px;
+    height: 35px;
+    width: 110px;
+  }
+}
 
-    .circle {
-        position: absolute;
-        border: 2px solid black;
-        border-radius: 50%;
-        @include media("<lgdesktop") {
-            margin: -165px 0px;
-            height: 147px;
-            width: 147px;
-        }
-    }
+.circle {
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 50%;
+  @include media("<lgdesktop") {
+    margin: -165px 0px;
+    height: 147px;
+    width: 147px;
+  }
+}
 
 .card-bot-left {
-    float: left;
-    margin: 245px -452px;
-    border: 2px solid black;
-    background-color: white;
-    border-radius: 20px;
-  
-    @include media("<lgdesktop") {
-      width: 400px;
-      height: 230px;
-    }
+  float: left;
+  margin: 245px -452px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+
+  @include media("<lgdesktop") {
+    width: 400px;
+    height: 230px;
+  }
 }
 
-    .title3 {
-        text-align: center;
-        @include media("<lgdesktop") {
-            font-size: 30px;
-            margin-top: 8px;
-            margin-bottom: 10px;
-        }
-    }
+.title3 {
+  text-align: center;
+  @include media("<lgdesktop") {
+    font-size: 30px;
+    margin-top: 14px;
+    margin-bottom: 10px;
+  }
+}
 
-    .text {
-        font-weight: normal;
-        @include media("<lgdesktop") {
-            font-size: 22px;
-            margin: 10px 20px;
-        }
-    }
+.text {
+  font-weight: normal;
+  @include media("<lgdesktop") {
+    font-size: 22px;
+    margin: 10px 20px;
+  }
+}
 
-    .upload-file {
-        @include media("<lgdesktop") {
-            margin: 8px 30px;
-        }
-    }
+.upload-file {
+  @include media("<lgdesktop") {
+    margin: 8px 30px;
+  }
+}
 
 .card-right {
-    float: right;
-    margin: 20px 45px;
-    border: 2px solid black;
-    background-color: white;
-    border-radius: 20px;
-  
-    @include media("<lgdesktop") {
-      width: 500px;
-      height: 455px;
-    }
+  float: right;
+  margin: 20px 45px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+
+  @include media("<lgdesktop") {
+    width: 500px;
+    height: 455px;
+  }
 }
 
-    .played {
-        text-align: center;
-        @include media("<lgdesktop") {
-            font-size: 24px;
-            margin: 20px 0px 0px -320px;
-        }
-    }
+.played {
+  text-align: center;
+  @include media("<lgdesktop") {
+    font-size: 24px;
+    margin: 20px 0px 0px -320px;
+  }
+}
 
-    .won {
-        text-align: center;
-        @include media("<lgdesktop") {
-            font-size: 24px;
-            margin: -55px 0px 0px -112.5px;
-        }
-    }
+.won {
+  text-align: center;
+  @include media("<lgdesktop") {
+    font-size: 24px;
+    margin: -55px 0px 0px -112.5px;
+  }
+}
 
-    .win-perc {
-        text-align: center;
-        @include media("<lgdesktop") {
-            font-size: 24px;
-            margin: -55px 0px 0px 70px;
-        }
-    }
+.win-perc {
+  text-align: center;
+  @include media("<lgdesktop") {
+    font-size: 24px;
+    margin: -55px 0px 0px 70px;
+  }
+}
 
-    .win-strk {
-        text-align: center;
-        @include media("<lgdesktop") {
-            font-size: 24px;
-            margin: -55px 0px 0px 300px;
-        }
-    }
+.win-strk {
+  text-align: center;
+  @include media("<lgdesktop") {
+    font-size: 24px;
+    margin: -55px 0px 0px 300px;
+  }
+}
 
-    .title4 {
-        text-align: center;
-        @include media("<lgdesktop") {
-            font-size: 30px;
-            margin: 50px 0px;
-        }
-    }
+.title4 {
+  text-align: center;
+  @include media("<lgdesktop") {
+    font-size: 30px;
+    margin: 50px 0px;
+  }
+}
 
-    .select-list {
-        text-align: left;
-        padding: 0px 10px;
-        display: grid;
-        cursor: pointer;
-        height: 200px;
-        width: 200px;
-        @include media("<lgdesktop") {
-            font-size: 24px;
-            margin: -20px 0px 0px 20px;
-        }
-    }
+.checkbox {
+  @include media("<lgdesktop") {
+    margin: -200px 0 0 240px;
+  }
+}
 
-    .checkbox {
-        @include media("<lgdesktop"){
-            margin: -200px 0 0 240px;
-        }
-    }
+.box-label {
+  font-size: 17px;
+  @include media("<lgdesktop") {
+    margin-left: 35px;
+  }
+}
 
-        .box-label {
-            font-size: 17px;
-            @include media("<lgdesktop") {
-                margin-left: 35px;
-            }
-        }
-
-        .check-box {
-            position: absolute;
-            cursor: pointer;
-            height: 22px;
-            width: 22px;
-        }
+.check-box {
+  position: absolute;
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+}

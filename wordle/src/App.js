@@ -6,18 +6,20 @@ import HomePage from "./HomePage/HomePage";
 import UserProfilePage from "./UserProfilePage/UserProfilePage";
 
 
-//dummy variables+component; later obtain values from database
-let played1 = "3";
-let won1 = "2";
-let winPercent1 = "66";
-let winStrk1 = "1";
+//dummy variables for UserProfilePage; later obtain values from database
+let username = "Ken Tsang"
+let played = "4";
+let won = "2";
+let winPercent = "66";
+let winStrk = "1";
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />
-        <Route path = "/user" element={<UserProfilePage played={played1} won={won1} winPercent={winPercent1} winStrk={winStrk1}/>} />
+        <Route path = "/user" element={<UserProfilePage username={username} played={played} won={won} winPercent={winPercent} winStrk={winStrk}/>} />
       </Routes>
     </Router>
   );
