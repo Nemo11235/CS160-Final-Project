@@ -92,8 +92,8 @@ function HomePage() {
       </div>
       {showWinPopUp && (
         <SingleplayerPopup
+          word={word}
           updateShowWinPopUp={updateShowWinPopUp}
-          className="winpopup"
         />
       )}
     </div>

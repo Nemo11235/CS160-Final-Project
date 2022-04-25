@@ -1,26 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ExitBtn from "../../Images/Exit_Button.png";
+import PartyIcon from "../../Images/Party_Icon.png";
 import "./SingleplayerPopup.scss";
 
-function SingleplayerPopup({ updateShowWinPopUp }) {
+function SingleplayerPopup(props) {
     return (
         <div className="winpopup-style">
             <div className="overlay">
                 <div className="content-background" >
-                    Put in the X icon here<br />
-                    Then attach the same action listener to it to close<br />
-                    What if I say Round Over! with party icon, and say the word was : word
-                </div>
-                <div className="content">
-                    <h2>Congratulations!</h2>
-                    <p>You have guessed the correct word!</p>
                     <button
-                        onClick={() => updateShowWinPopUp(false)}
-                        className="close-btn"
+                        className={"exit-btn"}
+                        onClick={() => props.updateShowWinPopUp(false)}
                     >
-                        close
+                        <img src={ExitBtn} />
                     </button>
+                    <div className="content">
+                        <h1><img src={PartyIcon}></img></h1>
+                        <h2>Round Over!</h2>
+                        <p>The word was: {props.word.charAt(0)}{props.word.substring(1).toLowerCase()}</p>
+                        <div>
+
+                            <button
+                                onClick={() => props.updateShowWinPopUp(false)}
+                                className="play_again-btn"
+                            >
+                                Play Again
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     );
@@ -28,6 +38,7 @@ function SingleplayerPopup({ updateShowWinPopUp }) {
 
 SingleplayerPopup.propTypes = {
     updateShowWinPopUp: PropTypes.func,
+    word: PropTypes.string,
 };
 
 export default SingleplayerPopup;
