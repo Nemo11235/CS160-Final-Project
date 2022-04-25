@@ -5,6 +5,11 @@ import PartyIcon from "../../Images/Party_Icon.png";
 import "./SingleplayerPopup.scss";
 
 function SingleplayerPopup(props) {
+    // Temporary feature to refresh the page. Will want a new word generated in future.
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <div className="winpopup-style">
             <div className="overlay">
@@ -20,9 +25,8 @@ function SingleplayerPopup(props) {
                         <h2>Round Over!</h2>
                         <p>The word was: {props.word.charAt(0)}{props.word.substring(1).toLowerCase()}</p>
                         <div>
-
                             <button
-                                onClick={() => props.updateShowWinPopUp(false)}
+                                onClick = {refreshPage}
                                 className="play_again-btn"
                             >
                                 Play Again
@@ -30,7 +34,6 @@ function SingleplayerPopup(props) {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
