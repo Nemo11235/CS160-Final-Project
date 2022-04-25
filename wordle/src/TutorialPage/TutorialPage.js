@@ -102,11 +102,10 @@ function TutorialPage() {
           <p className="regulartext">
             Words are randomly chosen from a public API.
             <br />
-            If you would like to you a custom list, please log in to the
+            If you would like to use your a custom list, please log in to the
             website. Afterward, custom .txt files containing five-letter words
-            separated by a new line can be uploaded in the
-            {"My Account"}page. Finally, check the box on the same page to
-            enable custom words.
+            separated by a new line can be uploaded in the {"My Account"} page.
+            Finally, check the box on the same page to enable custom words.
           </p>
           <h2 className="textcenter">
             <br />
