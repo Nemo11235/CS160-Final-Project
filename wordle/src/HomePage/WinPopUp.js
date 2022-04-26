@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./WinPopUp.scss";
 
-
-
 function WinPopUp({ updateShowWinPopUp }) {
   return (
     <div className="winpopup-style">
