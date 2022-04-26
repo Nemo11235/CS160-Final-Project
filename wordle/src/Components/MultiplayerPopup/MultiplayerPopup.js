@@ -1,9 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ExitBtn from "../../Images/Exit_Button.png"
+import { useNavigate } from "react-router-dom";
+import paths from "../../Utils/paths";
 import "./MultiplayerPopup.scss";
 
 function MultiplayerPopup(props) {
+    // Navigation with react-router
+    let navigate = useNavigate();
+    function goSingleplayer() {
+        navigate(paths.home);
+    }
+
     return (
         <div className="winpopup-style">
             <div className="overlay">
@@ -32,7 +40,9 @@ function MultiplayerPopup(props) {
                                 <button className="rematch-btn">
                                     Play Again
                                 </button>
-                                <button className="singleplayer-btn">
+                                <button
+                                    onClick={goSingleplayer}
+                                    className="singleplayer-btn">
                                     Singleplayer
                                 </button>
                             </div>

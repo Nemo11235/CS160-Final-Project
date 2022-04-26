@@ -38,7 +38,7 @@ const HamburgerMenu = (props) => {
       <ul>
         <li>
           <div className="about-us-nav" onClick={goTutorial}>
-          <a href={goTutorial}>Tutorial</a>
+            <a href={goTutorial}>Tutorial</a>
           </div>
         </li>
         <div className="about-us-nav" onClick={goMultiplayer}>
