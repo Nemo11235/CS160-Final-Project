@@ -5,7 +5,7 @@ import Keyboard from "../Components/Keyboard/Keyboard";
 import MultiplayerPopup from "../Components/MultiplayerPopup/MultiplayerPopup";
 import "./GameContent.scss";
 
-function GameContent({ socket, room, word }) {
+function GameContent({ socket, room, word, username }) {
   // states for the user
 
   const [input, setInput] = useState(""); // user's input of the current row
@@ -140,6 +140,10 @@ function GameContent({ socket, room, word }) {
       {showWinPopUp && (
         <MultiplayerPopup
           updateShowWinPopUp={updateShowWinPopUp}
+
+          word={word}
+          draw={false}
+          username={username}
         />
       )}
     </div>
