@@ -34,13 +34,18 @@
   /* grid-row-end: 4; */
   display: grid;
   float: left;
-  margin: 30px 30px 30px 30px;
+  margin: 30px 15px 30px 50px;
   /* margin-left: 50px; */
   width: auto;
   height: 650px;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
+}
+
+.card2 {
+  @extend .card1;
+  margin: 30px 50px 30px 15px;
 }
 
 .back-button {

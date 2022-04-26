@@ -33,11 +33,11 @@ function TutorialPage() {
       {hamburgerMenu}
       {hamburgerBlur}
       <button className="back-button" onClick={goHome}>
-        <ArrowBackIcon style={{ width: "97px", height: "77px" }} />
+        <ArrowBackIcon
+          style={{ width: "50px", height: "auto", marginRight: "10px" }}
+        />
       </button>
-      <div className="top">
-        <span className="title">How to play</span>
-      </div>
+
       <div className="wrapper">
         <div className="card1" grid-column-start="1">
           <br />
@@ -97,7 +97,7 @@ function TutorialPage() {
             <b>Got it! 🏆</b>
           </div>
         </div>
-        <div className="card1" grid-column-start="1">
+        <div className="card2" grid-column-start="1">
           <h2 className="textcenter">Singleplayer</h2>
           <p className="regulartext">
             Words are randomly chosen from a public API.
