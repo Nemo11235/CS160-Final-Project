@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../Components/Header";
+import Header from "../Components/Header/Header";
 import "./UserProfilePage.scss";
 import AccountImg from "../Images/account-img.png";
 import PropTypes from "prop-types";
 
-const UserProfilePage = ({ username, won, played, winPercent, winStrk }) => {
+const UserProfilePage = ({ username, won, played, winPercent }) => {
   return (
     <div className="user-profile-style">
       <Header />
@@ -19,13 +19,11 @@ const UserProfilePage = ({ username, won, played, winPercent, winStrk }) => {
         </div>
 
         <div className="card-bot-left">
-          <h1 className="title3">Add Custom Words</h1>
-          <h2 className="text">
-            • Upload .txt files only <br></br>• Separate each word with a new
-            line <br></br>• Words must be only five letters long <br></br>•
-            Words cannot repeat
-          </h2>
-          <input type="file" id="myFile" className="upload-file"></input>
+          <h1 className="title3">Word Selection</h1>
+          <label className="switch">
+            <input type="checkbox"></input>
+            <span className="slider round"></span>
+          </label>
         </div>
 
         <div className="card-right">
@@ -42,15 +40,17 @@ const UserProfilePage = ({ username, won, played, winPercent, winStrk }) => {
             {winPercent}
             <br></br>Win%
           </h1>
-          <h1 className="win-strk">
-            {winStrk}
-            <br></br>Win Streak
-          </h1>
 
-          <h1 className="title4">Custom Word List:</h1>
-          <div className="checkbox">
-            <input type="checkbox" className="check-box"></input>
-            <h2 className="box-label">Enable Custom Words</h2>
+          <div className="card-bot-right">
+            <h1 className="title3">Add Custom Words</h1>
+            <h2 className="text">
+              • Upload .txt files only <br></br>• Separate each word with a new
+              line <br></br>• Words must be only five letters long <br></br>•
+              Words cannot repeat
+            </h2>
+            <input type="file" id="myFile" className="upload-file"></input>
+            <button className="clear-all">Clear All</button>
+            <button className="add-file">Add File</button>
           </div>
         </div>
       </div>
@@ -63,7 +63,6 @@ UserProfilePage.propTypes = {
   played: PropTypes.string,
   won: PropTypes.string,
   winPercent: PropTypes.string,
-  winStrk: PropTypes.string,
 };
 
 export default UserProfilePage;

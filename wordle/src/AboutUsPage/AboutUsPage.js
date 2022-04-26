@@ -15,10 +15,6 @@ function AboutUsPage() {
   function goHome() {
     navigate(paths.home);
   }
-<<<<<<< HEAD
-  
-  
-=======
 
   /* Hamburger Menu Implementation */
   let [hamburgerOpen, setHamburgerOpen] = useState(false);
@@ -34,7 +30,6 @@ function AboutUsPage() {
     hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
   }
 
->>>>>>> delivery-2
   return (
     <div className="about-us-style">
       <Header click={hamburgerOpenHandler} />
