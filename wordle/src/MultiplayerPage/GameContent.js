@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
-import SingleplayerPopup from "../Components/SingleplayerPopup/SingleplayerPopup";
+import MultiplayerPopup from "../Components/MultiplayerPopup/MultiplayerPopup";
 import "./GameContent.scss";
 
 function GameContent({ socket, room, word }) {
@@ -138,9 +138,8 @@ function GameContent({ socket, room, word }) {
         />
       </div>
       {showWinPopUp && (
-        <SingleplayerPopup
+        <MultiplayerPopup
           updateShowWinPopUp={updateShowWinPopUp}
-          className="winpopup"
         />
       )}
     </div>
