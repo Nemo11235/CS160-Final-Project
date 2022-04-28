@@ -2,16 +2,14 @@
 
 .card {
   float: right;
-  margin: 25px 170px auto auto;
-  width: 1518px;
-  height: 858px;
+  margin: 3vh 22vh;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
 
   @include media("<lgdesktop") {
-    width: 1100px;
-    height: 600px;
+    width: 77vw;
+    height: 84vh;
   }
 }
 
@@ -26,14 +24,14 @@
 
 .card-top-left {
   float: left;
-  margin: 20px 50px;
+  margin: 3vh 7vh;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
 
   @include media("<lgdesktop") {
-    width: 400px;
-    height: 150px;
+    width: 28vw;
+    height: 21vh;
   }
 }
 .title2 {
@@ -73,7 +71,7 @@
   border: 2px solid black;
   border-radius: 50%;
   @include media("<lgdesktop") {
-    margin: -164px 0px;
+    margin: -162px 0px;
     height: 147px;
     width: 147px;
   }
@@ -87,9 +85,9 @@
   border-radius: 20px;
 
   @include media("<lgdesktop") {
-    margin: 235px 50px;
-    width: 400px;
-    height: 240px;
+    margin: 33vh 7vh;
+    width: 28vw;
+    height: 33vh;
   }
 }
 
@@ -151,14 +149,14 @@
 
 .card-bot-right {
   float: right;
-  margin: 80px 23px;
+  margin: 10.5vh 2.5vh;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
 
   @include media("<lgdesktop") {
-    width: 500px;
-    height: 230px;
+    width: 35vw;
+    height: 32vh;
   }
 }
 
@@ -202,15 +200,15 @@
 }
 
 .card-right {
-  margin: 20px 500px;
+  margin: 3vh 71vh;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
   position: absolute;
 
   @include media("<lgdesktop") {
-    width: 550px;
-    height: 455px;
+    width: 38vw;
+    height: 63vh;
   }
 }
 
