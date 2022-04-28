@@ -1,25 +1,45 @@
-@import "../Utils/include-media.scss";
+.title-font {
+  font-size: 4.5vh;
+}
+
+.small-font {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.buttons {
+  height: 6vh;
+  width: 10vw;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 2.5vh;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background: #43a047;
+  color: #fff;
+}
+
+.buttons:hover {
+  background: #2e7d32;
+}
 
 .card {
   float: right;
-  margin: 3vh 22vh;
+  margin: 3vh 10vh;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-
-  @include media("<lgdesktop") {
-    width: 77vw;
-    height: 84vh;
-  }
+  width: 85vw;
+  height: 84vh;
 }
 
 .title {
   text-align: center;
-  @include media("<lgdesktop") {
-    font-size: 6vh;
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
+  font-size: 6vh;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .card-top-left {
@@ -28,61 +48,35 @@
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-
-  @include media("<lgdesktop") {
-    width: 28vw;
-    height: 21vh;
-  }
+  width: 28vw;
+  height: 21vh;
 }
 .title2 {
+  @extend .title-font;
   text-align: left;
-  @include media("<lgdesktop") {
-    font-size: 4.8vh;
-    margin-top: -140px;
-    margin-left: 170px;
-  }
+  margin-top: -20vh;
+  margin-left: 13vw;
 }
 
 .title3 {
   text-align: center;
-  @include media("<lgdesktop") {
-    font-size: 4.5vh;
-    margin-top: 14px;
-    margin-bottom: 10px;
-  }
+  font-size: 4.5vh;
+  margin-top: 14px;
+  margin-bottom: 10px;
 }
 
 .account-img {
-  @include media("<lgdesktop") {
-    height: 21vh;
-    width: 10.5vw;
-  }
+  height: 20vh;
+  width: auto;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-top: 0.1vh;
+  margin-left: 0.1vw;
 }
 
 .sign-out {
-  text-align: center;
-  font-weight: bolder;
-  border: 2px solid black;
-  background-color: #c1666b;
-  border-radius: 20px;
-  margin: 3.5vh 12vw;
-  cursor: pointer;
-  @include media("<lgdesktop") {
-    font-size: 2.5vh;
-    height: 5vh;
-    width: 8vw;
-  }
-}
-
-.circle {
-  position: absolute;
-  border: 2px solid black;
-  border-radius: 50%;
-  @include media("<lgdesktop") {
-    margin: -22.8vh 0px;
-    height: 20.6vh;
-    width: 10.3vw;
-  }
+  @extend .buttons;
+  margin: 3.5vh 13vw 3.5vh 13vw;
 }
 
 .card-bot-left {
@@ -91,173 +85,118 @@
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-
-  @include media("<lgdesktop") {
-    margin: 33vh 7vh;
-    width: 28vw;
-    height: 33vh;
-  }
+  margin: 33vh 7vh;
+  width: 28vw;
+  height: 33vh;
 }
 
 .switch {
-  @include media("<lgdesktop") {
-    margin: 7.5vh 0px 0px 10.7vw;
-  }
+  margin: 7.5vh 0px 0px 10.7vw;
 }
 
 .default {
   position: absolute;
 
-  @include media("<lgdesktop") {
-    margin: 13px 0px 0px -115px;
-    font-size: 20px;
-    font-weight: bold;
-  }
+  margin: 13px 0px 0px -115px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .custom {
   position: absolute;
 
-  @include media("<lgdesktop") {
-    margin: 13px 0px 0px 30px;
-    font-size: 20px;
-    font-weight: bold;
-  }
+  margin: 13px 0px 0px 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .game-settings {
-  text-align: center;
+  @extend .title-font;
   position: static;
-  @include media("<lgdesktop") {
-    font-size: 4.5vh;
-    margin-top: -15px;
-  }
+  text-align: center;
+  margin-top: -4vh;
 }
 
 .resume-game {
-  @extend .sign-out;
+  @extend .buttons;
   position: absolute;
-  @include media("<lgdesktop") {
-    margin: -1.3vh 3vw;
-    height: 35px;
-    width: 155px;
-    font-size: 2.5vh;
-  }
+  margin: -1.3vh 3vw;
+  height: 6vh;
+  width: 10vw;
+  font-size: 2.5vh;
 }
 
 .new-game {
-  @extend .sign-out;
+  @extend .buttons;
   position: absolute;
-  @include media("<lgdesktop") {
-    margin: -1.3vh 16.7vw;
-    font-size: 2.5vh;
-  }
+  height: 6vh;
+  width: 10vw;
+  margin: -1.3vh 15vw;
+  font-size: 2.5vh;
 }
 
 .card-bot-right {
   float: right;
-  margin: 10.5vh 2.5vh;
+  margin-top: 6vh;
+  margin-right: 2.2vw;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-
-  @include media("<lgdesktop") {
-    width: 35vw;
-    height: 32vh;
-  }
+  width: 40vw;
+  height: 35vh;
 }
 
 .text {
-  font-weight: normal;
-  @include media("<lgdesktop") {
-    font-size: 20px;
-    margin: 15px 20px;
-  }
+  @extend .small-font;
+  margin: 2vh 2vw;
 }
 
 .upload-file {
-  @include media("<lgdesktop") {
-    margin: 1vh 2vw;
-  }
+  margin: 1vh 2vw;
 }
 
 .clear-all {
-  @extend .sign-out;
+  @extend .buttons;
   position: absolute;
-  @include media("<lgdesktop") {
-    margin: -11vh 4vw;
-  }
+  margin: -15vh 4vw;
 }
 
 .add-file {
-  @extend .sign-out;
+  @extend .buttons;
   position: absolute;
-  @include media("<lgdesktop") {
-    margin: 0vh 4vw;
-  }
+  margin: -2vh 4vw;
 }
 
 .card-right {
-  margin: 3vh 71vh;
+  margin-top: 3vh;
+  margin-left: 38vw;
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
   position: absolute;
-
-  @include media("<lgdesktop") {
-    width: 38vw;
-    height: 63vh;
-  }
+  width: 45vw;
+  height: 63vh;
 }
 
-.played {
+.statistic-font {
   text-align: center;
-  @include media("<lgdesktop") {
-    font-size: 24px;
-    margin: 20px 0px 0px -170px;
-  }
+  font-size: 24px;
+}
+.played {
+  @extend .statistic-font;
+  margin: 2vh 0px 0px -170px;
 }
 
 .won {
-  text-align: center;
-  @include media("<lgdesktop") {
-    font-size: 24px;
-    margin: -55px 0px 0px 0px;
-  }
+  @extend .statistic-font;
+  margin: -55px 0px 0px 0px;
 }
 
 .win-perc {
-  text-align: center;
-  @include media("<lgdesktop") {
-    font-size: 24px;
-    margin: -55px 0px 0px 170px;
-  }
-}
-
-.title4 {
-  text-align: center;
-  @include media("<lgdesktop") {
-    font-size: 4vh;
-    margin: 50px 0px;
-  }
+  @extend .statistic-font;
+  margin: -55px 0px 0px 170px;
 }
 
 .checkbox {
-  @include media("<lgdesktop") {
-    margin: -200px 0 0 240px;
-  }
-}
-
-.box-label {
-  font-size: 17px;
-  @include media("<lgdesktop") {
-    margin-left: 35px;
-  }
-}
-
-.check-box {
-  position: absolute;
-  cursor: pointer;
-  height: 22px;
-  width: 22px;
+  margin: -200px 0 0 240px;
 }

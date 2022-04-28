@@ -33,7 +33,6 @@ const UserProfilePage = ({ username, won, played, winPercent }) => {
           <img src={AccountImg} className="account-img" />
           <h1 className="title2">{username}</h1>
           <button className="sign-out">Sign Out</button>
-          <div className="circle"></div>
         </div>
 
         <div className="card-bot-left">
