@@ -55,10 +55,11 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .content h1 img {
-    margin: 15px 0px 15px 0px;
+    margin-bottom: 15px;
     width: 15vw;
     height: 15vw;
     max-width: 15vh;

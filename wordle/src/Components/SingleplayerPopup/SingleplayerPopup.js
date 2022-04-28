@@ -21,19 +21,21 @@ function SingleplayerPopup(props) {
                         <img src={ExitBtn} />
                     </button>
                     <div className="content">
-
                         {props.hasLost ? (
-                                
+                            <>
+                                <h2>Round Over!</h2>
+                                <p>The word was: {props.word.charAt(0)}{props.word.substring(1).toLowerCase()}</p>
+                            </>
                         ) : (
-                            
+                            <>
+                                <h1><img src={PartyIcon}></img></h1>
+                                <h2>Congratulations!</h2>
+                                <p>You got the word!</p>
+                            </>
                         )}
-
-                        <h1><img src={PartyIcon}></img></h1>
-                        <h2>Round Over!</h2>
-                        <p>The word was: {props.word.charAt(0)}{props.word.substring(1).toLowerCase()}</p>
                         <div>
                             <button
-                                onClick = {refreshPage}
+                                onClick={refreshPage}
                                 className="play_again-btn"
                             >
                                 Play Again
