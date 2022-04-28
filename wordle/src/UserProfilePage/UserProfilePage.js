@@ -24,6 +24,11 @@ const UserProfilePage = ({ username, won, played, winPercent }) => {
             <input type="checkbox"></input>
             <span className="slider round"></span>
           </label>
+          <label className="default">Default</label>
+          <label className="custom">Custom</label>
+          <h1 className="game-settings">Game Settings</h1>
+          <button className="resume-game">Resume Game</button>
+          <button className="new-game">New Game</button>
         </div>
 
         <div className="card-right">

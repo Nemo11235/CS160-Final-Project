@@ -17,7 +17,6 @@
 
 .title {
   text-align: center;
-  font-size: 65px;
   @include media("<lgdesktop") {
     font-size: 45px;
     margin-top: 15px;
@@ -56,10 +55,11 @@
 
 .sign-out {
   text-align: center;
+  font-weight: bolder;
   border: 2px solid black;
   background-color: #c1666b;
   border-radius: 20px;
-  margin: 30px 170px;
+  margin: 25px 170px;
   cursor: pointer;
   @include media("<lgdesktop") {
     font-size: 20px;
@@ -73,7 +73,7 @@
   border: 2px solid black;
   border-radius: 50%;
   @include media("<lgdesktop") {
-    margin: -173px 0px;
+    margin: -164px 0px;
     height: 147px;
     width: 147px;
   }
@@ -90,6 +90,62 @@
     margin: 235px 50px;
     width: 400px;
     height: 240px;
+  }
+}
+
+.switch {
+  @include media("<lgdesktop") {
+    box-shadow: 100px;
+    margin: 55px 0px 0px 155px;
+  }
+}
+
+.default {
+  position: absolute;
+
+  @include media("<lgdesktop") {
+    margin: 13px 0px 0px -115px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.custom {
+  position: absolute;
+
+  @include media("<lgdesktop") {
+    margin: 13px 0px 0px 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.game-settings {
+  text-align: center;
+  position: static;
+  @include media("<lgdesktop") {
+    font-size: 35px;
+    margin-top: -15px;
+  }
+}
+
+.resume-game {
+  @extend .sign-out;
+  position: absolute;
+  @include media("<lgdesktop") {
+    margin: -10px 40px;
+    height: 35px;
+    width: 155px;
+    font-size: 18px;
+  }
+}
+
+.new-game {
+  @extend .sign-out;
+  position: absolute;
+  @include media("<lgdesktop") {
+    margin: -10px 240px;
+    font-size: 18px;
   }
 }
 
