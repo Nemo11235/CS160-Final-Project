@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./MultiplayerPage.scss";
 import GameContent from "./GameContent";
 import Header from "../Components/Header/Header";
@@ -21,11 +21,20 @@ function MultiplayerPage() {
         user: username,
       };
       socket.emit("join_room", roomData);
-      setShowGame(true);
     } else {
       alert("Please enter user ID and room ID");
     }
   };
+
+  useEffect(() => {
+    socket.on("join_result", (data) => {
+      if (data) {
+        setShowGame(data);
+      } else {
+        alert("Fail to join the room because this room is already full!");
+      }
+    });
+  }, [socket]);
 
   React.useEffect(() => {
     window.addEventListener("keydown", keyPress);
