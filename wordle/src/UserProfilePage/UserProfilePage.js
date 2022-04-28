@@ -30,7 +30,7 @@ const UserProfilePage = ({ username, won, played, winPercent }) => {
         <h1 className="title">My Account</h1>
 
         <div className="card-top-left">
-          <img src={AccountImg} className="acc-img" />
+          <img src={AccountImg} className="account-img" />
           <h1 className="title2">{username}</h1>
           <button className="sign-out">Sign Out</button>
           <div className="circle"></div>

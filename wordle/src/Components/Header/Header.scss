@@ -70,7 +70,14 @@
 }
 
 .acc-img {
-  width: 50px;
+  height: 5vh;
+  width: auto;
+}
+
+.profile-icon {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 .hamburger-menu {
