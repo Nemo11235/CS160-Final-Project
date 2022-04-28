@@ -14,6 +14,7 @@ function HomePage() {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
   const [usedLetters, setUsedLetters] = useState([""]);
   const [showWinPopUp, setShowWinPopUp] = useState(false);
+  const [hasLost, setHasLost] = useState(false);
   const [savedColor, setSavedColor] = useState([
     [""],
     [""],
@@ -45,6 +46,10 @@ function HomePage() {
 
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
+  }
+
+  function updateHasLost(value) {
+    setHasLost(value);
   }
 
   /* Hamburger Menu Implementation */
@@ -86,6 +91,7 @@ function HomePage() {
           usedLetters={usedLetters}
           updateUsedLetters={updateUsedLetters}
           updateShowWinPopUp={updateShowWinPopUp}
+          updateHasLost={updateHasLost}
           savedColor={savedColor}
           updateSavedColor={updateSavedColor}
         />
@@ -94,6 +100,7 @@ function HomePage() {
         <SingleplayerPopup
           word={word}
           updateShowWinPopUp={updateShowWinPopUp}
+          hasLost={hasLost}
         />
       )}
     </div>

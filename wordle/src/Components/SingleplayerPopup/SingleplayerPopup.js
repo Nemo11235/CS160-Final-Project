@@ -21,6 +21,13 @@ function SingleplayerPopup(props) {
                         <img src={ExitBtn} />
                     </button>
                     <div className="content">
+
+                        {props.hasLost ? (
+                                
+                        ) : (
+                            
+                        )}
+
                         <h1><img src={PartyIcon}></img></h1>
                         <h2>Round Over!</h2>
                         <p>The word was: {props.word.charAt(0)}{props.word.substring(1).toLowerCase()}</p>
@@ -42,6 +49,7 @@ function SingleplayerPopup(props) {
 SingleplayerPopup.propTypes = {
     updateShowWinPopUp: PropTypes.func,
     word: PropTypes.string,
+    hasLost: PropTypes.bool,
 };
 
 export default SingleplayerPopup;

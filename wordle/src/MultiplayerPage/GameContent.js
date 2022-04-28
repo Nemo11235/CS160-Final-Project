@@ -77,15 +77,23 @@ function GameContent({ socket, room, word, username }) {
     socket.emit("send_data", gameData);
   };
 
-  useEffect(() => {
+
+  // Work on this part, create a use-state hook (boolean) 
+  // If true, pop-up show,    if false, don't show yet
+
+  // Component tells socket to start, server recieves, sends to room. From there, component checks 
+  useEffect(() => {   // when there is a change, update all components.  
+                      // if anything happens to the socket, re-render everything
     socket.on("receive_data", (data) => {
       console.log("received data from use Effect", data);
       setRowB(data.row);
       setSavedColorB(data.savedColor);
-    });
-  }, [socket]);
+                          // socket.on() iss what you do when this happened
+    });                   // socket.emit() means something happened
+  }, [socket]);           // emit in the server, then server sends to the component       
+                          // socket.emit to socket.on, then socket.emit to socket.on
 
-  useEffect(() => {
+  useEffect(() => {       // When row or savedColorB changes, trigger useEffect()
     sendGameData();
   }, [row, savedColorB]);
 
@@ -140,6 +148,7 @@ function GameContent({ socket, room, word, username }) {
       {showWinPopUp && (
         <MultiplayerPopup
           updateShowWinPopUp={updateShowWinPopUp}
+
 
           word={word}
           draw={false}

@@ -16,6 +16,7 @@ function Keyboard({
   savedColor,
   updateSavedColor,
   updateShowWinPopUp,
+  updateHasLost,
   room,
   socket,
 }) {
@@ -47,7 +48,10 @@ function Keyboard({
       if (gameUtils.isCorrect(feedback)) {
         updateShowWinPopUp(true);
       } else if (row == 5) {
-        alert(`game over, the correct word is ${word}`);
+        // alert(`game over, the correct word is ${word}`);
+        updateShowWinPopUp(true);
+        updateHasLost(true);
+        alert("has lost is now true");
       }
       let tempcolor = gameUtils.colorArray(feedback);
       const tempArray = savedColor;
@@ -285,6 +289,7 @@ Keyboard.propTypes = {
   updateSavedColor: PropTypes.func,
   savedColor: PropTypes.array,
   updateShowWinPopUp: PropTypes.func,
+  updateHasLost: PropTypes.func,
   socket: PropTypes.func,
   room: PropTypes.string,
 };
