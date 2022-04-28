@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Components/Header/Header";
 import "./UserProfilePage.scss";
 import AccountImg from "../Images/account-img.png";
 import PropTypes from "prop-types";
+import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
+import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 
+/* Hamburger Menu Implementation */
 const UserProfilePage = ({ username, won, played, winPercent }) => {
+  let [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const hamburgerOpenHandler = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
+  let hamburgerMenu = <HamburgerMenu />;
+  let hamburgerBlur;
+  if (hamburgerOpen) {
+    hamburgerMenu = (
+      <HamburgerMenu open={hamburgerOpen} close={hamburgerOpenHandler} />
+    );
+    hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
+  }
+
   return (
     <div className="user-profile-style">
-      <Header />
+      <Header click={hamburgerOpenHandler} />
+      {hamburgerMenu}
+      {hamburgerBlur}
       <div className="card">
         <h1 className="title">My Account</h1>
 

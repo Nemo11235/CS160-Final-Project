@@ -1,4 +1,3 @@
-
 // const customTheme = createTheme({
 //   palette: {
 //     primary: {
@@ -71,22 +70,21 @@
 }
 
 .acc-img {
-  height: 5vh;
-  width: auto;
+  width: 50px;
 }
 
 .hamburger-menu {
-    margin-left: 40px;
-    border: 0.5px;
-    background-color: transparent;
-    cursor: pointer;
+  margin-left: 40px;
+  border: 0.5px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .hamburger-menu img {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .account {
-    margin-right: 40px;
-    margin-top: 5px;
+  margin-right: 40px;
+  margin-top: 5px;
 }
