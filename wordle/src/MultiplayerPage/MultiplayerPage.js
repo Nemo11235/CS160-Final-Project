@@ -1,11 +1,11 @@
 import io from "socket.io-client";
 import React, { useState, useEffect } from "react";
 import "./MultiplayerPage.scss";
-import GameContent from "./GameContent";
 import Header from "../Components/Header/Header";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 import multiplayerUtils from "../Utils/multiplayerUtils";
+import WaitingScreen from "./WaitingScreen";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -90,11 +90,10 @@ function MultiplayerPage() {
           <button onClick={() => joinRoom()}>Join</button>
         </div>
       ) : (
-        <GameContent
+        <WaitingScreen
           socket={socket}
           username={username}
           room={room}
-          word={"APPLE"}
         />
       )}
     </div>

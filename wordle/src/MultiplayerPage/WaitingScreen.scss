@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+ 
+.waiting-screen {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    background: white;
+    margin-top: 13%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    min-height: 160px;
+    padding: 14px 28px;
+    border: 3px solid black;
+    border-radius: 3px;
+}
+ 
+.room-ID {
+    font-size: 30px;
+    margin-top: 10%;
+    padding: 10px;
+    display: inline-block;
+    place-items: center;
+    flex-direction: row;
+    text-align: center;
+}
+ 
+.code {
+    font-weight: bold;
+    font-size: 27px;
+}
+ 
+.room-ID button {
+    font-size: 25px;
+    text-align: center;
+    width: 33px;
+    height: 33px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ 
+.room-ID button:hover{
+    background: #bbbfbb;
+}
+ 
+.copy {
+    display: inline-block;
+    margin-left: 5px;
+}
