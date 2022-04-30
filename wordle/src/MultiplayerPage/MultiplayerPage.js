@@ -6,6 +6,8 @@ import Header from "../Components/Header/Header";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 import multiplayerUtils from "../Utils/multiplayerUtils";
+import CopyToClipboard from "react-copy-to-clipboard";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -14,9 +16,19 @@ function MultiplayerPage() {
   const [room, setRoom] = useState("");
   const [showGame, setShowGame] = useState(false); // show the grid and keyboard after user entering the room
   const [inGame, setInGame] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
+
+  function makeRoom() {
+    let temp = multiplayerUtils.makeId(6);
+    setRoom(temp);
+    setShowCopied(false);
+  }
 
   const joinRoom = () => {
-    if (multiplayerUtils.isValidId(username) && room !== "") {
+    if (
+      multiplayerUtils.isValidId(username) &&
+      multiplayerUtils.isValidRoom(room)
+    ) {
       const roomData = {
         room: room,
         user: username,
@@ -25,6 +37,8 @@ function MultiplayerPage() {
       setShowGame(true);
     }
   };
+
+  React.useEffect(() => {}, [room]);
 
   React.useEffect(() => {
     window.addEventListener("keydown", keyPress);
@@ -54,6 +68,10 @@ function MultiplayerPage() {
     hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
   }
 
+  function onCopy() {
+    setShowCopied(true);
+  }
+
   return (
     <div className="multiplayer-style">
       <Header click={hamburgerOpenHandler} />
@@ -61,22 +79,51 @@ function MultiplayerPage() {
       {hamburgerBlur}
       {!showGame ? (
         <div className="join-game-container">
-          <h3>Join a game room</h3>
+          <div className="rules-card">
+            <h4>- User ID length: within 10 characters</h4>
+            <h4>- Room ID length: within 6 characters</h4>
+            <h4>- Both should contain numbers/letters only</h4>
+          </div>
+          <h2>Create or join a game room!</h2>
           <input
             type="text"
-            placeholder="Your ID..."
+            placeholder="User ID..."
             onChange={(event) => {
               setUsername(event.target.value);
             }}
           />
           <input
             type="text"
-            placeholder="Room name..."
+            placeholder="Room ID..."
             onChange={(event) => {
               setRoom(event.target.value);
             }}
           />
-          <button onClick={() => joinRoom()}>Join</button>
+
+          <button className="buttons" onClick={() => joinRoom()}>
+            Join
+          </button>
+          <button className="buttons" onClick={() => makeRoom()}>
+            Generate Room ID
+          </button>
+          <div className="room-id-container">
+            <div className="room-id-box">
+              <h3
+                className="room-id"
+                onChange={(event) => {
+                  setRoom(event.target.value);
+                }}
+              >
+                Room ID: {room}
+              </h3>
+            </div>
+            <CopyToClipboard text={room}>
+              <button className="copy-button" onClick={() => onCopy()}>
+                <ContentCopyIcon />
+              </button>
+            </CopyToClipboard>
+          </div>
+          {showCopied && <h5 className="copied">Copied!</h5>}
         </div>
       ) : (
         <GameContent
