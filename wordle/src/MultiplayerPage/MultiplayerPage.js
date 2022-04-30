@@ -111,10 +111,10 @@ function MultiplayerPage() {
             }}
           />
 
-          <button className="buttons" onClick={() => joinRoom()}>
+          <button className="multi-button" onClick={() => joinRoom()}>
             Join
           </button>
-          <button className="buttons" onClick={() => makeRoom()}>
+          <button className="multi-button" onClick={() => makeRoom()}>
             Generate Room ID
           </button>
           <div className="room-id-container">
