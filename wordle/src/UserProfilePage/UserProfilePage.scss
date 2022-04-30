@@ -4,7 +4,7 @@
 
 .small-font {
   font-weight: normal;
-  font-size: 20px;
+  font-size: 1.3vw;
 }
 
 .buttons {
@@ -148,7 +148,8 @@
 
 .text {
   @extend .small-font;
-  margin: 2vh 2vw;
+  margin: 3vh 2vw;
+  width: 25vw;
 }
 
 .upload-file {
@@ -158,13 +159,13 @@
 .clear-all {
   @extend .buttons;
   position: absolute;
-  margin: -15vh 4vw;
+  margin: -15vh 0 -15vh 10vw;
 }
 
 .add-file {
   @extend .buttons;
   position: absolute;
-  margin: -2vh 4vw;
+  margin: -2vh 0 -2vh 10vw;
 }
 
 .card-right {
@@ -181,20 +182,27 @@
 .statistic-font {
   text-align: center;
   font-size: 24px;
+  height: 10vh;
+}
+
+.statistic-container {
+  @extend .statistic-font;
+  display: flex;
+  flex-direction: row;
 }
 .played {
   @extend .statistic-font;
-  margin: 2vh 0px 0px -170px;
+  flex: 1;
 }
 
 .won {
   @extend .statistic-font;
-  margin: -55px 0px 0px 0px;
+  flex: 1;
 }
 
 .win-perc {
   @extend .statistic-font;
-  margin: -55px 0px 0px 170px;
+  flex: 1;
 }
 
 .checkbox {
