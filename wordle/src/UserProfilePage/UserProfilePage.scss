@@ -1,0 +1,202 @@
+.title-font {
+  font-size: 4.5vh;
+}
+
+.small-font {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.buttons {
+  height: 6vh;
+  width: 10vw;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 2.5vh;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background: #43a047;
+  color: #fff;
+}
+
+.buttons:hover {
+  background: #2e7d32;
+}
+
+.card {
+  float: right;
+  margin: 3vh 10vh;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  width: 85vw;
+  height: 84vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 6vh;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.card-top-left {
+  float: left;
+  margin: 3vh 7vh;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  width: 28vw;
+  height: 21vh;
+}
+.title2 {
+  @extend .title-font;
+  text-align: left;
+  margin-top: -20vh;
+  margin-left: 13vw;
+}
+
+.title3 {
+  text-align: center;
+  font-size: 4.5vh;
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+.account-img {
+  height: 20vh;
+  width: auto;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-top: 0.1vh;
+  margin-left: 0.1vw;
+}
+
+.sign-out {
+  @extend .buttons;
+  margin: 3.5vh 13vw 3.5vh 13vw;
+}
+
+.card-bot-left {
+  float: left;
+  position: absolute;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  margin: 33vh 7vh;
+  width: 28vw;
+  height: 33vh;
+}
+
+.switch {
+  margin: 7.5vh 0px 0px 10.7vw;
+}
+
+.default {
+  position: absolute;
+
+  margin: 13px 0px 0px -115px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.custom {
+  position: absolute;
+
+  margin: 13px 0px 0px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.game-settings {
+  @extend .title-font;
+  position: static;
+  text-align: center;
+  margin-top: -4vh;
+}
+
+.resume-game {
+  @extend .buttons;
+  position: absolute;
+  margin: -1.3vh 3vw;
+  height: 6vh;
+  width: 10vw;
+  font-size: 2.5vh;
+}
+
+.new-game {
+  @extend .buttons;
+  position: absolute;
+  height: 6vh;
+  width: 10vw;
+  margin: -1.3vh 15vw;
+  font-size: 2.5vh;
+}
+
+.card-bot-right {
+  float: right;
+  margin-top: 6vh;
+  margin-right: 2.2vw;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height: 35vh;
+}
+
+.text {
+  @extend .small-font;
+  margin: 2vh 2vw;
+}
+
+.upload-file {
+  margin: 1vh 2vw;
+}
+
+.clear-all {
+  @extend .buttons;
+  position: absolute;
+  margin: -15vh 4vw;
+}
+
+.add-file {
+  @extend .buttons;
+  position: absolute;
+  margin: -2vh 4vw;
+}
+
+.card-right {
+  margin-top: 3vh;
+  margin-left: 38vw;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  position: absolute;
+  width: 45vw;
+  height: 63vh;
+}
+
+.statistic-font {
+  text-align: center;
+  font-size: 24px;
+}
+.played {
+  @extend .statistic-font;
+  margin: 2vh 0px 0px -170px;
+}
+
+.won {
+  @extend .statistic-font;
+  margin: -55px 0px 0px 0px;
+}
+
+.win-perc {
+  @extend .statistic-font;
+  margin: -55px 0px 0px 170px;
+}
+
+.checkbox {
+  margin: -200px 0 0 240px;
+}

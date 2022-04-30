@@ -33,11 +33,11 @@ function TutorialPage() {
       {hamburgerMenu}
       {hamburgerBlur}
       <button className="back-button" onClick={goHome}>
-        <ArrowBackIcon style={{ width: "97px", height: "77px" }} />
+        <ArrowBackIcon
+          style={{ width: "50px", height: "auto", marginRight: "10px" }}
+        />
       </button>
-      <div className="top">
-        <span className="title">How to play</span>
-      </div>
+
       <div className="wrapper">
         <div className="card1" grid-column-start="1">
           <br />
@@ -97,16 +97,15 @@ function TutorialPage() {
             <b>Got it! 🏆</b>
           </div>
         </div>
-        <div className="card1" grid-column-start="1">
+        <div className="card2" grid-column-start="1">
           <h2 className="textcenter">Singleplayer</h2>
           <p className="regulartext">
             Words are randomly chosen from a public API.
             <br />
-            If you would like to you a custom list, please log in to the
+            If you would like to use your a custom list, please log in to the
             website. Afterward, custom .txt files containing five-letter words
-            separated by a new line can be uploaded in the
-            {"My Account"}page. Finally, check the box on the same page to
-            enable custom words.
+            separated by a new line can be uploaded in the {"My Account"} page.
+            Finally, check the box on the same page to enable custom words.
           </p>
           <h2 className="textcenter">
             <br />
