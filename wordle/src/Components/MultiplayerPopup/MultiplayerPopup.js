@@ -32,20 +32,14 @@ function MultiplayerPopup(props) {
                             <p>The word was: {props.word.charAt(0)}{props.word.substring(1).toLowerCase()}</p>
                         </div>
                         <div className="bottom-content">
-                            <div className="time-container">
-                                <h1>Time</h1>
-                                <p>0:01</p>
-                            </div>
-                            <div className="button-container">
-                                <button className="rematch-btn">
-                                    Play Again
-                                </button>
-                                <button
-                                    onClick={goSingleplayer}
-                                    className="singleplayer-btn">
-                                    Singleplayer
-                                </button>
-                            </div>
+                            <button className="rematch-btn">
+                                Play Again
+                            </button>
+                            <button
+                                onClick={goSingleplayer}
+                                className="singleplayer-btn">
+                                Singleplayer
+                            </button>
                         </div>
                     </div>
                 </div>
