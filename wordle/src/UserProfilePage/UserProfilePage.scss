@@ -159,13 +159,13 @@
 .clear-all {
   @extend .buttons;
   position: absolute;
-  margin: -15vh 0 -15vh 10vw;
+  margin: -15vh 4vw;
 }
 
 .add-file {
   @extend .buttons;
   position: absolute;
-  margin: -2vh 0 -2vh 10vw;
+  margin: -2vh 4vw;
 }
 
 .card-right {
