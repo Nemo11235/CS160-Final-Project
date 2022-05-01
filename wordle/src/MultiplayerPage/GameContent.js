@@ -58,17 +58,6 @@ function GameContent({ socket, room, word, username }) {
     setSavedColor(newArray);
   }
 
-  // const sendGameData = () => {
-  //   const gameData = {
-  //     room: room,
-  //     username: username,
-  //     row: row,
-  //     wordList: wordList,
-  //     savedColor: savedColor,
-  //   };
-  //   socket.emit("send_data", gameData);
-  // };
-
   const sendGameData = () => {
     const gameData = {
       name: username,
@@ -77,41 +66,26 @@ function GameContent({ socket, room, word, username }) {
       wordList: wordList,
       savedColor: savedColor,
     };
-    socket.emit("send_data", gameData);   // Issue for infinite loop is here, 
-    //                                       this keeps calling receive_data
-  };  //                      OR, it's the other sendGameData() call
+    socket.emit("send_data", gameData);
+  };
 
   useEffect(() => {
-    socket.on("receive_data", (data) => {     // THIS PART KEEPS GETTING CAPPED
+    socket.on("receive_data", (data) => {
       console.log("received data from use Effect", data);
 
       if (data.wordList[data.row - 1] === word.toUpperCase()) {
         setNameGameOver(data.name);
-        setShowWinPopUp(true);    // Issue is here, I keep getting the thing to set it true over and over infinitely
-      }                           // Could be component is re-rendering
+        setShowWinPopUp(true);
+      }
 
       setRowB(data.row);
       setSavedColorB(data.savedColor);
     });
-
-
   }, [socket]);
-  // emit in the server, then server sends to the component       
-  // socket.emit to socket.on, then socket.emit to socket.on
 
-  useEffect(() => {       // When row or savedColorB changes, trigger useEffect()
+  useEffect(() => {
     sendGameData();
   }, [row, savedColorB]);
-
-  // function keyPress(e) {
-  //   if (e.key == "Enter") {
-  //     sendGameData();
-  //   }
-  // }
-
-  // React.useEffect(() => {
-  //   window.addEventListener("keydown", keyPress);
-  // }, []);
 
   return (
     <div>
@@ -153,8 +127,6 @@ function GameContent({ socket, room, word, username }) {
       </div>
       {showWinPopUp && (
         <MultiplayerPopup
-          updateShowWinPopUp={updateShowWinPopUp}
-
           curUserName={username}
           curUserWin={curUserWin}
 

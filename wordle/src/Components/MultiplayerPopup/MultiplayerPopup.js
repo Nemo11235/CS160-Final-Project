@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ExitBtn from "../../Images/Exit_Button.png"
 import { useNavigate } from "react-router-dom";
 import paths from "../../Utils/paths";
 import "./MultiplayerPopup.scss";
@@ -25,12 +24,6 @@ function MultiplayerPopup(props) {
         <div className="winpopup-style">
             <div className="overlay">
                 <div className="content-background">
-                    <button
-                        className={"exit-btn"}
-                        onClick={() => props.updateShowWinPopUp(false)}
-                    >
-                        <img src={ExitBtn} />
-                    </button>
                     <div className="content-mult">
                         <div className="top-content">
                             {Result}
