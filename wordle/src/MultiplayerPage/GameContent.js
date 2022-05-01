@@ -88,6 +88,10 @@ function GameContent({ socket, room, word }) {
             savedColor={savedColor}
           />
         </div>
+        <div className="room-id-card">
+          <h2 className="room-title">Room id</h2>
+          <p className="roomId">{room}</p>
+        </div>
         <div className="grid-two">
           <NestedGrid
             input={""}
