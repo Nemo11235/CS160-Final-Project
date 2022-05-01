@@ -15,7 +15,6 @@ function MultiplayerPage() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showGame, setShowGame] = useState(false); // show the grid and keyboard after user entering the room
-  const [inGame, setInGame] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
 
   function makeRoom() {
@@ -34,8 +33,9 @@ function MultiplayerPage() {
         user: username,
       };
       socket.emit("join_room", roomData);
+      setShowGame(true);
     } else {
-      alert("Please enter user ID and room ID");
+      alert("Please enter valid user ID and room ID");
     }
   };
 
@@ -50,20 +50,6 @@ function MultiplayerPage() {
       }
     });
   }, [socket]);
-
-  React.useEffect(() => {
-    window.addEventListener("keydown", keyPress);
-    return () => {
-      window.removeEventListener("keydown", keyPress);
-    };
-  });
-
-  function keyPress(e) {
-    if (e.key == "Enter" && !inGame) {
-      joinRoom();
-      setInGame(true);
-    }
-  }
 
   /* Hamburger Menu Implementation */
   let [hamburgerOpen, setHamburgerOpen] = useState(false);
