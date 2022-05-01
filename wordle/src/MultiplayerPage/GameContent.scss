@@ -23,6 +23,11 @@
 }
 
 .room-id-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  top: 15vh;
+  transform: translate(calc(50vw - 50%));
   border: 2px solid black;
   background-color: white;
   border-radius: 5px;
@@ -60,4 +65,10 @@
 
 .copy-button-room:hover {
   background: #2e7d32;
+}
+
+.player-id {
+  width: 50%;
+  text-align: left;
+  margin-left: 20px;
 }

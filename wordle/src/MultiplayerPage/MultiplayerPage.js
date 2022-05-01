@@ -33,7 +33,6 @@ function MultiplayerPage() {
         user: username,
       };
       socket.emit("join_room", roomData);
-      setShowGame(true);
     } else {
       alert("Please enter valid user ID and room ID");
     }
