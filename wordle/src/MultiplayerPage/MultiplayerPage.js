@@ -50,7 +50,7 @@ function MultiplayerPage() {
   let hamburgerBlur;
   if (hamburgerOpen) {
     hamburgerMenu = (
-      <HamburgerMenu open={hamburgerOpen} close={hamburgerOpenHandler} />
+      <HamburgerMenu open={hamburgerOpen} close={hamburgerOpenHandler} mult={true} />
     );
     hamburgerBlur = <HamburgerBlur close={hamburgerOpenHandler} />;
   }

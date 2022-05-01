@@ -21,29 +21,39 @@ const HamburgerMenu = (props) => {
   function goMultiplayer() {
     navigate(paths.race);
   }
+  function goSingleplayer() {
+    navigate(paths.home);
+  }
   function goTutorial() {
     navigate(paths.tutorial);
   }
+
+  // If on multiplayer page, display singleplayer. Vice-versa.
+  const MultOrSingle = props.mult ? (
+    <div className="about-us-nav" onClick={goSingleplayer}>
+      <a href={goSingleplayer}>Singleplayer</a>
+    </div>
+  ) : (
+    <div className="about-us-nav" onClick={goMultiplayer}>
+      <a href={goMultiplayer}>Multiplayer</a>
+    </div>
+  );
 
   return (
     <nav className={navClasses}>
       <button className={"exit-btn"} onClick={props.close}>
         <img src={ExitBtn} />
       </button>
-
       <div className={"logo"}>
         <img src={Logo} />
       </div>
-
       <ul>
         <li>
           <div className="about-us-nav" onClick={goTutorial}>
             <a href={goTutorial}>Tutorial</a>
           </div>
         </li>
-        <div className="about-us-nav" onClick={goMultiplayer}>
-          <a href={goMultiplayer}>Multiplayer</a>
-        </div>
+        {MultOrSingle}
         <li>
           <p className="dark-theme">Dark Theme</p>
           <Switch />
@@ -62,6 +72,7 @@ const HamburgerMenu = (props) => {
 HamburgerMenu.propTypes = {
   open: PropTypes.bool,
   close: PropTypes.func,
+  mult: PropTypes.bool,
 };
 
 export default HamburgerMenu;
