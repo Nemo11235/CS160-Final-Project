@@ -7,12 +7,13 @@ import "./GameContent.scss";
 
 function GameContent({ socket, room, word, username }) {
   // states for the user
-
   const [input, setInput] = useState(""); // user's input of the current row
   const [row, setRow] = useState(0); // current row number, first row is row 0
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]); // the words that the user entered so far
   const [usedLetters, setUsedLetters] = useState([""]); // feedback on each letter, N Y P
   const [showWinPopUp, setShowWinPopUp] = useState(false); // whether or not show the win pop-up window
+  const [nameGameOver, setNameGameOver] = useState(false);
+  const [curUserWin, setCurUserWin] = useState(false);
   const [savedColor, setSavedColor] = useState([
     [""],
     [""],
@@ -50,6 +51,7 @@ function GameContent({ socket, room, word, username }) {
 
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
+    setCurUserWin(true);
   }
 
   function updateSavedColor(newArray) {
@@ -69,29 +71,33 @@ function GameContent({ socket, room, word, username }) {
 
   const sendGameData = () => {
     const gameData = {
+      name: username,
       room: room,
       row: row,
       wordList: wordList,
       savedColor: savedColor,
     };
-    socket.emit("send_data", gameData);
-  };
+    socket.emit("send_data", gameData);   // Issue for infinite loop is here, 
+    //                                       this keeps calling receive_data
+  };  //                      OR, it's the other sendGameData() call
 
-
-  // Work on this part, create a use-state hook (boolean) 
-  // If true, pop-up show,    if false, don't show yet
-
-  // Component tells socket to start, server recieves, sends to room. From there, component checks 
-  useEffect(() => {   // when there is a change, update all components.  
-                      // if anything happens to the socket, re-render everything
-    socket.on("receive_data", (data) => {
+  useEffect(() => {
+    socket.on("receive_data", (data) => {     // THIS PART KEEPS GETTING CAPPED
       console.log("received data from use Effect", data);
+
+      if (data.wordList[data.row - 1] === word.toUpperCase()) {
+        setNameGameOver(data.name);
+        setShowWinPopUp(true);    // Issue is here, I keep getting the thing to set it true over and over infinitely
+      }                           // Could be component is re-rendering
+
       setRowB(data.row);
       setSavedColorB(data.savedColor);
-                          // socket.on() iss what you do when this happened
-    });                   // socket.emit() means something happened
-  }, [socket]);           // emit in the server, then server sends to the component       
-                          // socket.emit to socket.on, then socket.emit to socket.on
+    });
+
+
+  }, [socket]);
+  // emit in the server, then server sends to the component       
+  // socket.emit to socket.on, then socket.emit to socket.on
 
   useEffect(() => {       // When row or savedColorB changes, trigger useEffect()
     sendGameData();
@@ -149,10 +155,12 @@ function GameContent({ socket, room, word, username }) {
         <MultiplayerPopup
           updateShowWinPopUp={updateShowWinPopUp}
 
+          curUserName={username}
+          curUserWin={curUserWin}
 
           word={word}
-          draw={false}
-          username={username}
+          draw={false}          // change to state variable later
+          opponentName={nameGameOver}
         />
       )}
     </div>

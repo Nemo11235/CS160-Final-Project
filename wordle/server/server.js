@@ -27,7 +27,11 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send_data", (data) => {
-    socket.to(data.room).emit("receive_data", data);
+    let sentData = false;
+    if (!sentData) {
+      socket.to(data.room).emit("receive_data", data);
+      sentData = true;
+    }
   });
 });
 

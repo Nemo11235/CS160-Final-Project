@@ -12,6 +12,15 @@ function MultiplayerPopup(props) {
         navigate(paths.home);
     }
 
+    let Result = "";
+    if (props.draw) {
+        Result = <h2>Draw!</h2>;
+    } else if (props.curUserWin) {
+        Result = <h2>{props.curUserName} has won!</h2>;
+    } else {
+        Result = <h2>{props.opponentName} has won!</h2>;
+    }
+
     return (
         <div className="winpopup-style">
             <div className="overlay">
@@ -24,11 +33,7 @@ function MultiplayerPopup(props) {
                     </button>
                     <div className="content-mult">
                         <div className="top-content">
-                            {props.draw ? (
-                                <h2>Draw!</h2>
-                            ) : (
-                                <h2>{props.username} has won!</h2>
-                            )}
+                            {Result}
                             <p>The word was: {props.word.charAt(0)}{props.word.substring(1).toLowerCase()}</p>
                         </div>
                         <div className="bottom-content">
@@ -51,9 +56,11 @@ function MultiplayerPopup(props) {
 MultiplayerPopup.propTypes = {
     updateShowWinPopUp: PropTypes.func,
 
+    curUserWin: PropTypes.bool,
+    curUserName: PropTypes.string,
 
     draw: PropTypes.bool,           // Always equal to 'false' for now
-    username: PropTypes.string,     // Always equal to current user for now
+    opponentName: PropTypes.string,     // Always equal to current user for now
     word: PropTypes.string,
 };
 
