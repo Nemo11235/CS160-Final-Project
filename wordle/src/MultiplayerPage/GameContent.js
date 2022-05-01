@@ -4,10 +4,11 @@ import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
 import WinPopUp from "../HomePage/WinPopUp";
 import "./GameContent.scss";
+import CopyToClipboard from "react-copy-to-clipboard";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 function GameContent({ socket, room, word }) {
   // states for the user
-
   const [input, setInput] = useState(""); // user's input of the current row
   const [row, setRow] = useState(0); // current row number, first row is row 0
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]); // the words that the user entered so far
@@ -90,7 +91,16 @@ function GameContent({ socket, room, word }) {
         </div>
         <div className="room-id-card">
           <h2 className="room-title">Room id</h2>
+
           <p className="roomId">{room}</p>
+          <CopyToClipboard text={room}>
+            <button
+              className="copy-button-room"
+              onClick={() => alert("Room ID copied!")}
+            >
+              <ContentCopyIcon />
+            </button>
+          </CopyToClipboard>
         </div>
         <div className="grid-two">
           <NestedGrid
