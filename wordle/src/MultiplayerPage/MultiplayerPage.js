@@ -1,11 +1,11 @@
 import io from "socket.io-client";
 import React, { useState, useEffect } from "react";
 import "./MultiplayerPage.scss";
-import GameContent from "./GameContent";
 import Header from "../Components/Header/Header";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 import multiplayerUtils from "../Utils/multiplayerUtils";
+import WaitingScreen from "./WaitingScreen";
 import CopyToClipboard from "react-copy-to-clipboard";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
@@ -122,12 +122,7 @@ function MultiplayerPage() {
           {showCopied && <h5 className="copied">Copied!</h5>}
         </div>
       ) : (
-        <GameContent
-          socket={socket}
-          username={username}
-          room={room}
-          word={"APPLE"}
-        />
+        <WaitingScreen socket={socket} username={username} room={room} />
       )}
     </div>
   );

@@ -31,6 +31,7 @@ io.on("connection", (socket) => {
       if (numOfUser == 1) {
         socket.join(data.room);
         socket.emit("join_result", true);
+        socket.emit("opponent", true);
       } else {
         socket.emit("join_result", false);
       }
@@ -43,6 +44,14 @@ io.on("connection", (socket) => {
 
   socket.on("send_data", (data) => {
     socket.to(data.room).emit("receive_data", data);
+  });
+
+  socket.on("start", (timer) => {
+    socket.to(timer.room).emit("begin_countdown", timer);
+  });
+
+  socket.on("show_timer", (room) => {
+    socket.to(room).emit("start_countdown", true);
   });
 });
 
