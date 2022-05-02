@@ -8,10 +8,11 @@
     max-width: 400px;
     background-color: #757780;
     box-shadow: 2px 0px 5px;
-    transform: translateX(-100%);
+    transform: translateX(-500%);
     transition: transform 0.5s ease-out;
     z-index: 200;
 }
+
 .hamburger_nav-items ul {
     list-style: none;
     margin: 0px;
@@ -22,12 +23,14 @@
     flex-direction: column;
     justify-content: center;
 }
+
 .hamburger_nav-items ul a {
     font-family: "Segoe UI Semibold", Times, serif;
     font-size: 45px;
     filter: drop-shadow(0.5px 1px 3px #222);
     cursor: pointer;
 }
+
 .dark-theme {
     margin: 0;
     padding: 0;
@@ -50,10 +53,12 @@
     font-size: 2.0rem;
     color: #000000;
 }
+
 .hamburger_nav-items a:hover,
 .hamburger_nav-items a:active {
     color: orange;
 }
+
 .exit-btn {
     display: block;
     border: 0.5px;
@@ -61,16 +66,19 @@
     background-color: transparent;
     cursor: pointer;
 }
+
 .exit-btn img {
     width: 80%;
     height: 80%;
     filter: drop-shadow(2px 2px 1px #222);
 }
+
 .logo {
     margin-top: 1.5rem;
     display: flex;
     justify-content: center;
 }
+
 .logo img {
     height: auto;
     width: 40%;

@@ -14,6 +14,9 @@ function GameContent({ socket, room, word, username }) {
   const [showWinPopUp, setShowWinPopUp] = useState(false); // whether or not show the win pop-up window
   const [nameGameOver, setNameGameOver] = useState(false);
   const [curUserWin, setCurUserWin] = useState(false);
+  const [hasLost, setHasLost] = useState(false);
+  const [oppHasLost, setOppHasLost] = useState(false);
+  const [resultDraw, setResultDraw] = useState(false);
   const [savedColor, setSavedColor] = useState([
     [""],
     [""],
@@ -51,21 +54,44 @@ function GameContent({ socket, room, word, username }) {
 
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
-    setCurUserWin(true);
   }
 
   function updateSavedColor(newArray) {
     setSavedColor(newArray);
   }
 
+  // These may not be needed if I can just call the 'set' stuff
+  function updateCurUserWin(value) {
+    setCurUserWin(value);
+  }
+
+  function updateHasLost(value) {
+    setHasLost(value);
+  }
+
+  function updateOppHasLost(value) {
+    setOppHasLost(value);
+  }
+
   const sendGameData = () => {
+    if (row < 6 && wordList[row - 1] === word) {
+      // setCurUserWin(true);
+      updateCurUserWin(true);
+    } else if (row === 6 && wordList[row - 1] !== word) {
+      // setHasLost(true);
+      updateHasLost(true);
+      console.log("Value from sendGameData for hasLost is: " + hasLost);
+    }
+
     const gameData = {
       name: username,
       room: room,
       row: row,
       wordList: wordList,
       savedColor: savedColor,
+      hasLost: hasLost,
     };
+
     socket.emit("send_data", gameData);
   };
 
@@ -73,9 +99,33 @@ function GameContent({ socket, room, word, username }) {
     socket.on("receive_data", (data) => {
       console.log("received data from use Effect", data);
 
-      if (data.wordList[data.row - 1] === word.toUpperCase()) {
+      if (data.hasLost) {
+        // setOppHasLost(true);
+        // alert("enemy lost");
+        updateOppHasLost(true);
+        // console.log("receive_data, oppHasLost is: " + oppHasLost);
+      }
+
+      // Since the variable inside doesn't update, maybe just take from here
+      console.log("inside receive_data, data.hasLost is: " + data.hasLost + " and hasLost is: " + hasLost)
+      // if (data.hasLost && hasLost) {
+      //   updateShowWinPopUp(true);
+      // }
+
+      // Biggest issue is that my OWN hasLost is not updated yet omg. MY OWN
+      // Receive_data in real time, but for some reason, its own data is not updated
+      // Error is from receive_data hasLost not being true when send_data hasLost is true
+
+
+      // if (hasLost && oppHasLost) {
+      if (data.hasLost && hasLost) {
+        // Draw
+        setResultDraw(true);
+        updateShowWinPopUp(true);
+      } else if (data.wordList[data.row - 1] === word) {
+        // Enemy won, send enemy name and display popup.
         setNameGameOver(data.name);
-        setShowWinPopUp(true);
+        updateShowWinPopUp(true);
       }
 
       setRowB(data.row);
@@ -123,6 +173,9 @@ function GameContent({ socket, room, word, username }) {
           updateSavedColor={updateSavedColor}
           room={room}
           socket={socket}
+          singleplayer={false}
+          hasLost={hasLost}
+          oppHasLost={oppHasLost}
         />
       </div>
       {showWinPopUp && (
@@ -131,7 +184,7 @@ function GameContent({ socket, room, word, username }) {
           curUserWin={curUserWin}
 
           word={word}
-          draw={false}          // change to state variable later
+          draw={resultDraw}
           opponentName={nameGameOver}
         />
       )}

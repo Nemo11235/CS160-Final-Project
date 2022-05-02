@@ -13,7 +13,7 @@ function MultiplayerPopup(props) {
 
     let Result = "";
     if (props.draw) {
-        Result = <h2>Draw!</h2>;
+        Result = <h2>There is a draw!</h2>;
     } else if (props.curUserWin) {
         Result = <h2>{props.curUserName} has won!</h2>;
     } else {

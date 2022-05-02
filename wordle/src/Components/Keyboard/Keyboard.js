@@ -19,6 +19,9 @@ function Keyboard({
   updateHasLost,
   room,
   socket,
+  singleplayer,
+  hasLost,
+  oppHasLost,
 }) {
   // onclick function for letter keys
   const keyClick = (letter) => {
@@ -43,14 +46,26 @@ function Keyboard({
   // onclick function of enter key
   const enterClick = () => {
     // if this is not the last attempt and input is valid
-    if (input.length == 5) {
+    if (input.length == 5 && row <= 5) {
       let feedback = gameUtils.inputCheck(word, input);
       if (gameUtils.isCorrect(feedback)) {
         updateShowWinPopUp(true);
-      } else if (row == 5) {
+      } else if (singleplayer && row == 5) {
         // Game over, out of guesses.
-        updateShowWinPopUp(true);
         updateHasLost(true);
+        updateShowWinPopUp(true);
+      } else if (hasLost && oppHasLost) {
+
+
+
+        // Current issue:
+        // When both have lost, BUT user keeps pressing button when hasn't receive_data yet,
+        // Then shows a blank "has won!" message
+        updateShowWinPopUp(true);
+
+        // send_data is updated and correct
+        // receive_data is lagging behind
+
       }
       let tempcolor = gameUtils.colorArray(feedback);
       const tempArray = savedColor;
@@ -71,7 +86,7 @@ function Keyboard({
     }
   };
 
-  // only accept valide keys
+  // only accept valid keys
   function keyValidator(userInput) {
     return (
       /^[a-z]+$/.test(userInput) ||
@@ -291,6 +306,9 @@ Keyboard.propTypes = {
   updateHasLost: PropTypes.func,
   socket: PropTypes.func,
   room: PropTypes.string,
+  singleplayer: PropTypes.bool,
+  hasLost: PropTypes.bool,
+  oppHasLost: PropTypes.bool,
 };
 
 export default Keyboard;

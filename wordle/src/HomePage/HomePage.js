@@ -94,6 +94,7 @@ function HomePage() {
           updateHasLost={updateHasLost}
           savedColor={savedColor}
           updateSavedColor={updateSavedColor}
+          singleplayer={true}
         />
       </div>
       {showWinPopUp && (
