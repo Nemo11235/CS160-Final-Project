@@ -25,7 +25,7 @@ function Timer({socket, room, updateShowGame, updateShowTimer}) {
         let interval = null;
           if(timerOn){
             interval = setInterval(() => {
-              setTime(prevTime => prevTime - 50);
+              setTime(prevTime => prevTime - 10);
               if(time < 1000){
                   setTimeOn(false);
                   updateShowTimer(false);
