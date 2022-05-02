@@ -38,7 +38,7 @@ const HamburgerMenu = (props) => {
       <ul>
         <li>
           <div className="about-us-nav" onClick={goTutorial}>
-          <a href={goTutorial}>Tutorial</a>
+            <a href={goTutorial}>Tutorial</a>
           </div>
         </li>
         <div className="about-us-nav" onClick={goMultiplayer}>
@@ -52,7 +52,7 @@ const HamburgerMenu = (props) => {
           <a href={goAbout}>About Us</a>
         </div>
         <li>
-          <a href="/">Custom Words</a>
+          <a href="/user">Custom Words</a>
         </li>
       </ul>
     </nav>

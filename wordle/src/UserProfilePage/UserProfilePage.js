@@ -50,18 +50,20 @@ const UserProfilePage = ({ username, won, played, winPercent }) => {
 
         <div className="card-right">
           <h1 className="title3">Statistics:</h1>
-          <h1 className="played">
-            {played}
-            <br></br>Played
-          </h1>
-          <h1 className="won">
-            {won}
-            <br></br>Won
-          </h1>
-          <h1 className="win-perc">
-            {winPercent}
-            <br></br>Win%
-          </h1>
+          <div className="statistic-container">
+            <div className="played">
+              {played}
+              <h5>Played</h5>
+            </div>
+            <div className="won">
+              {won}
+              <h5>Won</h5>
+            </div>
+            <div className="win-perc">
+              {winPercent}
+              <h5>Win%</h5>
+            </div>
+          </div>
 
           <div className="card-bot-right">
             <h1 className="title3">Add Custom Words</h1>
