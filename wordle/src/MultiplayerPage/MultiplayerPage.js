@@ -6,6 +6,8 @@ import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 import multiplayerUtils from "../Utils/multiplayerUtils";
 import WaitingScreen from "./WaitingScreen";
+import CopyToClipboard from "react-copy-to-clipboard";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const socket = io.connect("http://localhost:3001");
 
