@@ -100,24 +100,12 @@ function GameContent({ socket, room, word, username }) {
       console.log("received data from use Effect", data);
 
       if (data.hasLost) {
-        // setOppHasLost(true);
-        // alert("enemy lost");
         updateOppHasLost(true);
-        // console.log("receive_data, oppHasLost is: " + oppHasLost);
       }
 
       // Since the variable inside doesn't update, maybe just take from here
       console.log("inside receive_data, data.hasLost is: " + data.hasLost + " and hasLost is: " + hasLost)
-      // if (data.hasLost && hasLost) {
-      //   updateShowWinPopUp(true);
-      // }
 
-      // Biggest issue is that my OWN hasLost is not updated yet omg. MY OWN
-      // Receive_data in real time, but for some reason, its own data is not updated
-      // Error is from receive_data hasLost not being true when send_data hasLost is true
-
-
-      // if (hasLost && oppHasLost) {
       if (data.hasLost && hasLost) {
         // Draw
         setResultDraw(true);
@@ -131,7 +119,7 @@ function GameContent({ socket, room, word, username }) {
       setRowB(data.row);
       setSavedColorB(data.savedColor);
     });
-  }, [socket]);
+  }, [hasLost, oppHasLost]);
 
   useEffect(() => {
     sendGameData();
