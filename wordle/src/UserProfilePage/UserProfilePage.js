@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../Components/Header/Header";
 import "./UserProfilePage.scss";
+import "../Components/Switch/Switch.scss"
 import AccountImg from "../Images/account-img.png";
 import PropTypes from "prop-types";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
