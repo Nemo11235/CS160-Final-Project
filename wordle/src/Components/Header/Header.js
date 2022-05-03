@@ -13,6 +13,11 @@ function Header(props) {
   function goHome() {
     navigate(paths.home);
   }
+
+  function goUser() {
+    navigate(paths.user);
+  }
+
   return (
     <div className="header-style">
       <button className="hamburger-menu" onClick={props.click}>
@@ -22,7 +27,9 @@ function Header(props) {
         <img className="logo-style" src={Logo} />
       </button>
       <div className="account">
-        <img src={AccIcon} className="acc-img" />
+        <button className="profile-icon" onClick={goUser}>
+          <img src={AccIcon} className="acc-img" />
+        </button>
       </div>
     </div>
   );
@@ -30,5 +37,6 @@ function Header(props) {
 
 Header.propTypes = {
   click: PropTypes.func.isRequired,
+  clickProfile: PropTypes.func.isRequired,
 };
 export default Header;

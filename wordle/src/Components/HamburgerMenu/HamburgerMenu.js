@@ -63,7 +63,7 @@ const HamburgerMenu = (props) => {
           </div>
         </li>
         <li>
-          <a href="/">Custom Words</a>
+          <a href="/user">Custom Words</a>
         </li>
       </ul>
     </nav>

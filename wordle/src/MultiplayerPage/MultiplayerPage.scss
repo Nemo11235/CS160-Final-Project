@@ -1,41 +1,81 @@
 .multiplayer-style {
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-  
-  .join-game-container {
-    margin-top: 10%;
-    display: flex;
-    place-items: center;
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .join-game-container input {
-    width: 210px;
-    height: 40px;
-    margin: 7px;
-    border: 2px solid #43a047;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  .join-game-container button {
-    width: 225px;
-    height: 50px;
-    margin: 7px;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 16px;
-    background: #43a047;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .join-game-container button:hover {
-    background: #2e7d32;
-  }
-  
+  font-family: "Open Sans", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
+.join-game-container {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.join-game-container input {
+  width: 210px;
+  height: 40px;
+  margin: 7px;
+  border: 2px solid #43a047;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.multi-button {
+  width: 225px;
+  height: 50px;
+  margin: 7px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background: #43a047;
+  color: #fff;
+  cursor: pointer;
+}
+
+.multi-button:hover {
+  background: #2e7d32;
+}
+
+.room-id-container {
+  margin-top: 6px;
+  margin-left: 54px;
+  display: flex;
+}
+
+.room-id-box {
+  width: 210px;
+  height: 40px;
+  padding: 5px;
+  border: 2px solid #43a047;
+  border-radius: 5px;
+}
+
+.room-id {
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: left;
+  margin-left: 10px;
+}
+
+.copy-button {
+  @extend .multi-button;
+  width: 40px;
+  height: 40px;
+}
+
+.rules-card {
+  margin-top: 1%;
+  border: 2px solid #43a047;
+  border-radius: 5px;
+  padding: 0 25px;
+  left: 10px;
+  text-align: left;
+  color: #43a047;
+}
+
+.copied {
+  color: red;
+}

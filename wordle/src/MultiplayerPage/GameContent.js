@@ -4,6 +4,8 @@ import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
 import MultiplayerPopup from "../Components/MultiplayerPopup/MultiplayerPopup";
 import "./GameContent.scss";
+import CopyToClipboard from "react-copy-to-clipboard";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 function GameContent({ socket, room, word, username }) {
   // states for the user
@@ -35,6 +37,7 @@ function GameContent({ socket, room, word, username }) {
     [""],
   ]);
   const [rowB, setRowB] = useState(0);
+  const [opponentName, setOpponentName] = useState("");
 
   function updateInput(replace) {
     setInput(replace);
@@ -60,27 +63,11 @@ function GameContent({ socket, room, word, username }) {
     setSavedColor(newArray);
   }
 
-  // These may not be needed if I can just call the 'set' stuff
-  function updateCurUserWin(value) {
-    setCurUserWin(value);
-  }
-
-  function updateHasLost(value) {
-    setHasLost(value);
-  }
-
-  function updateOppHasLost(value) {
-    setOppHasLost(value);
-  }
-
   const sendGameData = () => {
     if (row < 6 && wordList[row - 1] === word) {
-      // setCurUserWin(true);
-      updateCurUserWin(true);
+      setCurUserWin(true);
     } else if (row === 6 && wordList[row - 1] !== word) {
-      // setHasLost(true);
-      updateHasLost(true);
-      console.log("Value from sendGameData for hasLost is: " + hasLost);
+      setHasLost(true);
     }
 
     const gameData = {
@@ -100,7 +87,7 @@ function GameContent({ socket, room, word, username }) {
       console.log("received data from use Effect", data);
 
       if (data.hasLost) {
-        updateOppHasLost(true);
+        setOppHasLost(true);
       }
 
       // Since the variable inside doesn't update, maybe just take from here
@@ -118,8 +105,11 @@ function GameContent({ socket, room, word, username }) {
 
       setRowB(data.row);
       setSavedColorB(data.savedColor);
+      setOpponentName(data.name);
     });
   }, [hasLost, oppHasLost]);
+
+  useEffect(() => { }, [row, savedColor, name]);
 
   useEffect(() => {
     sendGameData();
@@ -135,6 +125,20 @@ function GameContent({ socket, room, word, username }) {
             row={row}
             savedColor={savedColor}
           />
+          <h3 className="player-id">{username} (You) </h3>
+        </div>
+        <div className="room-id-card">
+          <h2 className="room-title">Room id</h2>
+
+          <p className="roomId">{room}</p>
+          <CopyToClipboard text={room}>
+            <button
+              className="copy-button-room"
+              onClick={() => alert("Room ID copied!")}
+            >
+              <ContentCopyIcon />
+            </button>
+          </CopyToClipboard>
         </div>
         <div className="grid-two">
           <NestedGrid
@@ -143,6 +147,7 @@ function GameContent({ socket, room, word, username }) {
             row={rowB}
             savedColor={savedColorB}
           />
+          <h3 className="player-id">{opponentName} (Opponent) </h3>
         </div>
       </div>
       <div className="keyboard">

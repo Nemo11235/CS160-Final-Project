@@ -5,6 +5,12 @@ import AboutUsPage from "./AboutUsPage/AboutUsPage";
 import HomePage from "./HomePage/HomePage";
 import MultiplayerPage from "./MultiplayerPage/MultiplayerPage";
 import TutorialPage from "./TutorialPage/TutorialPage";
+import UserProfilePage from "./UserProfilePage/UserProfilePage";
+
+let username = "Ken Tsang";
+let won = "10";
+let played = "15";
+let winPercent = "67";
 
 function App() {
   return (
@@ -15,9 +21,19 @@ function App() {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/race" element={<MultiplayerPage />} />
         <Route path="/tutorial" element={<TutorialPage />} />
+        <Route
+          path="/user"
+          element={
+            <UserProfilePage
+              username={username}
+              won={won}
+              played={played}
+              winPercent={winPercent}
+            />
+          }
+        />
       </Routes>
     </Router>
   );
 }
-
 export default App;
