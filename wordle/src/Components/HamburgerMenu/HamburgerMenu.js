@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Logo from "../../Images/logo.png";
 import ExitBtn from "../../Images/Exit_Button.png";
-import Switch from "../Switch/Switch";
 import { useNavigate } from "react-router-dom";
 import paths from "../../Utils/paths";
 import "./HamburgerMenu.scss";
@@ -30,13 +29,17 @@ const HamburgerMenu = (props) => {
 
   // If on multiplayer page, display singleplayer. Vice-versa.
   const MultOrSingle = props.mult ? (
-    <div className="about-us-nav" onClick={goSingleplayer}>
-      <a href={goSingleplayer}>Singleplayer</a>
-    </div>
+    <li>
+      <div className="about-us-nav" onClick={goSingleplayer}>
+        <a href={goSingleplayer}>Singleplayer</a>
+      </div>
+    </li>
   ) : (
-    <div className="about-us-nav" onClick={goMultiplayer}>
-      <a href={goMultiplayer}>Multiplayer</a>
-    </div>
+    <li>
+      <div className="about-us-nav" onClick={goMultiplayer}>
+        <a href={goMultiplayer}>Multiplayer</a>
+      </div>
+    </li>
   );
 
   return (
@@ -55,12 +58,10 @@ const HamburgerMenu = (props) => {
         </li>
         {MultOrSingle}
         <li>
-          <p className="dark-theme">Dark Theme</p>
-          <Switch />
+          <div className="about-us-nav" onClick={goAbout}>
+            <a href={goAbout}>About Us</a>
+          </div>
         </li>
-        <div className="about-us-nav" onClick={goAbout}>
-          <a href={goAbout}>About Us</a>
-        </div>
         <li>
           <a href="/">Custom Words</a>
         </li>
