@@ -38,7 +38,7 @@ function MultiplayerPage() {
     }
   };
 
-  React.useEffect(() => {}, [room]);
+  React.useEffect(() => { }, [room]);
 
   useEffect(() => {
     socket.on("join_result", (data) => {
