@@ -73,13 +73,17 @@
 }
 
 .rules-card {
-  margin-top: 1%;
+  margin: 1% 0 1% 0;
   border: 2px solid #43a047;
   border-radius: 5px;
   padding: 0 25px;
   left: 10px;
   text-align: left;
   color: #43a047;
+}
+
+.rules-card h4 {
+  margin: 20px 0px 20px 0px;
 }
 
 .copied {
