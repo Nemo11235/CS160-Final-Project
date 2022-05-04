@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import GameContent from "./GameContent";
 import Timer from "./Timer";
 import "./WaitingScreen.scss";
@@ -16,18 +16,16 @@ function WaitingScreen({socket, username, room}) {
         setShowTimer(value);
     }
  
-    useEffect(() => {
-        socket.on("start_countdown", (val) => {
-            setShowTimer(val);
-        });
+    socket.on("start_countdown", (val) => {
+        setShowTimer(val);
+    });
 
-        socket.on("opponent", (joined) => {
-            if(joined){
-                setShowTimer(true);
-                socket.emit("show_timer", room);
-            }
-        });
-    }, [socket]);
+    socket.on("opponent", (joined) => {
+        if(joined){
+            setShowTimer(true);
+            socket.emit("show_timer", room);
+        }
+    });
 
     return (
         <div className="waiting-screen-container">
