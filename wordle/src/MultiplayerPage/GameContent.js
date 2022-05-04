@@ -69,13 +69,13 @@ function GameContent({ socket, room, word, username }) {
     socket.emit("send_data", gameData);
   };
 
-  useEffect(() => {
-    socket.on("receive_data", (data) => {
-      setRowB(data.row);
-      setSavedColorB(data.savedColor);
-      setOpponentName(data.username);
-    });
-  }, [socket]);
+  socket.on("receive_data", (data) => {
+    setRowB(data.row);
+    setSavedColorB(data.savedColor);
+    setOpponentName(data.username);
+  });
+
+  useEffect(() => {}, [row, savedColor, username]);
 
   useEffect(() => {
     sendGameData();
