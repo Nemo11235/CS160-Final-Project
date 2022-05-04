@@ -21,28 +21,28 @@ function Timer({socket, room, updateShowGame, updateShowTimer}) {
             }
             setTimeOn(timer.on);
         });
- 
+
         let interval = null;
-          if(timerOn){
+        let tempTime = time;
+        if(timerOn){
             interval = setInterval(() => {
-              setTime(prevTime => prevTime - 50);
-              if(time < 1000){
-                  setTimeOn(false);
-                  updateShowTimer(false);
-                  updateShowGame(true);
-                  clearInterval(interval);
-              } else {
-                  socket.emit("start", timeData);
-              }
+                tempTime -= 20;
+                if(tempTime < 1000){
+                    setTimeOn(false);
+                    updateShowTimer(false);
+                    updateShowGame(true);
+                } else {
+                    setTime(tempTime);
+                    socket.emit("start", timeData);
+                }
             }, 10)
-          } else {
-            clearInterval(interval);
-          }
+        }
              
-        return () => clearInterval(interval);
-   
-    }, [timerOn, time, socket]);
- 
+        return function cleanup() {
+            clearInterval(interval);
+        }
+    }, []);
+
     return (
         <div className="Timer-container">
             <div className="time">
