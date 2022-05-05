@@ -62,9 +62,6 @@ const HamburgerMenu = (props) => {
             <a href={goAbout}>About Us</a>
           </div>
         </li>
-        <li>
-          <a href="/user">Custom Words</a>
-        </li>
       </ul>
     </nav>
   );
