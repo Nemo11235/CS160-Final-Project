@@ -5,12 +5,13 @@ import paths from "../../Utils/paths";
 import "./MultiplayerPopup.scss";
 
 function MultiplayerPopup(props) {
-    // Navigation with react-router
+    // Navigation with react-router.
     let navigate = useNavigate();
     function goSingleplayer() {
         navigate(paths.home);
     }
 
+    // Message for the game result.
     let Result = "";
     if (props.draw) {
         Result = <h2>There is a draw!</h2>;
@@ -48,12 +49,10 @@ function MultiplayerPopup(props) {
 
 MultiplayerPopup.propTypes = {
     updateShowWinPopUp: PropTypes.func,
-
     curUserWin: PropTypes.bool,
     curUserName: PropTypes.string,
-
-    draw: PropTypes.bool,           // Always equal to 'false' for now
-    opponentName: PropTypes.string,     // Always equal to current user for now
+    draw: PropTypes.bool,
+    opponentName: PropTypes.string,
     word: PropTypes.string,
 };
 

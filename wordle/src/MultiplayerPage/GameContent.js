@@ -84,14 +84,10 @@ function GameContent({ socket, room, word, username }) {
 
   useEffect(() => {
     socket.on("receive_data", (data) => {
-      console.log("received data from use Effect", data);
-
+      // If opponent has lost, update state.
       if (data.hasLost) {
         setOppHasLost(true);
       }
-
-      // Since the variable inside doesn't update, maybe just take from here
-      console.log("inside receive_data, data.hasLost is: " + data.hasLost + " and hasLost is: " + hasLost)
 
       if (data.hasLost && hasLost) {
         // Draw

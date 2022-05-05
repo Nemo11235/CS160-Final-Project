@@ -27,19 +27,15 @@ const HamburgerMenu = (props) => {
     navigate(paths.tutorial);
   }
 
-  // If on multiplayer page, display singleplayer. Vice-versa.
+  // Page elements for multiplayer or singleplayer
   const MultOrSingle = props.mult ? (
-    <li>
       <div className="about-us-nav" onClick={goSingleplayer}>
         <a href={goSingleplayer}>Singleplayer</a>
       </div>
-    </li>
   ) : (
-    <li>
       <div className="about-us-nav" onClick={goMultiplayer}>
         <a href={goMultiplayer}>Multiplayer</a>
       </div>
-    </li>
   );
 
   return (
@@ -56,7 +52,9 @@ const HamburgerMenu = (props) => {
             <a href={goTutorial}>Tutorial</a>
           </div>
         </li>
-        {MultOrSingle}
+        <li>
+          {MultOrSingle}
+        </li>
         <li>
           <div className="about-us-nav" onClick={goAbout}>
             <a href={goAbout}>About Us</a>

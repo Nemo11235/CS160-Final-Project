@@ -55,17 +55,7 @@ function Keyboard({
         updateHasLost(true);
         updateShowWinPopUp(true);
       } else if (hasLost && oppHasLost) {
-
-
-
-        // Current issue:
-        // When both have lost, BUT user keeps pressing button when hasn't receive_data yet,
-        // Then shows a blank "has won!" message
         updateShowWinPopUp(true);
-
-        // send_data is updated and correct
-        // receive_data is lagging behind
-
       }
       let tempcolor = gameUtils.colorArray(feedback);
       const tempArray = savedColor;
