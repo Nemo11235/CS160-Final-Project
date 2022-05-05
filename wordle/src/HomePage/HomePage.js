@@ -4,7 +4,7 @@ import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
-import WinPopUp from "./WinPopUp";
+import SingleplayerPopup from "../Components/SingleplayerPopup/SingleplayerPopup";
 import "./HomePage.scss";
 
 function HomePage() {
@@ -14,6 +14,7 @@ function HomePage() {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]);
   const [usedLetters, setUsedLetters] = useState([""]);
   const [showWinPopUp, setShowWinPopUp] = useState(false);
+  const [hasLost, setHasLost] = useState(false);
   const [savedColor, setSavedColor] = useState([
     [""],
     [""],
@@ -45,6 +46,10 @@ function HomePage() {
 
   function updateShowWinPopUp(value) {
     setShowWinPopUp(value);
+  }
+
+  function updateHasLost(value) {
+    setHasLost(value);
   }
 
   /* Hamburger Menu Implementation */
@@ -86,14 +91,17 @@ function HomePage() {
           usedLetters={usedLetters}
           updateUsedLetters={updateUsedLetters}
           updateShowWinPopUp={updateShowWinPopUp}
+          updateHasLost={updateHasLost}
           savedColor={savedColor}
           updateSavedColor={updateSavedColor}
+          singleplayer={true}
         />
       </div>
       {showWinPopUp && (
-        <WinPopUp
+        <SingleplayerPopup
+          word={word}
           updateShowWinPopUp={updateShowWinPopUp}
-          className="winpopup"
+          hasLost={hasLost}
         />
       )}
     </div>

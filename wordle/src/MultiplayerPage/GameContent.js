@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import NestedGrid from "../Components/GameGrid/GameGrid";
 import Keyboard from "../Components/Keyboard/Keyboard";
-import WinPopUp from "../HomePage/WinPopUp";
+import MultiplayerPopup from "../Components/MultiplayerPopup/MultiplayerPopup";
 import "./GameContent.scss";
 import CopyToClipboard from "react-copy-to-clipboard";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
@@ -14,6 +14,11 @@ function GameContent({ socket, room, word, username }) {
   const [wordList, setWordList] = useState(["", "", "", "", "", ""]); // the words that the user entered so far
   const [usedLetters, setUsedLetters] = useState([""]); // feedback on each letter, N Y P
   const [showWinPopUp, setShowWinPopUp] = useState(false); // whether or not show the win pop-up window
+  const [nameGameOver, setNameGameOver] = useState(false);
+  const [curUserWin, setCurUserWin] = useState(false);
+  const [hasLost, setHasLost] = useState(false);
+  const [oppHasLost, setOppHasLost] = useState(false);
+  const [resultDraw, setResultDraw] = useState(false);
   const [savedColor, setSavedColor] = useState([
     [""],
     [""],
@@ -59,23 +64,48 @@ function GameContent({ socket, room, word, username }) {
   }
 
   const sendGameData = () => {
+    if (row < 6 && wordList[row - 1] === word) {
+      setCurUserWin(true);
+    } else if (row === 6 && wordList[row - 1] !== word) {
+      setHasLost(true);
+    }
+
     const gameData = {
+      name: username,
       room: room,
       row: row,
       wordList: wordList,
       savedColor: savedColor,
-      username: username,
+      hasLost: hasLost,
     };
+
     socket.emit("send_data", gameData);
   };
 
-  socket.on("receive_data", (data) => {
-    setRowB(data.row);
-    setSavedColorB(data.savedColor);
-    setOpponentName(data.username);
-  });
+  useEffect(() => {
+    socket.on("receive_data", (data) => {
+      // If opponent has lost, update state.
+      if (data.hasLost) {
+        setOppHasLost(true);
+      }
 
-  useEffect(() => {}, [row, savedColor, username]);
+      if (data.hasLost && hasLost) {
+        // Draw
+        setResultDraw(true);
+        updateShowWinPopUp(true);
+      } else if (data.wordList[data.row - 1] === word) {
+        // Enemy won, send enemy name and display popup.
+        setNameGameOver(data.name);
+        updateShowWinPopUp(true);
+      }
+
+      setRowB(data.row);
+      setSavedColorB(data.savedColor);
+      setOpponentName(data.name);
+    });
+  }, [hasLost, oppHasLost]);
+
+  useEffect(() => { }, [row, savedColor, name]);
 
   useEffect(() => {
     sendGameData();
@@ -95,7 +125,6 @@ function GameContent({ socket, room, word, username }) {
         </div>
         <div className="room-id-card">
           <h2 className="room-title">Room id</h2>
-
           <p className="roomId">{room}</p>
           <CopyToClipboard text={room}>
             <button
@@ -132,12 +161,19 @@ function GameContent({ socket, room, word, username }) {
           updateSavedColor={updateSavedColor}
           room={room}
           socket={socket}
+          singleplayer={false}
+          hasLost={hasLost}
+          oppHasLost={oppHasLost}
         />
       </div>
       {showWinPopUp && (
-        <WinPopUp
-          updateShowWinPopUp={updateShowWinPopUp}
-          className="winpopup"
+        <MultiplayerPopup
+          curUserName={username}
+          curUserWin={curUserWin}
+
+          word={word}
+          draw={resultDraw}
+          opponentName={nameGameOver}
         />
       )}
     </div>
