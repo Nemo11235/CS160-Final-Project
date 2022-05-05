@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send_data", (data) => {
-      socket.to(data.room).emit("receive_data", data);
+    socket.to(data.room).emit("receive_data", data);
   });
 
   socket.on("start", (timer) => {
