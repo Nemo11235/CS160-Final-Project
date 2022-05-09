@@ -2,20 +2,11 @@ import React, { useState } from "react";
 import Header from "../Components/Header/Header";
 import KenImage from "../Images/ken-img.png";
 import TeamPic from "../Images/team.jpg";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
-import { useNavigate } from "react-router-dom";
-import paths from "../Utils/paths";
 import "./AboutUsPage.scss";
 
 function AboutUsPage() {
-  let navigate = useNavigate();
-
-  function goHome() {
-    navigate(paths.home);
-  }
-
   /* Hamburger Menu Implementation */
   let [hamburgerOpen, setHamburgerOpen] = useState(false);
   const hamburgerOpenHandler = () => {
@@ -35,9 +26,6 @@ function AboutUsPage() {
       <Header click={hamburgerOpenHandler} />
       {hamburgerMenu}
       {hamburgerBlur}
-      <button className="back-button" onClick={goHome}>
-        <ArrowBackIcon style={{ width: "5vw", height: "auto" }} />
-      </button>
       <div className="card">
         <h1 className="title">About us</h1>
         <h2 className="text-content">

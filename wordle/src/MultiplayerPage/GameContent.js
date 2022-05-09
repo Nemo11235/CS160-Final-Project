@@ -170,7 +170,6 @@ function GameContent({ socket, room, word, username }) {
         <MultiplayerPopup
           curUserName={username}
           curUserWin={curUserWin}
-
           word={word}
           draw={resultDraw}
           opponentName={nameGameOver}

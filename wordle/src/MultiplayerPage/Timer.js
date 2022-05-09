@@ -11,7 +11,6 @@ function Timer({socket, room, updateShowGame, updateShowTimer}) {
         time: time,
         on: timerOn
     };
-
     useEffect(() => {
         socket.on("begin_countdown", (timer) => {
             if(time > timer.time) {

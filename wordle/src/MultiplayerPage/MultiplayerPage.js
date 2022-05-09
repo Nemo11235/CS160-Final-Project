@@ -16,7 +16,6 @@ function MultiplayerPage() {
   const [room, setRoom] = useState("");
   const [showGame, setShowGame] = useState(false); // show the grid and keyboard after user entering the room
   const [showCopied, setShowCopied] = useState(false);
-
   function makeRoom() {
     let temp = multiplayerUtils.makeId(6);
     setRoom(temp);
