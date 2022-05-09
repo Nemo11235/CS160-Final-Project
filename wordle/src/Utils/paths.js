@@ -1,10 +1,10 @@
 // this file contains all the path names for each page.
 const paths = {
-  home: `/home`,
+  home: `/profile`,
   about: `/about`,
   race: `/race`,
   tutorial: `/tutorial`,
-  user: `/user`,
+  user: `/profile`,
 };
 
 export default paths;

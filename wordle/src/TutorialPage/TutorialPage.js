@@ -1,19 +1,11 @@
 import "./TutorialPage.scss";
 import Header from "../Components/Header/Header";
 import React, { useState } from "react";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate } from "react-router-dom";
-import paths from "../Utils/paths";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 
 // class Tutorial extends Component
 function TutorialPage() {
-  let navigate = useNavigate();
-
-  function goHome() {
-    navigate(paths.home);
-  }
   /* Hamburger Menu Implementation */
   let [hamburgerOpen, setHamburgerOpen] = useState(false);
   const hamburgerOpenHandler = () => {
@@ -32,12 +24,6 @@ function TutorialPage() {
       <Header click={hamburgerOpenHandler} />
       {hamburgerMenu}
       {hamburgerBlur}
-      <button className="back-button" onClick={goHome}>
-        <ArrowBackIcon
-          style={{ width: "50px", height: "auto", marginRight: "10px" }}
-        />
-      </button>
-
       <div className="wrapper">
         <div className="card1" grid-column-start="1">
           <br />

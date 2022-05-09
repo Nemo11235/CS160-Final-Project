@@ -3,11 +3,11 @@ import React, {useState} from "react";
 import GameContent from "./GameContent";
 import Timer from "./Timer";
 import "./WaitingScreen.scss";
- 
+
 function WaitingScreen({socket, username, room}) {
     const [showGame, setShowGame] = useState(false);
     const [showTimer, setShowTimer] = useState(false);
- 
+    let word = localStorage.getItem("multiKeyword");
     function updateShowGame(value){
         setShowGame(value);
     }
@@ -45,7 +45,7 @@ function WaitingScreen({socket, username, room}) {
                     socket={socket}
                     username={username}
                     room={room}
-                    word={"APPLE"}
+                    word={word}
                 />
             )}
             {showTimer && (
