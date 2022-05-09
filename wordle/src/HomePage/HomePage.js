@@ -253,7 +253,6 @@ function HomePage() {
   return (
     <div>
       <Header click={hamburgerOpenHandler} />
-      {/* <button onClick={ProfilePage}>Profile Page</button> */}
       {hamburgerMenu}
       {hamburgerBlur}
       <div className="grid">

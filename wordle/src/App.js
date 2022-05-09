@@ -21,11 +21,9 @@ function App() {
         <Route path="/race" element={<MultiplayerPage />} />
         <Route path="/tutorial" element={<TutorialPage />} />
         <Route path='/profile' element={<ProfilePage />} />
-        {/* <Route path="/page" element={<Page />} /> */}
 
       </Routes>
     </Router>
   );
 }
-
 export default App;

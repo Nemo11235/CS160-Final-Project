@@ -3,7 +3,6 @@ import Logo from "../../Images/logo.png";
 import { useNavigate } from "react-router-dom";
 import paths from "../../Utils/paths";
 import HamImg from "../../Images/Hamburger_Menu.png";
-// import AccIcon from "../../Images/Account_Icon.png";
 import "./Header.scss";
 import PropTypes from "prop-types";
 

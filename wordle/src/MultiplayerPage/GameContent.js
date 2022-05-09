@@ -6,7 +6,6 @@ import MultiplayerPopup from "../Components/MultiplayerPopup/MultiplayerPopup";
 import "./GameContent.scss";
 import CopyToClipboard from "react-copy-to-clipboard";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-// import axios from "axios";
 
 function GameContent({ socket, room, word, username }) {
   // states for the user
@@ -39,33 +38,6 @@ function GameContent({ socket, room, word, username }) {
   ]);
   const [rowB, setRowB] = useState(0);
   const [opponentName, setOpponentName] = useState("");
-
-  // let Word1 = async () => {
-  //   const email = localStorage.getItem("email");
-  //   console.log(email);
-  //   let formField = new FormData();
-  //   formField.append("email", email);
-  //   formField.append("action", "default");
-  //   await axios({
-  //     method: "POST",
-  //     url: "/api/user/getword/",
-  //     data: formField,
-  //   }).then((response) => {
-  //     if (response.data.length != 5) {
-  //       console.log(response.data);
-  //     } else {
-  //       console.log("Random word was generated:");
-  //       console.log(response.data);
-  //     }
-  //     word = response.data;
-  //     // localStorage.setItem("keyword", response.data);
-  //   });
-  // };
-  // Word1();
-  // console.log("KHOAPHAM");
-  // console.log(word);
-
-  // console.log("PHAMKHOA");
 
   function updateInput(replace) {
     setInput(replace);
@@ -133,7 +105,7 @@ function GameContent({ socket, room, word, username }) {
     });
   }, [hasLost, oppHasLost]);
 
-  useEffect(() => {}, [row, savedColor, name]);
+  useEffect(() => { }, [row, savedColor, name]);
 
   useEffect(() => {
     sendGameData();
