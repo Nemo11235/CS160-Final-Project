@@ -1,0 +1,21 @@
+@import "../../Utils/include-media.scss";
+
+.Grid-box-style {
+  width: 340px;
+  padding-left: 16px;
+  text-align: center;
+  @include media(">lgdesktop") {
+    width: 450px;
+  }
+}
+ 
+.cell_style {
+  width: 20px;
+  height: 20px;
+  margin-top: 6px;
+ 
+  @include media(">lgdesktop") {
+    width: 40px;
+    height: 40px;
+  }
+}
