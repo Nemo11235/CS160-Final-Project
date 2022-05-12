@@ -2,6 +2,7 @@ import React from "react";
 import "./Keyboard.scss";
 import PropTypes from "prop-types";
 import gameUtils from "../../Utils/gameUtils";
+import axios from "axios";
 
 function Keyboard({
   input,
@@ -16,8 +17,12 @@ function Keyboard({
   savedColor,
   updateSavedColor,
   updateShowWinPopUp,
+  updateHasLost,
   room,
   socket,
+  singleplayer,
+  hasLost,
+  oppHasLost,
 }) {
   // onclick function for letter keys
   const keyClick = (letter) => {
@@ -27,6 +32,49 @@ function Keyboard({
   // onclick function of backspace key
   const backspaceClick = () => {
     updateInput(input.substring(0, input.length - 1));
+  };
+  let updateWin = async () => {
+    let win = localStorage.getItem("win");
+    console.log("THANHVY");
+    console.log(win);
+    win = parseInt(win);
+    console.log("HUYNGUYEN");
+    win = win + 1;
+    console.log(win);
+    const email = localStorage.getItem("email");
+    let formField = new FormData();
+    formField.append("email", email);
+    formField.append("win", win);
+    formField.append("action", "updatewin");
+    await axios({
+      method: "POST",
+      url: "/api/user/updatewin/",
+      data: formField,
+    }).then((response) => {
+      console.log(response);
+    });
+  };
+  let updateLoose = async () => {
+    let loose = localStorage.getItem("loose");
+    loose = parseInt(loose);
+    console.log(loose);
+    loose = loose + 1;
+    const email = localStorage.getItem("email");
+    console.log(email);
+    console.log(loose);
+    let formField = new FormData();
+    formField.append("email", email);
+    formField.append("loose", loose);
+    formField.append("action", "updateloose");
+    await axios({
+      method: "POST",
+      url: "/api/user/updateloose/",
+      data: formField,
+    }).then((response) => {
+      console.log("FCANXUAN");
+      console.log(response.data);
+      console.log("FCANTHANH");
+    });
   };
 
   const sendGameData = () => {
@@ -42,12 +90,19 @@ function Keyboard({
   // onclick function of enter key
   const enterClick = () => {
     // if this is not the last attempt and input is valid
-    if (input.length == 5) {
+    if (input.length == 5 && row <= 5) {
       let feedback = gameUtils.inputCheck(word, input);
       if (gameUtils.isCorrect(feedback)) {
+        updateWin();
         updateShowWinPopUp(true);
-      } else if (row == 5) {
-        alert(`game over, the correct word is ${word}`);
+      } else if (singleplayer && row == 5) {
+        // Game over, out of guesses.
+        updateLoose();
+        updateHasLost(true);
+
+        updateShowWinPopUp(true);
+      } else if (hasLost && oppHasLost) {
+        updateShowWinPopUp(true);
       }
       let tempcolor = gameUtils.colorArray(feedback);
       const tempArray = savedColor;
@@ -68,7 +123,7 @@ function Keyboard({
     }
   };
 
-  // only accept valide keys
+  // only accept valid keys
   function keyValidator(userInput) {
     return (
       /^[a-z]+$/.test(userInput) ||
@@ -285,8 +340,12 @@ Keyboard.propTypes = {
   updateSavedColor: PropTypes.func,
   savedColor: PropTypes.array,
   updateShowWinPopUp: PropTypes.func,
+  updateHasLost: PropTypes.func,
   socket: PropTypes.func,
   room: PropTypes.string,
+  singleplayer: PropTypes.bool,
+  hasLost: PropTypes.bool,
+  oppHasLost: PropTypes.bool,
 };
 
 export default Keyboard;

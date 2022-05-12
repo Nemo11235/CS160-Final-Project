@@ -1,3 +1,4 @@
+@import "../Utils/include-media.scss";
 .grid-container {
   display: flex;
   margin-top: 20px;
@@ -15,9 +16,60 @@
   float: right;
 }
 
-
 .keyboard {
   position: fixed;
   bottom: 20px;
   width: 100%;
+}
+
+.room-id-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  top: 15vh;
+  transform: translate(calc(50vw - 50%));
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 5px;
+  width: 15vw;
+  height: 15vh;
+  @include media(">=lgdesktop") {
+    height: 20vh;
+  }
+}
+.room-title {
+  text-align: center;
+  margin-top: 10%;
+  margin-block-end: 1vh;
+}
+.roomId {
+  margin-block-start: 0;
+  text-align: center;
+  font-size: 3vh;
+  @include media(">=lgdesktop") {
+    font-size: 4vh;
+  }
+}
+
+.copy-button-room {
+  margin-top: 15%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background: #43a047;
+  color: #fff;
+  cursor: pointer;
+  width: 15vw;
+  height: 40px;
+}
+
+.copy-button-room:hover {
+  background: #2e7d32;
+}
+
+.player-id {
+  width: 50%;
+  text-align: left;
+  margin-left: 20px;
 }

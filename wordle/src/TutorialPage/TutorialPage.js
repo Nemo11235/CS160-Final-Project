@@ -1,19 +1,11 @@
 import "./TutorialPage.scss";
 import Header from "../Components/Header/Header";
 import React, { useState } from "react";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate } from "react-router-dom";
-import paths from "../Utils/paths";
 import HamburgerMenu from "../Components/HamburgerMenu/HamburgerMenu";
 import HamburgerBlur from "../Components/HamburgerMenu/HamburgerBlur";
 
 // class Tutorial extends Component
 function TutorialPage() {
-  let navigate = useNavigate();
-
-  function goHome() {
-    navigate(paths.home);
-  }
   /* Hamburger Menu Implementation */
   let [hamburgerOpen, setHamburgerOpen] = useState(false);
   const hamburgerOpenHandler = () => {
@@ -32,12 +24,6 @@ function TutorialPage() {
       <Header click={hamburgerOpenHandler} />
       {hamburgerMenu}
       {hamburgerBlur}
-      <button className="back-button" onClick={goHome}>
-        <ArrowBackIcon style={{ width: "97px", height: "77px" }} />
-      </button>
-      <div className="top">
-        <span className="title">How to play</span>
-      </div>
       <div className="wrapper">
         <div className="card1" grid-column-start="1">
           <br />
@@ -97,16 +83,15 @@ function TutorialPage() {
             <b>Got it! 🏆</b>
           </div>
         </div>
-        <div className="card1" grid-column-start="1">
+        <div className="card2" grid-column-start="1">
           <h2 className="textcenter">Singleplayer</h2>
           <p className="regulartext">
             Words are randomly chosen from a public API.
             <br />
-            If you would like to you a custom list, please log in to the
+            If you would like to use your a custom list, please log in to the
             website. Afterward, custom .txt files containing five-letter words
-            separated by a new line can be uploaded in the
-            {"My Account"}page. Finally, check the box on the same page to
-            enable custom words.
+            separated by a new line can be uploaded in the {"My Account"} page.
+            Finally, check the box on the same page to enable custom words.
           </p>
           <h2 className="textcenter">
             <br />
