@@ -1,14 +1,14 @@
 # CS160-Final-Project
 This is the repository for cs160 final project of group 5
-Single Player
 
-Win/Lose the game
-Resume the game from the profile page
-Start a new game from the profile page
-Option to choose to use the default word list and the custom word list
+Single Player  
+Win/Lose the game  
+Resume the game from the profile page  
+Start a new game from the profile page  
+Option to choose to use the default word list and the custom word list  
 
-About Us Page
-Show the information of the team
+About Us Page  
+Show the information of the team  
     
 Tutorial Page
 Introduction on both single-player mode and multiplayer mode.
