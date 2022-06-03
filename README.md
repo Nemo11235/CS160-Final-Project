@@ -10,7 +10,7 @@ This is the repository for cs160 final project of group 5
 - Introduction on both single-player mode and multiplayer mode.
 ![image](https://user-images.githubusercontent.com/26106407/171951118-5d9948a3-266d-42e5-9b24-da0ed8da5f06.png)
 
-## Single Player  
+## Single Player Page
 - Resume the game from the profile page  
 - Start a new game from the profile page  
 - Option to choose to use the default word list and the custom word list  
@@ -18,11 +18,7 @@ This is the repository for cs160 final project of group 5
 ![image](https://user-images.githubusercontent.com/26106407/171949769-627f64e9-8cbe-43ef-abef-4bdc36af4eb3.png)
 ![image](https://user-images.githubusercontent.com/26106407/171950826-228e299a-a546-4078-88c1-691217dbeaf6.png)
 
-## About Us Page  
-- Show the information of the team  
-![image](https://user-images.githubusercontent.com/26106407/171949809-21803d3d-adaa-40b4-8cff-df043379c3bf.png)
-
-## Multiplayer
+## Multiplayer Page
 - Limit for user id and room id length and character choice to prevent XSS attack
 - Generate room id and allows one-click copy
 - The Wait Screen before both players join
@@ -30,8 +26,7 @@ This is the repository for cs160 final project of group 5
 - Show win pop-up and draw pop-up when the game is finished
 - Progress will be passed to the opponent
 
-
-### Lobby Page
+### Multiplayer Lobby Page
 ![image](https://user-images.githubusercontent.com/26106407/171949885-44ada520-ee0d-4b4b-ae83-c8269a521f5b.png)
 ![image](https://user-images.githubusercontent.com/26106407/171950050-a5471958-bc78-42e8-8254-c81dc629e37f.png)
 - The first joined player will need to wait until the opponent is ready. When the other opponent joined the same room, a countdown will start on both players' screen. When the countdown finishes, the game will start. Whoever gets the word first will win, if both player didn't get the word, it's a draw.
@@ -62,6 +57,11 @@ This is the repository for cs160 final project of group 5
 - Allows the user to resume after they left an unfinished game;
 - Allows the user to give up the last game and start a new one;
 ![image](https://user-images.githubusercontent.com/26106407/171951868-6aff129b-2a0b-4e94-af72-9db3a6f7831b.png)
+
+## About Us Page  
+- Show the information of the team  
+![image](https://user-images.githubusercontent.com/26106407/171949809-21803d3d-adaa-40b4-8cff-df043379c3bf.png)
+
 
 ## Database
 - Contains the default word list for both single and multiplayer
