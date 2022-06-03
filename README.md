@@ -55,14 +55,21 @@ Allows the user to resume after they left an unfinished game;
 Allows the user to give up the last game and start a new one;
 
 
-My Job:
+How to run:
+First do a ```npm i``` in on ```CS160-Final-Project/wordle``` and ```CS160-Final-Project/wordle/server``` folder to download dependencies;
 
-Setup react scaffold
-Setup discord channel, zenhub, github repo, create tickets, organizing working routine of the team including work reports and team sync meetings
-Prepare for checkpoints and deliverables
-Hosting team meetings
-Helps with UI designs
-Review most tickets and resolve conflicts
-Implementation of About Us Page
-Implementation of Multiplayer Page
-Implementation of routing system and the 
+Then on the root folder ```CS160-Final-Project``` do installation of the following:
+```
+pip install django
+pip install djangorestframework
+python -m pip install django-cors-headers
+npm i firebase
+npm i react-switch
+```
+
+To run it on VS Code, we need 3 terminals to run database, socket.io server, and the website separatly:
+On the CS160-Final-Project (root) folder, run ```python manage.py runserver``` to run the data base;
+On the CS160-Final-Project/wordle/server folder, run ```npm start``` to run the socket.io server;
+On the CS160-Final-Project/wordle folder, run ```npm start``` to run the website;
+
+The website should be now running. If it prompts that some modules are missing, go to the corresponding folder and do ```npm i xxx``` xxx is the missing module.
